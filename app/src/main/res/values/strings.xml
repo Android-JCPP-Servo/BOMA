@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BOMA! BMI Calculator</string>
+    <string name="save_string">BOMA_Save_Data</string>
 </resources>
