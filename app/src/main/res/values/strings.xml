@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">BOMA! BMI Calculator</string>
     <string name="save_string">BOMA_Save_Data</string>
+    <string name="welcome">Welcome to BOMA!</string>
+    <string name="info_input">Click to Insert Info</string>
+    <string name="new_profile_prompt">If you are new, tap below to start your profile.</string>
+    <string name="experienced">Used BOMA! before? Tap below to view your BMI information.</string>
+    <string name="experienced_button">Click to View Info</string>
 </resources>
