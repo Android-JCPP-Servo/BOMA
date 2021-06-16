@@ -5,6 +5,9 @@ import java.util.List;
 
 public class BMIProfile{
     public String name;
+    public String gender;
+    float lastHeight;
+    float lastWeight;
     public List<BMIDataChunk> data;
 
     public BMIProfile() {
