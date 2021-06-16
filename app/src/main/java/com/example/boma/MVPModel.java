@@ -62,7 +62,13 @@ public class MVPModel implements PresenterToModel, Runnable{
      */
     @Override
     public void RequestProfileData() {
-
+        // Search the list for the requested profile
+        for (BMIProfile profile: bmiManager.allProfiles.profile) {
+            // if the profile name is found, send the BMIProfile data to the Presenter
+            if(profile.name.equals(this.ProfileName)){
+                presenter.ProfileDataFromModel(profile);
+            }
+        }
     }
 
     /**
@@ -75,7 +81,19 @@ public class MVPModel implements PresenterToModel, Runnable{
      */
     @Override
     public void CreateProfile() {
+        // search the list to see if the profile already exists
+        for (BMIProfile profile: bmiManager.allProfiles.profile) {
+            // if the profile name is found, send the BMIProfile data to the Presenter
+            if(profile.name.equals(this.ProfileName)){
+                // Profile already exists. Exit function
+                return;
+            }
+        }
 
+        // The profile name needs to be created and added to the bmiManager
+        BMIProfile newProfile = new BMIProfile();
+        newProfile.name = this.ProfileName;
+        bmiManager.allProfiles.profile.add(newProfile);
     }
 
     /**
@@ -88,7 +106,15 @@ public class MVPModel implements PresenterToModel, Runnable{
      */
     @Override
     public void DeleteProfile() {
-
+        // search the list to see if the profile already exists
+        for (BMIProfile profile: bmiManager.allProfiles.profile) {
+            // if the profile name is found, send the BMIProfile data to the Presenter
+            if(profile.name.equals(this.ProfileName)){
+                // Profile exists. Delete profile and exit function
+                bmiManager.allProfiles.profile.remove(profile);
+                return;
+            }
+        }
     }
 
     /**
