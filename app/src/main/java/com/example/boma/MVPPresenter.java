@@ -65,7 +65,7 @@ public class MVPPresenter implements ModelToPresenter{
 
     }
 
-    synchronized public void ProfileDataFromModel(List<String> ProfileNames){
+    synchronized public void ProfileDataFromModel(BMIProfile ProfileData){
 
     }
 }
