@@ -2,7 +2,6 @@ package com.example.boma;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -16,12 +15,12 @@ public class BMIDataManager{
     private final WeakReference<MainActivity> activity;
 
     // List of profiles. Each profile will contain a list of BMIDataChunks
-    public BMIAllProfiles allProfiles;
+    public ModelToPresenter.BMIAllProfiles allProfiles;
 
     // Constructor needs the MainActivity to send saving and loading status messages.
     public BMIDataManager(WeakReference<MainActivity> activity) {
         this.activity = activity;
-        allProfiles = new BMIAllProfiles();
+        allProfiles = new ModelToPresenter.BMIAllProfiles();
     }
 
     public void SaveData(){
@@ -61,12 +60,12 @@ public class BMIDataManager{
 
         // Serialize the data to a string/json using gson
         Gson gson = new Gson();
-        allProfiles = gson.fromJson(serializedData, BMIAllProfiles.class);
+        allProfiles = gson.fromJson(serializedData, ModelToPresenter.BMIAllProfiles.class);
         System.out.println(serializedData);
 
         // Make sure there is a valid structure for the data
         if(allProfiles == null){
-            allProfiles = new BMIAllProfiles();
+            allProfiles = new ModelToPresenter.BMIAllProfiles();
         }
         if(allProfiles.profile == null){
             allProfiles.profile = new ArrayList<BMIProfile>();
