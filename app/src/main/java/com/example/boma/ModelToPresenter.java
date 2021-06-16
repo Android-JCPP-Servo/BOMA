@@ -7,4 +7,7 @@ public interface ModelToPresenter {
     //    synchronized
     //  for the implementation.
     void ProfileNamesFromModel(List<String> ProfileNames);
+    void ProfileDataFromModel(BMIProfile ProfileData);
+    void RequestedBMIFromModel(UserBMIData UserData);
 }
+
