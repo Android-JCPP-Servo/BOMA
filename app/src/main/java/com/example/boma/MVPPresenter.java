@@ -36,29 +36,6 @@ public class MVPPresenter implements ModelToPresenter{
         // Start the new thread to request profile names
         thread.start();
 
-/*
-        This is to test some functions
-         */
-        // sleep to allow time for loading data from the PreferenceManager
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-        //tell the MVPModel to load any saved data
-        CreateProfile("Dustin");
-        CreateProfile("Sparky");
-        CreateProfile("Runtz");
-        CreateProfile("Funny");
-        CreateProfile("Monkey");
-        CreateProfile("Wrench");
-
-        this.RequestProfileNames();
-
     }
 
     /**
@@ -93,16 +70,43 @@ public class MVPPresenter implements ModelToPresenter{
         thread.start();
     }
 
-    /***
+
+    public void RequestBMI(UserBMIData UserData){
+        // Sleep to slow down multiple concurrent calls to this function
+        // This will avoid a race condition for
+        // model member variables
+        // Normal app UI usage should never encounter this problem.
+        try{
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Create a new thread for the Model object request
+        Thread thread=new Thread(model::RequestBMI);
+
+        // Set the parameters for the function
+        model.ProfileName = UserData.ProfileName;
+        model.Gender = UserData.Gender;
+        model.Height = UserData.Height;
+        model.Weight = UserData.Weight;
+
+        // Start the new thread to request BMI calculation
+        thread.start();
+    }
+
+
+    /*
     Synchronized functions will be called from other threads
-    ***/
+    */
 
     /**
      * ProfileNamesFromModel
      * The Model can send Profile names to the Presenter with this function
      * ProfileNames is a List of Strings containing each profile name
-     * @param ProfileNames
+     * @param ProfileNames // Name of the user profile
      */
+    @Override
     synchronized public void ProfileNamesFromModel(List<String> ProfileNames){
 
         /* // Testing: This will display the profile names
@@ -113,7 +117,18 @@ public class MVPPresenter implements ModelToPresenter{
 
     }
 
+    @Override
     synchronized public void ProfileDataFromModel(BMIProfile ProfileData){
 
+
     }
+
+    @Override
+    synchronized public void RequestedBMIFromModel(UserBMIData UserData){
+
+
+    }
+
+
+
 }
