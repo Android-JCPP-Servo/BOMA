@@ -6,4 +6,5 @@
     <string name="new_profile_prompt">If you are new, tap below to start your profile.</string>
     <string name="experienced">Used BOMA! before? Tap below to view your BMI information.</string>
     <string name="experienced_button">Click to View Info</string>
+    <string name="new_explanation">Welcome! Begin by setting up your profile...</string>
 </resources>
