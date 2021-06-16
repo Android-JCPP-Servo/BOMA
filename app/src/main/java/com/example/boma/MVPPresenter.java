@@ -2,6 +2,7 @@ package com.example.boma;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 /* The MVPPresenter manages communication with the MVPModel and MVPView
 *  MVPPresenter is responsible for creating and running threads to the model
@@ -34,6 +35,30 @@ public class MVPPresenter implements ModelToPresenter{
         Thread thread=new Thread(model::LoadProfileData);
         // Start the new thread to request profile names
         thread.start();
+
+/*
+        This is to test some functions
+         */
+        // sleep to allow time for loading data from the PreferenceManager
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        //tell the MVPModel to load any saved data
+        CreateProfile("Dustin");
+        CreateProfile("Sparky");
+        CreateProfile("Runtz");
+        CreateProfile("Funny");
+        CreateProfile("Monkey");
+        CreateProfile("Wrench");
+
+        this.RequestProfileNames();
+
     }
 
     /**
@@ -50,6 +75,23 @@ public class MVPPresenter implements ModelToPresenter{
     }
 
 
+    public void CreateProfile(String ProfileName){
+
+        // Sleep to slow down multiple concurrent calls to this function
+        // This will avoid a race condition for model.ProfileName = ProfileName;
+        // Normal app UI usage should never encounter this problem.
+        try{
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Create a new thread for the Model object request
+        Thread thread=new Thread(model::CreateProfile);
+        model.ProfileName = ProfileName;
+        // Start the new thread to request profile names
+        thread.start();
+    }
 
     /***
     Synchronized functions will be called from other threads
@@ -62,6 +104,12 @@ public class MVPPresenter implements ModelToPresenter{
      * @param ProfileNames
      */
     synchronized public void ProfileNamesFromModel(List<String> ProfileNames){
+
+        /* // Testing: This will display the profile names
+        for (String Name: ProfileNames) {
+            System.out.println(String.format("========%s========", Name));
+        }
+        */
 
     }
 

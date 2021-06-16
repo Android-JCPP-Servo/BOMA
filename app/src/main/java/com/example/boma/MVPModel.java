@@ -21,6 +21,8 @@ public class MVPModel implements PresenterToModel, Runnable{
     String ProfileName;
     float Height;
     float Weight;
+    String Gender;
+
 
 
     // To help with multithreading, a new object must be created with a handle to the Presenter
@@ -30,6 +32,10 @@ public class MVPModel implements PresenterToModel, Runnable{
         bmiManager = new BMIDataManager(activity);
 
         this.ProfileName ="";
+        this.Height = 0;
+        this.Weight = 0;
+        this.Gender = "";
+
     }
 
     /**
@@ -81,12 +87,15 @@ public class MVPModel implements PresenterToModel, Runnable{
      */
     @Override
     public void CreateProfile() {
+
         // search the list to see if the profile already exists
-        for (BMIProfile profile: bmiManager.allProfiles.profile) {
-            // if the profile name is found, send the BMIProfile data to the Presenter
-            if(profile.name.equals(this.ProfileName)){
-                // Profile already exists. Exit function
-                return;
+        if(!bmiManager.allProfiles.profile.isEmpty()) {
+            for (BMIProfile profile : bmiManager.allProfiles.profile) {
+                // if the profile name is found, send the BMIProfile data to the Presenter
+                if (profile.name.equals(this.ProfileName)) {
+                    // Profile already exists. Exit function
+                    return;
+                }
             }
         }
 
@@ -94,6 +103,7 @@ public class MVPModel implements PresenterToModel, Runnable{
         BMIProfile newProfile = new BMIProfile();
         newProfile.name = this.ProfileName;
         bmiManager.allProfiles.profile.add(newProfile);
+
     }
 
     /**
@@ -124,6 +134,11 @@ public class MVPModel implements PresenterToModel, Runnable{
      */
     @Override
     public void RequestBMI() {
+        /*todo: calc BMI*/
+        /*todo: save to profile; only save one entry per day*/
+        /*todo: set last used profile*/
+
+
 
     }
 
