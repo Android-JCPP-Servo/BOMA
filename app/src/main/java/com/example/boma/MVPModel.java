@@ -2,6 +2,7 @@ package com.example.boma;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MVPModel implements PresenterToModel, Runnable{
@@ -22,8 +23,6 @@ public class MVPModel implements PresenterToModel, Runnable{
     float Height;
     float Weight;
     String Gender;
-
-
 
     // To help with multithreading, a new object must be created with a handle to the Presenter
     public MVPModel(MVPPresenter presenter, WeakReference<MainActivity> activity) {
@@ -83,7 +82,7 @@ public class MVPModel implements PresenterToModel, Runnable{
      * Creates a new profile name
      */
     /*
-    todo: Create a member function for the MVPModel to recieve any error messages
+    todo: Create a member function for the MVPModel to receive any error messages
      */
     @Override
     public void CreateProfile() {
@@ -112,7 +111,7 @@ public class MVPModel implements PresenterToModel, Runnable{
      * Delete a profile from the data
      */
     /*
-    todo: Create a member function for the MVPModel to recieve any error messages
+    todo: Create a member function for the MVPModel to receive any error messages
      */
     @Override
     public void DeleteProfile() {
@@ -134,12 +133,73 @@ public class MVPModel implements PresenterToModel, Runnable{
      */
     @Override
     public void RequestBMI() {
-        /*todo: calc BMI*/
-        /*todo: save to profile; only save one entry per day*/
-        /*todo: set last used profile*/
 
+        // Create a UserBMIData object to pass to the Presenter
+        UserBMIData UserData = new UserBMIData(this.ProfileName, this.Gender, this.Height, this.Weight);
 
+        // calculate the BMI based on pounds and inches
+        UserData.BMI = UserData.Weight / UserData.Height / UserData.Height * 703;
 
+        // Get the date for the sample. Clear the milliseconds, seconds, minutes, and hours.
+        //  For storing and viewing BMI data, There should be one stored sample per day.
+        //  By adjusting the time stamp to the day, it will be easier to find multiple entries
+        // Clear the milliseconds
+        int date = (int)(new Date().getTime()) / 1000;
+        date *= 1000;
+
+        // Get the time and clear the hours, minutes, and seconds.
+        UserData.date = new Date((long)date);
+        UserData.date.setHours(0);
+        UserData.date.setMinutes(0);
+        UserData.date.setSeconds(0);
+
+        // Create the user profile // it may already be created.
+        this.CreateProfile();
+
+        // Locate the profile object
+        for (BMIProfile profile: bmiManager.allProfiles.profile){
+            if(profile.name.equals(UserData.ProfileName)){
+                // Profile exists.
+                //Check for a valid BMIDataChunk
+                if(profile.data == null){
+                    profile.data = new ArrayList<>();
+                }
+
+                //is there at least one item in the BMIDataChunk list?
+                if(!profile.data.isEmpty()){
+                    // the list has some data; Check for a duplicate daily entry at the end of the list
+                    if(profile.data.get(profile.data.size() - 1).day.getTime() == UserData.date.getTime()){
+                        // a duplicate was found; delete it
+                        profile.data.remove(profile.data.size() - 1);
+                    }
+                }
+
+                // add the data to the profile
+                BMIDataChunk dataChunk = new BMIDataChunk();
+                dataChunk.day = UserData.date;
+                dataChunk.bmi = UserData.BMI;
+                dataChunk.inches = UserData.Height;
+                dataChunk.weight = UserData.Weight;
+
+                profile.data.add(dataChunk);
+
+                // Set the last entered values for the user
+                profile.gender = UserData.Gender;
+                profile.lastHeight = UserData.Height;
+                profile.lastWeight = UserData.Weight;
+
+                // Enter the last used profile
+                this.bmiManager.allProfiles.LastLoadedProfile = UserData.ProfileName;
+
+                // Save the data to the PreferencesManager
+                this.SaveProfileData();
+
+                // Send the data to the Presenter
+                presenter.RequestedBMIFromModel(UserData);
+
+                return;
+            }
+        }
     }
 
 
