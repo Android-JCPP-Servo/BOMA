@@ -12,10 +12,16 @@ public interface PresenterToModel {
      */
 
     void RequestProfileNames();
-    void RequestProfileData(String ProfileName);
+    void RequestProfileData();
+    void CreateProfile();
+    void DeleteProfile();
+    void RequestBMI();
+    /*
     void CreateProfile(String ProfileName);
     void DeleteProfile(String ProfileName);
     void RequestBMI(float Height, float weight);
+
+     */
 }
 
 

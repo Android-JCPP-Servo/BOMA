@@ -8,19 +8,35 @@ public class MVPModel implements PresenterToModel, Runnable{
 
     // Store a handle to the Presenter for requesting and sending data
     MVPPresenter presenter;
+
     // Store a handle to the Activity // required for accessing data from default location
     WeakReference<MainActivity> activity;
 
     // BMIDataManager will be used to read and store user profile data
     public BMIDataManager bmiManager;
 
+    // These member variables will be used instead of parameters to the member functions.
+    //   This is needed because these functions will be running in a separate thread
+    //   and passing parameters into a thread is a little tricky.
+    String ProfileName;
+    float Height;
+    float Weight;
+
+
     // To help with multithreading, a new object must be created with a handle to the Presenter
     public MVPModel(MVPPresenter presenter, WeakReference<MainActivity> activity) {
         this.presenter = presenter;
         this.activity = activity;
         bmiManager = new BMIDataManager(activity);
+
+        this.ProfileName ="";
     }
 
+    /**
+     * RequestProfileNames
+     * Requests a list of all profile names
+     * The list will be sent to the MVPPresenter ProfileNamesFromModel member function
+     */
     @Override
     public void RequestProfileNames() {
 
@@ -30,7 +46,7 @@ public class MVPModel implements PresenterToModel, Runnable{
         }
 
         // send the profile names to the MVPPresenter
-        presenter.SetProfileNames(Names);
+        presenter.ProfileNamesFromModel(Names);
     }
 
     /*
@@ -38,39 +54,76 @@ public class MVPModel implements PresenterToModel, Runnable{
     This is needed because threads cannot be created for a function with arguments/parameters.
      */
 
+    /**
+     * RequestProfileData
+     * Uses the member variable String ProfileName as a parameter
+     * Retrieves all saved data associated with the profile name.
+     * Calls ProfileDataFromModel(List<BMIProfile> ProfileData) to send the profile data
+     */
     @Override
-    public void RequestProfileData(String ProfileName) {
+    public void RequestProfileData() {
 
     }
 
+    /**
+     * CreateProfile
+     * Uses the member variable String ProfileName as a parameter
+     * Creates a new profile name
+     */
+    /*
+    todo: Create a member function for the MVPModel to recieve any error messages
+     */
     @Override
-    public void CreateProfile(String ProfileName) {
+    public void CreateProfile() {
 
     }
 
+    /**
+     * CreateProfile
+     * Uses the member variable String ProfileName as a parameter
+     * Delete a profile from the data
+     */
+    /*
+    todo: Create a member function for the MVPModel to recieve any error messages
+     */
     @Override
-    public void DeleteProfile(String ProfileName) {
+    public void DeleteProfile() {
 
     }
 
+    /**
+     * RequestBMI
+     * Uses the member variables float Height, float Weight as parameters
+     * Calculates BMI and sends the data to the Presenter
+     */
     @Override
-    public void RequestBMI(float Height, float weight) {
+    public void RequestBMI() {
 
     }
 
-    @Override
+
     // This method should not be called directly.
     //  All threads are executed on specific member functions.
+    @Override
     public void run() {
 
     }
 
-    public void LoadProfileData(){
+
+    /**
+     * LoadProfileData
+     * Loads all the stored data from the PreferenceManager into the bmiManager
+     */
+    protected void LoadProfileData(){
         // Load the profile data from the default preferences.
         bmiManager.LoadData();
     }
 
-    public void SaveProfileData(){
+    /**
+     * SaveProfileData
+     * Saves all the stored data from the the bmiManager into the PreferenceManager.
+     */
+    protected void SaveProfileData(){
         // Save the profile data to the default preferences.
         bmiManager.SaveData();
     }

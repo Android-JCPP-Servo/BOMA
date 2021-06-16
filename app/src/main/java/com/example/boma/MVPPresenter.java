@@ -13,6 +13,12 @@ public class MVPPresenter implements ModelToPresenter{
     public MVPView view;
     private final WeakReference<MainActivity> activity;
 
+    /**
+     * MVPPresenter
+     * This constructor will set the data for the Presenter, Model, and View to communicate
+     * with each other.
+     * @param activity   // activity is a handle to the MainActivity
+     */
     public MVPPresenter(MainActivity activity) {
         // create a weak reference for the main activity
         this.activity = new WeakReference<>(activity);
@@ -30,6 +36,12 @@ public class MVPPresenter implements ModelToPresenter{
         thread.start();
     }
 
+    /**
+     * RequestProfileNames
+     * When called, the Presenter will request a List of profile names from the model
+     * For multithreading, the model will return the List of profile names to the
+     * ProfileNamesFromModel() member function
+     */
     public void RequestProfileNames(){
         // Create a new thread for the Model object request
         Thread thread=new Thread(model::RequestProfileNames);
@@ -37,7 +49,23 @@ public class MVPPresenter implements ModelToPresenter{
         thread.start();
     }
 
-    synchronized public void SetProfileNames(List<String> ProfileNames){
+
+
+    /***
+    Synchronized functions will be called from other threads
+    ***/
+
+    /**
+     * ProfileNamesFromModel
+     * The Model can send Profile names to the Presenter with this function
+     * ProfileNames is a List of Strings containing each profile name
+     * @param ProfileNames
+     */
+    synchronized public void ProfileNamesFromModel(List<String> ProfileNames){
+
+    }
+
+    synchronized public void ProfileDataFromModel(List<String> ProfileNames){
 
     }
 }
