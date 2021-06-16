@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
 
 public class BMIDataManager{
@@ -62,6 +63,14 @@ public class BMIDataManager{
         Gson gson = new Gson();
         allProfiles = gson.fromJson(serializedData, BMIAllProfiles.class);
         System.out.println(serializedData);
+
+        // Make sure there is a valid structure for the data
+        if(allProfiles == null){
+            allProfiles = new BMIAllProfiles();
+        }
+        if(allProfiles.profile == null){
+            allProfiles.profile = new ArrayList<BMIProfile>();
+        }
     }
     
 
