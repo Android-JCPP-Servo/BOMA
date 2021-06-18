@@ -7,4 +7,10 @@
     <string name="experienced">Used BOMA! before? Tap below to view your BMI information.</string>
     <string name="experienced_button">Click to View Info</string>
     <string name="new_explanation">Welcome! Begin by setting up your profile...</string>
+    <string-array name="gender_array">
+        <item>(Select a Gender)</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
 </resources>

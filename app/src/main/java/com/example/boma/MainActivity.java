@@ -2,16 +2,21 @@ package com.example.boma;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-import java.lang.reflect.Array;
+/**************************
+ * NOTE: Need to move Spinner
+ * to file used for saving new
+ * user profile.
+ **************************/
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     MVPPresenter presenter;
-    AutoCompleteTextView autocomplete;
-    String[] gender = { "Male", "Female", "Other"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +30,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        autocomplete = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+    }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, gender);
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getApplicationContext(), "Gender Selected", Toast.LENGTH_SHORT).show();
+    }
 
-        autocomplete.setThreshold(2);
-        autocomplete.setAdapter(adapter);
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
