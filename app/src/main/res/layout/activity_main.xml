@@ -31,6 +31,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
+        android:onClick="showProfile"
         android:text="@string/info_input"
         app:backgroundTint="#BD0101"
         app:layout_constraintEnd_toEndOf="parent"
