@@ -1,5 +1,7 @@
 package com.example.boma;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
@@ -12,7 +14,7 @@ public class MVPPresenter implements ModelToPresenter{
 
     public MVPModel model;
     public MVPView view;
-    private final WeakReference<MainActivity> activity;
+    public WeakReference<MainActivity> activity;
 
     /**
      * MVPPresenter
@@ -20,6 +22,7 @@ public class MVPPresenter implements ModelToPresenter{
      * with each other.
      * @param activity   // activity is a handle to the MainActivity
      */
+   // public MVPPresenter(MainActivity activity) {
     public MVPPresenter(MainActivity activity) {
         // create a weak reference for the main activity
         this.activity = new WeakReference<>(activity);
@@ -35,7 +38,6 @@ public class MVPPresenter implements ModelToPresenter{
         Thread thread=new Thread(model::LoadProfileData);
         // Start the new thread to request profile names
         thread.start();
-
     }
 
     /**

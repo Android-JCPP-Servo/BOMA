@@ -10,7 +10,7 @@ public class MVPView {
     // Store a handle to the Presenter for requesting and sending data
     MVPPresenter presenter;
     // Store a handle to the Activity // required for changing activities/intents
-    WeakReference<MainActivity> mainActivity;
+    WeakReference<MainActivity> activity;
 
     // Stores a List of Strings for the user profile names.
     List<String> profileNames;
@@ -18,7 +18,7 @@ public class MVPView {
     // To help with multithreading, a new object must be created with a handle to the Presenter
     public MVPView(MVPPresenter presenter, WeakReference<MainActivity> activity) {
         this.presenter = presenter;
-        this.mainActivity = activity;
+        this.activity = activity;
     }
 
     /*
@@ -31,10 +31,11 @@ public class MVPView {
 
     // This shows how to display a different activity
     public void ShowSaveNewInfoActivity(){
-        if(mainActivity.get() != null)
+        if(activity.get() != null)
         {
-            Intent intent = new Intent(mainActivity.get(), SaveNewInfoActivity.class);
-            mainActivity.get().startActivity(intent);
+            Intent intent = new Intent(activity.get(), SaveNewInfoActivity.class);
+           // SaveNewInfoActivity saveNewInfoActivity = intent.getClass();
+            activity.get().startActivity(intent);
         }
 
     }
