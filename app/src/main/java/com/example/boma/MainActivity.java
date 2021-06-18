@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Create a global MVPPresenter if it is needed
         //  Pass a handle to the MainActivity
-        if (globals.presenter == null) {
+        if (globals.getPresenter() == null) {
             this.presenter = new MVPPresenter(this);
             globals.setMainActivity(this);
         }
