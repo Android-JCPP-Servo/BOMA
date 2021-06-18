@@ -109,12 +109,12 @@ public class MVPPresenter implements ModelToPresenter{
     @Override
     synchronized public void ProfileNamesFromModel(List<String> ProfileNames){
 
+        view.SetProfileNamesFromPresenter(ProfileNames);
         /* // Testing: This will display the profile names
         for (String Name: ProfileNames) {
             System.out.println(String.format("========%s========", Name));
         }
         */
-
     }
 
     @Override
