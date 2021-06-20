@@ -1,7 +1,5 @@
 package com.example.boma;
 
-import java.lang.ref.WeakReference;
-
 /**
  * Application
  *  This class extends android.app.Application to provide something similar

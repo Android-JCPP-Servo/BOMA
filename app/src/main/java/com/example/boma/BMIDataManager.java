@@ -2,7 +2,6 @@ package com.example.boma;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -69,7 +68,7 @@ public class BMIDataManager{
             allProfiles = new BMIAllProfiles();
         }
         if(allProfiles.profile == null){
-            allProfiles.profile = new ArrayList<BMIProfile>();
+            allProfiles.profile = new ArrayList<>();
         }
     }
     

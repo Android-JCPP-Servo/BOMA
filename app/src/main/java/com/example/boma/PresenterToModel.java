@@ -1,7 +1,5 @@
 package com.example.boma;
 
-import java.util.function.Consumer;
-
 public interface PresenterToModel {
 
 

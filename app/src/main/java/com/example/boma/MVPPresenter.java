@@ -1,10 +1,7 @@
 package com.example.boma;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
 /* The MVPPresenter manages communication with the MVPModel and MVPView
 *  MVPPresenter is responsible for creating and running threads to the model
