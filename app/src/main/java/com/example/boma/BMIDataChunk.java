@@ -2,7 +2,8 @@ package com.example.boma;
 
 import java.util.Date;
 
-public class BMIDataChunk{
+public class
+BMIDataChunk{
     public float bmi;
     public float inches;
     public float weight;
