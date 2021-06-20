@@ -15,8 +15,8 @@
     </string-array>
     <string name="welcome_back">Welcome Back!</string>
     <string name="update_profile">Update Profile</string>
-    <string name="update_profile_title" tools:ignore="StringEscaping">Alright, let's update your profile...</string>
-    <string name="save_profile">Save Profile</string>
+    <string name="update_profile_title">Alright, let\'s update your profile…</string>
+    <string name="save_profile">Save Profile and Calculate BMI</string>
     <string name="bmi_results">Your BMI Index is:</string>
     <string name="view_profile_prompt">Tap below to view your profile</string>
     <string name="view_profile">View Profile</string>
