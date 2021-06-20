@@ -5,15 +5,12 @@ import android.content.Intent;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-public class MVPView {
+public class MVPView implements PresenterToView{
 
     // Store a handle to the Presenter for requesting and sending data
     MVPPresenter presenter;
     // Store a handle to the Activity // required for changing activities/intents
     WeakReference<MainActivity> activity;
-
-    // Stores a List of Strings for the user profile names.
-    List<String> profileNames;
 
     // To help with multithreading, a new object must be created with a handle to the Presenter
     public MVPView(MVPPresenter presenter, WeakReference<MainActivity> activity) {
@@ -37,12 +34,20 @@ public class MVPView {
            // SaveNewInfoActivity saveNewInfoActivity = intent.getClass();
             activity.get().startActivity(intent);
         }
-
     }
 
-    public void SetProfileNamesFromPresenter(List<String> ProfileNames){
-        this.profileNames = ProfileNames;
+    @Override
+    synchronized public void ProfileNamesFromPresenter(List<String> ProfileNames) {
         // include any code needed to notify a change for an Activity.
     }
 
+    @Override
+    synchronized public void ProfileDataFromPresenter(BMIProfile ProfileData) {
+        // include any code needed to notify a change for an Activity.
+    }
+
+    @Override
+    synchronized public void RequestedBMIFromPresenter(UserBMIData UserData) {
+        // include any code needed to notify a change for an Activity.
+    }
 }

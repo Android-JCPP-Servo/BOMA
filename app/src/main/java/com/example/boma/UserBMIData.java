@@ -13,6 +13,7 @@ public class UserBMIData {
     float Height;   // height in inches
     float Weight;   // weight in pounds
     float BMI;      // calculated BMI
+    int age;        // age of profile user
     Date date;      // sample date/time
     String Note;    // Inspirational quote or recommendation
 
@@ -31,6 +32,7 @@ public class UserBMIData {
         this.Height = height;
         this.Weight = weight;
         this.BMI = 0f;
+        this.age = 0;
         this.date = null;
         this.Note = "";
     }

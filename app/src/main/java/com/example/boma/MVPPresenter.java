@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 *  MVPPresenter is responsible for creating and running threads to the model
 *    and view as needed.
  */
-public class MVPPresenter implements ModelToPresenter{
+public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
 
     public MVPModel model;
     public MVPView view;
@@ -40,22 +40,83 @@ public class MVPPresenter implements ModelToPresenter{
         thread.start();
     }
 
+    // ModelToPresenter interface
+
+    /*
+    Synchronized functions will be called from other threads
+    */
+
+    /**
+     * ProfileNamesFromModel
+     * The Model can send Profile names to the Presenter with this function
+     * ProfileNames is a List of Strings containing each profile name
+     * @param ProfileNames // Name of the user profile
+     */
+    @Override
+    synchronized public void ProfileNamesFromModel(List<String> ProfileNames){
+
+        // send the list of profile names to the view
+        view.ProfileNamesFromPresenter(ProfileNames);
+        /* // Testing: This will display the profile names
+        for (String Name: ProfileNames) {
+            System.out.println(String.format("========%s========", Name));
+        }
+        */
+    }
+
+    @Override
+    synchronized public void ProfileDataFromModel(BMIProfile ProfileData){
+
+        // Send the profile data to the view
+        view.ProfileDataFromPresenter(ProfileData);
+
+    }
+
+    @Override
+    synchronized public void RequestedBMIFromModel(UserBMIData UserData){
+
+        // Send the BMI data to the view
+        view.RequestedBMIFromPresenter(UserData);
+    }
+
+
+    // ViewToPresenter interface
+
     /**
      * RequestProfileNames
      * When called, the Presenter will request a List of profile names from the model
      * For multithreading, the model will return the List of profile names to the
      * ProfileNamesFromModel() member function
      */
-    public void RequestProfileNames(){
+
+    @Override
+    public void RequestProfileNames() {
         // Create a new thread for the Model object request
         Thread thread=new Thread(model::RequestProfileNames);
         // Start the new thread to request profile names
         thread.start();
     }
 
+    @Override
+    public void RequestProfileData(String ProfileName) {
+        // Sleep to slow down multiple concurrent calls to this function
+        // This will avoid a race condition for model.ProfileName = ProfileName;
+        // Normal app UI usage should never encounter this problem.
+        try{
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-    public void CreateProfile(String ProfileName){
+        // Create a new thread for the Model object request
+        Thread thread=new Thread(model::RequestProfileData);
+        model.ProfileName = ProfileName;
+        // Start the new thread to request profile names
+        thread.start();
+    }
 
+    @Override
+    public void CreateProfile(String ProfileName) {
         // Sleep to slow down multiple concurrent calls to this function
         // This will avoid a race condition for model.ProfileName = ProfileName;
         // Normal app UI usage should never encounter this problem.
@@ -72,8 +133,17 @@ public class MVPPresenter implements ModelToPresenter{
         thread.start();
     }
 
+    @Override
+    public void DeleteProfile(String ProfileName) {
+        // Create a new thread for the Model object request
+        Thread thread=new Thread(model::DeleteProfile);
+        model.ProfileName = ProfileName;
+        // Start the new thread to request profile names
+        thread.start();
+    }
 
-    public void RequestBMI(UserBMIData UserData){
+    @Override
+    public void RequestBMI(UserBMIData UserData) {
         // Sleep to slow down multiple concurrent calls to this function
         // This will avoid a race condition for
         // model member variables
@@ -88,49 +158,9 @@ public class MVPPresenter implements ModelToPresenter{
         Thread thread=new Thread(model::RequestBMI);
 
         // Set the parameters for the function
-        model.ProfileName = UserData.ProfileName;
-        model.Gender = UserData.Gender;
-        model.Height = UserData.Height;
-        model.Weight = UserData.Weight;
+        model.userData = UserData;
 
         // Start the new thread to request BMI calculation
         thread.start();
     }
-
-
-    /*
-    Synchronized functions will be called from other threads
-    */
-
-    /**
-     * ProfileNamesFromModel
-     * The Model can send Profile names to the Presenter with this function
-     * ProfileNames is a List of Strings containing each profile name
-     * @param ProfileNames // Name of the user profile
-     */
-    @Override
-    synchronized public void ProfileNamesFromModel(List<String> ProfileNames){
-
-        view.SetProfileNamesFromPresenter(ProfileNames);
-        /* // Testing: This will display the profile names
-        for (String Name: ProfileNames) {
-            System.out.println(String.format("========%s========", Name));
-        }
-        */
-    }
-
-    @Override
-    synchronized public void ProfileDataFromModel(BMIProfile ProfileData){
-
-
-    }
-
-    @Override
-    synchronized public void RequestedBMIFromModel(UserBMIData UserData){
-
-
-    }
-
-
-
 }
