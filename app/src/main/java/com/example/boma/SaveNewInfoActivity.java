@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class SaveNewInfoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+    // Every activity that needs access to the MVP structure needs a reference
+    // to the global MVPPresenter
     MVPPresenter presenter;
 
     @Override

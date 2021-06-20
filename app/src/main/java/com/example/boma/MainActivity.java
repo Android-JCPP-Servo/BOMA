@@ -11,6 +11,9 @@ import android.view.View;
  **************************/
 
 public class MainActivity extends AppCompatActivity {
+
+    // Every activity that needs access to the MVP structure needs a reference
+    // to the global MVPPresenter
     MVPPresenter presenter;
 
     @Override
