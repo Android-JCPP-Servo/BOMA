@@ -1,10 +1,10 @@
-package com.example.boma;
+package com.team02.boma;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class WelcomeBackActivity extends AppCompatActivity {
+public class UpdateProfileActivity extends AppCompatActivity {
 
     // Every activity that needs access to the MVP structure needs a reference
     // to the global MVPPresenter
@@ -13,7 +13,7 @@ public class WelcomeBackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_back);
+        setContentView(R.layout.update_profile);
 
         // access global variables
         Application globals =(Application)getApplication();
@@ -21,5 +21,6 @@ public class WelcomeBackActivity extends AppCompatActivity {
         if (presenter == null){
             presenter = globals.getPresenter();
         }
+
     }
 }

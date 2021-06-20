@@ -1,6 +1,4 @@
-package com.example.boma;
-
-import android.view.View;
+package com.team02.boma;
 
 import java.util.List;
 

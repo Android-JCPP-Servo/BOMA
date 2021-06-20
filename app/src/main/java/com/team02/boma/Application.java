@@ -1,4 +1,4 @@
-package com.example.boma;
+package com.team02.boma;
 
 /**
  * Application

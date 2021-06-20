@@ -1,4 +1,4 @@
-package com.example.boma;
+package com.team02.boma;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
-package com.example.boma;
+package com.team02.boma;
 
 import android.content.Intent;
-import android.view.View;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
