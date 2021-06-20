@@ -1,6 +1,7 @@
 package com.example.boma;
 
 import android.content.Intent;
+import android.view.View;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -11,12 +12,18 @@ public class MVPView implements PresenterToView{
     MVPPresenter presenter;
     // Store a handle to the Activity // required for changing activities/intents
     WeakReference<MainActivity> activity;
+    // Store a view as a listener
+    private MVPListener listener;
 
     // To help with multithreading, a new object must be created with a handle to the Presenter
     public MVPView(MVPPresenter presenter, WeakReference<MainActivity> activity) {
         this.presenter = presenter;
         this.activity = activity;
     }
+
+    /*
+    These methods display Activities
+     */
 
     /**
      * ShowSaveNewInfoActivity
@@ -55,18 +62,74 @@ public class MVPView implements PresenterToView{
     }
 
 
+    /*
+    These methods send data to the presenter
+     */
+
+
+    public void RequestProfileNames(MVPListener listener){
+        // store the listener to notify an activity when data is ready
+        this.listener = listener;
+
+        // ask the presenter to get the profile names
+        presenter.RequestProfileNames();
+    }
+
+    public void RequestProfileData(MVPListener listener, String ProfileName){
+        // store the listener to notify an activity when data is ready
+        this.listener = listener;
+
+        //ask the presenter to get the profile data
+        presenter.RequestProfileData(ProfileName);
+    }
+
+    public void CreateProfile(String ProfileName){
+        //ask the presenter to create a profile
+        presenter.CreateProfile(ProfileName);
+    }
+
+    public void DeleteProfile(String ProfileName){
+        //ask the presenter to delete a profile
+        presenter.DeleteProfile(ProfileName);
+    }
+
+    public void RequestBMI(MVPListener listener, UserBMIData UserData){
+        // store the listener to notify an activity when data is ready
+        this.listener = listener;
+
+        //ask the presenter to get the BMI info
+        presenter.RequestBMI(UserData);
+    }
+
+    /*
+    These methods receive data from the presenter and send the data to the Activities
+    with a listener.
+     */
+
     @Override
     synchronized public void ProfileNamesFromPresenter(List<String> ProfileNames) {
-        // include any code needed to notify a change for an Activity.
+        // exit if the listener is null
+        if(this.listener == null) return;
+
+        // Send the profile names to the activity
+        this.listener.ProfileNamesListener(ProfileNames);
     }
 
     @Override
     synchronized public void ProfileDataFromPresenter(BMIProfile ProfileData) {
-        // include any code needed to notify a change for an Activity.
+        // exit if the listener is null
+        if(this.listener == null) return;
+
+        // Send the profile data to the activity
+        this.listener.ProfileDataListener(ProfileData);
     }
 
     @Override
     synchronized public void RequestedBMIFromPresenter(UserBMIData UserData) {
-        // include any code needed to notify a change for an Activity.
+        // exit if the listener is null
+        if(this.listener == null) return;
+
+        // Send the profile data to the activity
+        this.listener.UserBMIListener(UserData);
     }
 }
