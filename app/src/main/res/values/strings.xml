@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">BOMA! BMI Calculator</string>
     <string name="save_string">BOMA_Save_Data</string>
     <string name="welcome">Welcome to BOMA!</string>
@@ -13,5 +13,14 @@
         <item>Female</item>
         <item>Other</item>
     </string-array>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="update_profile_title" tools:ignore="StringEscaping">Alright, let's update your profile...</string>
     <string name="save_profile">Save Profile</string>
+    <string name="bmi_results">Your BMI Index is:</string>
+    <string name="view_profile_prompt">Tap below to view your profile</string>
+    <string name="view_profile">View Profile</string>
+    <string name="main_screen_prompt">Tap below to return to main screen</string>
+    <string name="save_bmi">Save BMI</string>
+    <string name="home">Home</string>
 </resources>
