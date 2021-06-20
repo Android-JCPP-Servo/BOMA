@@ -18,23 +18,42 @@ public class MVPView implements PresenterToView{
         this.activity = activity;
     }
 
-    /*
-    // This shows how to display a different activity
-    public void ShowMainActivity(){
-        Intent intent = new Intent(activity, MainActivity.class);
-        activity.startActivity(intent);
-    }
+    /**
+     * ShowSaveNewInfoActivity
+     * Used to display the save_new_info activity
      */
-
-    // This shows how to display a different activity
     public void ShowSaveNewInfoActivity(){
         if(activity.get() != null)
         {
             Intent intent = new Intent(activity.get(), SaveNewInfoActivity.class);
-           // SaveNewInfoActivity saveNewInfoActivity = intent.getClass();
             activity.get().startActivity(intent);
         }
     }
+
+    /**
+     * ShowUpdateProfileActivity
+     * Used to display the save_new_info activity
+     */
+    public void ShowUpdateProfileActivity(){
+        if(activity.get() != null)
+        {
+            Intent intent = new Intent(activity.get(), UpdateProfileActivity.class);
+            activity.get().startActivity(intent);
+        }
+    }
+
+    /**
+     * ShowWelcomeBackActivity
+     * Used to display the save_new_info activity
+     */
+    public void ShowWelcomeBackActivity(){
+        if(activity.get() != null)
+        {
+            Intent intent = new Intent(activity.get(), WelcomeBackActivity.class);
+            activity.get().startActivity(intent);
+        }
+    }
+
 
     @Override
     synchronized public void ProfileNamesFromPresenter(List<String> ProfileNames) {
