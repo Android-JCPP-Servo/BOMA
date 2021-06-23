@@ -15,11 +15,9 @@ public class UpdateProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_profile);
 
-        // access global variables
-        Application globals =(Application)getApplication();
-        // set presenter to the global presenter
+        // set presenter if it is null
         if (presenter == null){
-            presenter = globals.getPresenter();
+            presenter = new MVPPresenter(this.getApplication());
         }
 
     }
