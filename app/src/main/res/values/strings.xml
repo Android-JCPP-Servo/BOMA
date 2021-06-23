@@ -23,4 +23,18 @@
     <string name="main_screen_prompt">Tap below to return to main screen</string>
     <string name="save_bmi">Save BMI</string>
     <string name="home">Home</string>
+
+    <string name="name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="height">Height</string>
+    <string name="feet">feet</string>
+    <string name="inches">inches</string>
+    <string name="weight">Weight</string>
+    <string name="age">Age</string>
+    <string name="error_name">* Name cannot be blank.</string>
+    <string name="error_gender">* Please select a gender.</string>
+    <string name="error_number">* Please enter a valid number.</string>
+    <string name="error_profile">* Profile name already in use.</string>
+
+
 </resources>
