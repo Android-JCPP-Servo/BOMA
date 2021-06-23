@@ -28,6 +28,19 @@ public class MVPView implements PresenterToView{
      */
 
     /**
+     * ShowMainActivity
+     * Used when the User wants to go to App Home Screen.
+     */
+    public void ShowMainActivity() {
+        if (application.get() != null) {
+            Intent intent = new Intent(application.get(), MainActivity.class);
+            // Just in case an error arises...
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            application.get().startActivity(intent);
+        }
+    }
+
+    /**
      * ShowSaveNewInfoActivity
      * Used to display the save_new_info activity
      */
@@ -43,6 +56,18 @@ public class MVPView implements PresenterToView{
     }
 
     /**
+     * ShowBMIResultsActivity
+     * Used to display BMI data to bmi_results activity
+     */
+    public void ShowBMIResultsActivity() {
+        if (application.get() != null) {
+            Intent intent = new Intent(application.get(), BMIResultsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            application.get().startActivity(intent);
+        }
+    }
+
+    /**
      * ShowUpdateProfileActivity
      * Used to display the save_new_info activity
      */
@@ -50,6 +75,7 @@ public class MVPView implements PresenterToView{
         if(application.get() != null)
         {
             Intent intent = new Intent(application.get(), UpdateProfileActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             application.get().startActivity(intent);
         }
     }
@@ -62,6 +88,7 @@ public class MVPView implements PresenterToView{
         if(application.get() != null)
         {
             Intent intent = new Intent(application.get(), WelcomeBackActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             application.get().startActivity(intent);
         }
     }

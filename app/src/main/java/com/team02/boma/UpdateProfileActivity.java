@@ -3,6 +3,7 @@ package com.team02.boma;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class UpdateProfileActivity extends AppCompatActivity {
 
@@ -20,5 +21,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
             presenter = new MVPPresenter(this.getApplication());
         }
 
+    }
+    public void saveUpdatedProfile(View view) {
+        presenter.view.ShowBMIResultsActivity();
     }
 }

@@ -98,11 +98,12 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             return;
         }
 
-        // Check for valid numbers
+        /**
+         * Check for valid numbers
+         */
+        // Feet and Inches
         try {
             Feet = Integer.parseInt(editTextFeet.getText().toString());
-            Weight = Float.parseFloat(editTextWeight.getText().toString());
-            Age = Integer.parseInt(editTextAge.getText().toString());
         } catch (Exception e){
             // Show an error message to indicate an invalid number was used
             textViewError.setText(getResources().getString(R.string.error_number));
@@ -114,6 +115,22 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             Inches = Integer.parseInt(editTextInches.getText().toString());
         } catch (Exception e){
             Inches = 0;
+        }
+
+        // Weight
+        try {
+            Weight = Float.parseFloat(editTextWeight.getText().toString());
+        } catch (Exception e) {
+            textViewError.setText(getResources().getString(R.string.error_weight));
+            return;
+        }
+
+        // Age
+        try {
+            Age = Integer.parseInt(editTextAge.getText().toString());
+        } catch (Exception e) {
+            textViewError.setText(getResources().getString(R.string.error_age));
+            return;
         }
 
         // Load up a UserBMIData object
@@ -128,6 +145,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         // Use ProfileCreatedListener to check for results.
 
         presenter.view.CreateProfile(this, this.UserData);
+        presenter.view.ShowBMIResultsActivity();
     }
 
     /**
@@ -143,6 +161,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
 
             //ToDo: we need to display an activity that shows the calculated BMI
             // Remember, run anything that changes the UI on the UI thread
+            runOnUiThread(() -> presenter.view.ShowBMIResultsActivity());
             runOnUiThread(() -> presenter.view.ShowWelcomeBackActivity());
         }
 

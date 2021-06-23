@@ -22,7 +22,6 @@
         android:id="@+id/current_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textColor="#0B0B0B"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="240dp"
         android:backgroundTint="#EA0505"
+        android:onClick="updateUserProfile"
         android:text="@string/update_profile"
+        app:backgroundTint="#BD0101"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

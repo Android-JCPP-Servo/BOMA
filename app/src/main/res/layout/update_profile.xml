@@ -55,6 +55,7 @@
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView17"
+        app:layout_constraintEnd_toStartOf="@+id/textView15"
         app:layout_constraintStart_toEndOf="@+id/textView17" />
 
     <Button
@@ -63,7 +64,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="156dp"
         android:backgroundTint="#ED0909"
+        android:onClick="saveUpdatedProfile"
         android:text="@string/save_profile"
+        app:backgroundTint="@color/design_default_color_error"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
