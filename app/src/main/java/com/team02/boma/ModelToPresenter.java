@@ -9,5 +9,6 @@ public interface ModelToPresenter {
     void ProfileNamesFromModel(List<String> ProfileNames);
     void ProfileDataFromModel(BMIProfile ProfileData);
     void RequestedBMIFromModel(UserBMIData UserData);
+    void ProfileCreatedFromModel(boolean Success);
 }
 
