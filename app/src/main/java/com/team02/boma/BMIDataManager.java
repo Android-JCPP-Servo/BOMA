@@ -1,7 +1,7 @@
 package com.team02.boma;
 
+import android.app.Application;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 
@@ -12,24 +12,24 @@ import java.util.ArrayList;
 public class BMIDataManager{
 
     // activity == reference to an activity to receive status messages when saving and loading data
-    private final WeakReference<MainActivity> activity;
+    private final WeakReference<Application> application;
 
     // List of profiles. Each profile will contain a list of BMIDataChunks
     public BMIAllProfiles allProfiles;
 
     // Constructor needs the MainActivity to send saving and loading status messages.
-    public BMIDataManager(WeakReference<MainActivity> activity) {
-        this.activity = activity;
+    public BMIDataManager(WeakReference<Application> app) {
+        this.application = app;
         allProfiles = new BMIAllProfiles();
     }
 
     public void SaveData(){
 
-        // Get the activity
-        MainActivity mainActivity = activity.get();
 
-        // If the main activity is null, we cannot save the data. exit function
-        if(mainActivity == null) return;
+        // get the application context.
+        Application app = this.application.get();
+        //Do we have a valid context? it's needed to load data
+        if(app == null) return;
 
         // Serialize the data to a string/json using gson
         Gson gson = new Gson();
@@ -37,9 +37,9 @@ public class BMIDataManager{
         System.out.println(serializedData);
 
         //Get a shared preferences file handle
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mainActivity);
+        SharedPreferences sharedPref = app.getSharedPreferences("com.team02.boma_preferences", Application.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("BOMA! Save", serializedData);
+        editor.putString("BOMA_Save_Data", serializedData);
 
         // write all the data to the shared preferences file
         editor.apply();
@@ -47,16 +47,14 @@ public class BMIDataManager{
 
     public void LoadData(){
 
-        //**** Show a toast ****
-        // Get the activity
-        MainActivity mainActivity = activity.get();
-
-        //Do we have a valid MainActivity? it's needed to load data
-        if(mainActivity == null) return;
+        // get the application context.
+        Application app = this.application.get();
+        //Do we have a valid context? it's needed to load data
+        if(app == null) return;
 
         //Get a shared preferences file handle
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mainActivity);
-        String serializedData = sharedPref.getString(mainActivity.getApplicationContext().getResources().getString(R.string.save_string), "");
+        SharedPreferences sharedPref = app.getSharedPreferences("com.team02.boma_preferences", Application.MODE_PRIVATE);
+        String serializedData = sharedPref.getString("BOMA_Save_Data", "");
 
         // Serialize the data to a string/json using gson
         Gson gson = new Gson();
