@@ -23,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Code to display a different page
-    public void showProfile(View view) {
+    public void createProfile(View view) {
         presenter.view.ShowSaveNewInfoActivity();
+    }
+    // Code to view previously saved User data
+    public void viewPreviousProfile(View view) {
+        presenter.view.ShowWelcomeBackActivity();
     }
 }

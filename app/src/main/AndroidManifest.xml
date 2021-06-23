@@ -12,6 +12,7 @@
         <activity android:name="com.team02.boma.WelcomeBackActivity" />
         <activity android:name="com.team02.boma.UpdateProfileActivity" />
         <activity android:name="com.team02.boma.SaveNewInfoActivity" />
+        <activity android:name="com.team02.boma.BMIResultsActivity"/>
         <activity android:name="com.team02.boma.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

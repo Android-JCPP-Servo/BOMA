@@ -3,6 +3,7 @@ package com.team02.boma;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class WelcomeBackActivity extends AppCompatActivity {
 
@@ -19,5 +20,9 @@ public class WelcomeBackActivity extends AppCompatActivity {
         if (presenter == null){
             presenter = new MVPPresenter(this.getApplication());
         }
+    }
+
+    public void updateUserProfile(View view) {
+        presenter.view.ShowUpdateProfileActivity();
     }
 }
