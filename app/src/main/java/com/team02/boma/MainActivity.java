@@ -4,12 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-/**************************
- * NOTE: Need to move Spinner
- * to file used for saving new
- * user profile.
- **************************/
-
 public class MainActivity extends AppCompatActivity {
 
     // Every activity that needs access to the MVP structure needs a reference

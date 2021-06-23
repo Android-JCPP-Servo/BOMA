@@ -36,6 +36,8 @@ public class MVPView implements PresenterToView{
         if(application.get() != null)
         {
             Intent intent = new Intent(application.get(), SaveNewInfoActivity.class);
+            // Need to set this flag; otherwise, a flag error will result
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             application.get().startActivity(intent);
         }
     }
