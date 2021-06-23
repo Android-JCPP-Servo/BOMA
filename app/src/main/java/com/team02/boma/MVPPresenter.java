@@ -1,5 +1,7 @@
 package com.team02.boma;
 
+import android.app.Application;
+
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -11,25 +13,24 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
 
     public MVPModel model;
     public MVPView view;
-    public WeakReference<MainActivity> activity;
+    public WeakReference<Application> application;
 
     /**
      * MVPPresenter
      * This constructor will set the data for the Presenter, Model, and View to communicate
      * with each other.
-     * @param activity   // activity is a handle to the MainActivity
+     * @param application   // activity is a handle to the MainActivity
      */
-   // public MVPPresenter(MainActivity activity) {
-    public MVPPresenter(MainActivity activity) {
+    public MVPPresenter(Application application) {
         // create a weak reference for the main activity
-        this.activity = new WeakReference<>(activity);
+        this.application= new WeakReference<>(application);
 
         // Create a MVPModal object and pass the Presenter handle
-        model = new MVPModel(this, this.activity);
+        model = new MVPModel(this, this.application);
 
         // create a MVPView object and pass the Presenter and MainActivity handle
         //  The MainActivity handle is needed to display other activities/layouts
-        view = new MVPView(this, this.activity);
+        view = new MVPView(this, this.application);
 
         //tell the MVPModel to load any saved data
         Thread thread=new Thread(model::LoadProfileData);
@@ -76,6 +77,11 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
         view.RequestedBMIFromPresenter(UserData);
     }
 
+    @Override
+    public void ProfileCreatedFromModel(boolean Success) {
+        view.ProfileCreatedFromPresenter(Success);
+    }
+
 
     // ViewToPresenter interface
 
@@ -113,7 +119,7 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
     }
 
     @Override
-    public void CreateProfile(String ProfileName) {
+    public void CreateProfile(UserBMIData UserData) {
         // Sleep to slow down multiple concurrent calls to this function
         // This will avoid a race condition for model.ProfileName = ProfileName;
         // Normal app UI usage should never encounter this problem.
@@ -125,7 +131,7 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
 
         // Create a new thread for the Model object request
         Thread thread=new Thread(model::CreateProfile);
-        model.ProfileName = ProfileName;
+        model.userData = UserData;
         // Start the new thread to request profile names
         thread.start();
     }

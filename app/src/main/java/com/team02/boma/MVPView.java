@@ -1,5 +1,7 @@
 package com.team02.boma;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 
 import java.lang.ref.WeakReference;
@@ -9,15 +11,16 @@ public class MVPView implements PresenterToView{
 
     // Store a handle to the Presenter for requesting and sending data
     MVPPresenter presenter;
-    // Store a handle to the Activity // required for changing activities/intents
-    WeakReference<MainActivity> activity;
+
+    // Store a handle to the Application // required for saving and loading data
+    WeakReference<Application> application;
     // Store a view as a listener
     private MVPListener listener;
 
     // To help with multithreading, a new object must be created with a handle to the Presenter
-    public MVPView(MVPPresenter presenter, WeakReference<MainActivity> activity) {
+    public MVPView(MVPPresenter presenter, WeakReference<Application> application) {
         this.presenter = presenter;
-        this.activity = activity;
+        this.application = application;
     }
 
     /*
@@ -29,10 +32,11 @@ public class MVPView implements PresenterToView{
      * Used to display the save_new_info activity
      */
     public void ShowSaveNewInfoActivity(){
-        if(activity.get() != null)
+
+        if(application.get() != null)
         {
-            Intent intent = new Intent(activity.get(), SaveNewInfoActivity.class);
-            activity.get().startActivity(intent);
+            Intent intent = new Intent(application.get(), SaveNewInfoActivity.class);
+            application.get().startActivity(intent);
         }
     }
 
@@ -41,10 +45,10 @@ public class MVPView implements PresenterToView{
      * Used to display the save_new_info activity
      */
     public void ShowUpdateProfileActivity(){
-        if(activity.get() != null)
+        if(application.get() != null)
         {
-            Intent intent = new Intent(activity.get(), UpdateProfileActivity.class);
-            activity.get().startActivity(intent);
+            Intent intent = new Intent(application.get(), UpdateProfileActivity.class);
+            application.get().startActivity(intent);
         }
     }
 
@@ -53,10 +57,10 @@ public class MVPView implements PresenterToView{
      * Used to display the save_new_info activity
      */
     public void ShowWelcomeBackActivity(){
-        if(activity.get() != null)
+        if(application.get() != null)
         {
-            Intent intent = new Intent(activity.get(), WelcomeBackActivity.class);
-            activity.get().startActivity(intent);
+            Intent intent = new Intent(application.get(), WelcomeBackActivity.class);
+            application.get().startActivity(intent);
         }
     }
 
@@ -64,7 +68,6 @@ public class MVPView implements PresenterToView{
     /*
     These methods send data to the presenter
      */
-
 
     public void RequestProfileNames(MVPListener listener){
         // store the listener to notify an activity when data is ready
@@ -82,9 +85,12 @@ public class MVPView implements PresenterToView{
         presenter.RequestProfileData(ProfileName);
     }
 
-    public void CreateProfile(String ProfileName){
+    public void CreateProfile(MVPListener listener, UserBMIData UserData){
+        // store the listener to notify an activity when data is ready
+        this.listener = listener;
+
         //ask the presenter to create a profile
-        presenter.CreateProfile(ProfileName);
+        presenter.CreateProfile(UserData);
     }
 
     public void DeleteProfile(String ProfileName){
@@ -112,6 +118,8 @@ public class MVPView implements PresenterToView{
 
         // Send the profile names to the activity
         this.listener.ProfileNamesListener(ProfileNames);
+        // set the listener to null once it has been used.
+        this.listener = null;
     }
 
     @Override
@@ -121,6 +129,8 @@ public class MVPView implements PresenterToView{
 
         // Send the profile data to the activity
         this.listener.ProfileDataListener(ProfileData);
+        // set the listener to null once it has been used.
+        this.listener = null;
     }
 
     @Override
@@ -128,7 +138,20 @@ public class MVPView implements PresenterToView{
         // exit if the listener is null
         if(this.listener == null) return;
 
-        // Send the profile data to the activity
+        // Send the BMI data to the activity
         this.listener.UserBMIListener(UserData);
+        // set the listener to null once it has been used.
+        this.listener = null;
+    }
+
+    @Override
+    public void ProfileCreatedFromPresenter(boolean Success) {
+        // exit if the listener is null
+        if(this.listener == null) return;
+
+        // Send the profile creation result to the activity
+        this.listener.ProfileCreatedListener(Success);
+        // set the listener to null once it has been used.
+        this.listener = null;
     }
 }

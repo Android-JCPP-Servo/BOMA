@@ -1,5 +1,7 @@
 package com.team02.boma;
 
+import android.app.Application;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,7 +13,7 @@ public class MVPModel implements PresenterToModel, Runnable{
     MVPPresenter presenter;
 
     // Store a handle to the Activity // required for accessing data from default location
-    WeakReference<MainActivity> activity;
+    WeakReference<Application> application;
 
     // BMIDataManager will be used to read and store user profile data
     public BMIDataManager bmiManager;
@@ -26,10 +28,10 @@ public class MVPModel implements PresenterToModel, Runnable{
     UserBMIData userData;
 
     // To help with multithreading, a new object must be created with a handle to the Presenter
-    public MVPModel(MVPPresenter presenter, WeakReference<MainActivity> activity) {
+    public MVPModel(MVPPresenter presenter, WeakReference<Application> application) {
         this.presenter = presenter;
-        this.activity = activity;
-        bmiManager = new BMIDataManager(activity);
+        this.application = application;
+        bmiManager = new BMIDataManager(application);
 
         this.ProfileName ="";
         this.userData = new UserBMIData();
@@ -86,11 +88,16 @@ public class MVPModel implements PresenterToModel, Runnable{
     @Override
     public void CreateProfile() {
 
+        String profileName = this.userData.ProfileName;
+
         // search the list to see if the profile already exists
         if(!bmiManager.allProfiles.profile.isEmpty()) {
             for (BMIProfile profile : bmiManager.allProfiles.profile) {
                 // if the profile name is found, send the BMIProfile data to the Presenter
-                if (profile.name.equals(this.ProfileName)) {
+                if (profile.name.equals(profileName)) {
+                    // notify the presenter that the profile already exists
+                    presenter.ProfileCreatedFromModel(false);
+
                     // Profile already exists. Exit function
                     return;
                 }
@@ -99,9 +106,12 @@ public class MVPModel implements PresenterToModel, Runnable{
 
         // The profile name needs to be created and added to the bmiManager
         BMIProfile newProfile = new BMIProfile();
-        newProfile.name = this.ProfileName;
+        newProfile.name = profileName;
+
         bmiManager.allProfiles.profile.add(newProfile);
 
+        // notify the presenter that the profile has been created
+        presenter.ProfileCreatedFromModel(true);
     }
 
     /**
@@ -181,6 +191,7 @@ public class MVPModel implements PresenterToModel, Runnable{
 
                 // Set the last entered values for the user
                 profile.gender = this.userData.Gender;
+                profile.age = this.userData.age;
                 profile.lastHeight = this.userData.Height;
                 profile.lastWeight = this.userData.Weight;
 
