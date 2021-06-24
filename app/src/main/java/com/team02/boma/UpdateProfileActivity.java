@@ -23,6 +23,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
     }
     public void saveUpdatedProfile(View view) {
-        presenter.view.ShowBMIResultsActivity();
+        // TODO: we need to pass a profile name to ShowBMIResultsActivity
+        presenter.view.ShowBMIResultsActivity("");
     }
 }

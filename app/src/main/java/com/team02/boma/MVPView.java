@@ -9,6 +9,9 @@ import java.util.List;
 
 public class MVPView implements PresenterToView{
 
+    // Used to pass a profile name to an intent
+    public static final String EXTRA_MESSAGE_PROFILE_NAME = "com.team02.boma.PROFILE_NAME";
+
     // Store a handle to the Presenter for requesting and sending data
     MVPPresenter presenter;
 
@@ -59,10 +62,12 @@ public class MVPView implements PresenterToView{
      * ShowBMIResultsActivity
      * Used to display BMI data to bmi_results activity
      */
-    public void ShowBMIResultsActivity() {
+    public void ShowBMIResultsActivity(String ProfileName) {
         if (application.get() != null) {
             Intent intent = new Intent(application.get(), BMIResultsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            // store the profile name to get the BMI data for the BMIResultsActivity
+            intent.putExtra(EXTRA_MESSAGE_PROFILE_NAME, ProfileName);
             application.get().startActivity(intent);
         }
     }

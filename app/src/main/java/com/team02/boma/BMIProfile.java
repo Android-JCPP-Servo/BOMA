@@ -9,6 +9,7 @@ public class BMIProfile{
     int age;
     float lastHeight;
     float lastWeight;
+    float lastBMI;
     public List<BMIDataChunk> data;
 
     public BMIProfile() {
