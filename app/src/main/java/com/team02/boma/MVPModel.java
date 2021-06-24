@@ -36,6 +36,8 @@ public class MVPModel implements PresenterToModel, Runnable{
         this.ProfileName ="";
         this.userData = new UserBMIData();
 
+        // be sure to load the saved data
+        this.LoadProfileData();
     }
 
     /**
@@ -68,13 +70,16 @@ public class MVPModel implements PresenterToModel, Runnable{
      */
     @Override
     public void RequestProfileData() {
+
         // Search the list for the requested profile
         for (BMIProfile profile: bmiManager.allProfiles.profile) {
             // if the profile name is found, send the BMIProfile data to the Presenter
             if(profile.name.equals(this.ProfileName)){
                 presenter.ProfileDataFromModel(profile);
+                return;
             }
         }
+
     }
 
     /**
@@ -192,6 +197,7 @@ public class MVPModel implements PresenterToModel, Runnable{
                 // Set the last entered values for the user
                 profile.gender = this.userData.Gender;
                 profile.age = this.userData.age;
+                profile.lastBMI = this.userData.BMI;
                 profile.lastHeight = this.userData.Height;
                 profile.lastWeight = this.userData.Weight;
 
