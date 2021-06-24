@@ -145,7 +145,6 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         // Use ProfileCreatedListener to check for results.
 
         presenter.view.CreateProfile(this, this.UserData);
-        presenter.view.ShowBMIResultsActivity();
     }
 
     /**
@@ -162,7 +161,6 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             //ToDo: we need to display an activity that shows the calculated BMI
             // Remember, run anything that changes the UI on the UI thread
             runOnUiThread(() -> presenter.view.ShowBMIResultsActivity());
-            runOnUiThread(() -> presenter.view.ShowWelcomeBackActivity());
         }
 
         // If the profile could not be created, display an error
