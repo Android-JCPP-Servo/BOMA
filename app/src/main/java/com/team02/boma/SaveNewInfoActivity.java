@@ -15,8 +15,7 @@ import java.util.List;
 
 public class SaveNewInfoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, MVPListener{
 
-    // Every activity that needs access to the MVP structure needs a reference
-    // to the global MVPPresenter
+    // Every activity needs a MVPPresenter object
     MVPPresenter presenter;
     UserBMIData UserData;
 
@@ -98,7 +97,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             return;
         }
 
-        /**
+        /*
          * Check for valid numbers
          */
         // Feet and Inches
@@ -156,11 +155,13 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void ProfileCreatedListener(boolean Success) {
         if(Success){
+
+            // A profile has been created. Process the first BMI calculations
             presenter.view.RequestBMI(this, this.UserData);
 
-            //ToDo: we need to display an activity that shows the calculated BMI
+            //Display an activity that shows the calculated BMI
             // Remember, run anything that changes the UI on the UI thread
-            runOnUiThread(() -> presenter.view.ShowBMIResultsActivity());
+            runOnUiThread(() -> presenter.view.ShowBMIResultsActivity(this.UserData.ProfileName));
         }
 
         // If the profile could not be created, display an error
