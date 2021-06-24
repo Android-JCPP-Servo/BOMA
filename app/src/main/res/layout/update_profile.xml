@@ -41,8 +41,11 @@
         android:id="@+id/editTextNumber8"
         android:layout_width="57dp"
         android:layout_height="47dp"
+        android:backgroundTint="#0E0E0E"
         android:ems="10"
+        android:foregroundTint="#070707"
         android:inputType="number"
+        android:textColor="#0B0A0A"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView16" />
 
@@ -51,9 +54,11 @@
         android:layout_width="57dp"
         android:layout_height="47dp"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
+        android:backgroundTint="#070707"
         android:ems="10"
+        android:foregroundTint="#070707"
         android:inputType="number"
+        android:textColor="#0B0A0A"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView17"
         app:layout_constraintEnd_toStartOf="@+id/textView15"
         app:layout_constraintStart_toEndOf="@+id/textView17" />
@@ -112,9 +117,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:backgroundTint="#0B0A0A"
         android:ems="10"
+        android:foregroundTint="#090909"
         android:inputType="number"
+        android:textColor="#070707"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -123,9 +130,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:backgroundTint="#0B0A0A"
         android:ems="10"
+        android:foregroundTint="#0C0C0C"
         android:inputType="numberDecimal"
+        android:textColor="#070707"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
