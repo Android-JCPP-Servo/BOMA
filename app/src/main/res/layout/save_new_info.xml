@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BAFBFF"
+    android:background="#0c0c0c"
     tools:context="com.team02.boma.SaveNewInfoActivity">
 
     <TextView
@@ -12,13 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="36dp"
         android:text="@string/weight"
-        android:textColor="#070707"
+        android:textColor="#F8F4F4"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        android:layout_marginLeft="48dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView7"
@@ -28,7 +28,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="36dp"
         android:text="@string/height"
-        android:textColor="#0C0C0C"
+        android:textColor="#F8F5F5"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@string/new_explanation"
-        android:textColor="#0B0B0B"
+        android:textColor="#F1EEEE"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,40 +50,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="60dp"
         android:text="@string/name"
-        android:textColor="#0B0A0A"
+        android:textColor="#FAF7F7"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:layout_marginLeft="48dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="36dp"
         android:text="@string/gender"
-        android:textColor="#0B0A0A"
+        android:textColor="#FFF8F8"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:layout_marginLeft="48dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:backgroundTint="#101010"
+        android:layout_marginRight="48dp"
+        android:backgroundTint="#F8F6F6"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="#0E0E0E"
         android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="#F8F0F0"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="48dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerGender"
@@ -91,7 +91,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="48dp"
-        android:backgroundTint="#101010"
+        android:backgroundTint="#F8F6F6"
         android:textColor="@android:color/holo_red_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
@@ -117,7 +117,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="36dp"
         android:text="@string/age"
-        android:textColor="#0B0A0A"
+        android:textColor="#F4F1F1"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -128,11 +128,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:backgroundTint="#0E0E0E"
+        android:backgroundTint="#F8F6F6"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="number"
-        android:textColor="#0C0C0C"
+        android:textColor="#FDF6F6"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -142,12 +142,12 @@
         android:layout_height="47dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:backgroundTint="#0B0A0A"
+        android:backgroundTint="#F8F6F6"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="number"
-        android:shadowColor="#050505"
-        android:textColor="#0E0E0E"
+        android:shadowColor="#F1EDED"
+        android:textColor="#F8F5F5"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7" />
 
@@ -155,12 +155,12 @@
         android:id="@+id/editTextInches"
         android:layout_width="57dp"
         android:layout_height="47dp"
-        android:backgroundTint="#101010"
+        android:backgroundTint="#F8F6F6"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="number"
         android:shadowColor="#070707"
-        android:textColor="#0B0B0B"
-        android:importantForAutofill="no"
+        android:textColor="#FAF6F6"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewFeet"
         app:layout_constraintEnd_toStartOf="@+id/textViewInches" />
 
@@ -169,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/feet"
-        android:textColor="#0C0C0C"
+        android:textColor="#F6F5F5"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextFeet"
         app:layout_constraintStart_toEndOf="@+id/editTextFeet" />
 
@@ -178,25 +178,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:text="@string/inches"
-        android:textColor="#070707"
+        android:textColor="#F8F2F2"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextInches"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="48dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editTextWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:backgroundTint="#101010"
+        android:layout_marginRight="48dp"
+        android:backgroundTint="#F8F6F6"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:textColor="#090909"
         android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textColor="#FBF4F4"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="48dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textViewError"

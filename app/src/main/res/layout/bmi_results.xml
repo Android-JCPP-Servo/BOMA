@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#BAFBFF"
+    android:background="#0c0c0c"
     android:layout_height="match_parent">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:text="@string/bmi_results"
-        android:textColor="#0E0E0E"
+        android:textColor="#FDFCFC"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -23,7 +23,7 @@
         android:id="@+id/textViewBMI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#050505"
+        android:textColor="#FAF7F7"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

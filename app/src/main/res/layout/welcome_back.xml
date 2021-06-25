@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#BAFBFF"
+    android:background="#0c0c0c"
     android:layout_height="match_parent">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@string/welcome_back"
-        android:textColor="#040404"
+        android:textColor="#FBF6F6"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:id="@+id/current_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#0B0B0B"
+        android:textColor="#F4F1F1"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

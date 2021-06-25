@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#BAFBFF"
+    android:background="#0c0c0c"
     android:layout_height="match_parent">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="84dp"
         android:text="Height"
-        android:textColor="#090909"
+        android:textColor="#FBF9F9"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update" />
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="feet"
-        android:textColor="#0E0E0E"
+        android:textColor="#FAF6F6"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumber9"
         app:layout_constraintStart_toEndOf="@+id/editTextNumber9" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:text="inches"
-        android:textColor="#040404"
+        android:textColor="#F1EEEE"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumber8"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -41,11 +41,11 @@
         android:id="@+id/editTextNumber8"
         android:layout_width="57dp"
         android:layout_height="47dp"
-        android:backgroundTint="#0E0E0E"
+        android:backgroundTint="#FAF6F6"
         android:ems="10"
-        android:foregroundTint="#070707"
+        android:foregroundTint="#FAF6F6"
         android:inputType="number"
-        android:textColor="#0B0A0A"
+        android:textColor="#FAF6F6"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView16" />
 
@@ -54,11 +54,11 @@
         android:layout_width="57dp"
         android:layout_height="47dp"
         android:layout_marginStart="48dp"
-        android:backgroundTint="#070707"
+        android:backgroundTint="#FAF6F6"
         android:ems="10"
-        android:foregroundTint="#070707"
+        android:foregroundTint="#FAF6F6"
         android:inputType="number"
-        android:textColor="#0B0A0A"
+        android:textColor="#F6F3F3"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView17"
         app:layout_constraintEnd_toStartOf="@+id/textView15"
         app:layout_constraintStart_toEndOf="@+id/textView17" />
@@ -68,10 +68,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="156dp"
-        android:backgroundTint="#ED0909"
+        android:backgroundTint="#FFA60220"
         android:onClick="saveUpdatedProfile"
         android:text="@string/save_profile"
-        app:backgroundTint="@color/design_default_color_error"
+        app:backgroundTint="#A60220"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -83,7 +83,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="48dp"
         android:text="Weight"
-        android:textColor="#0B0B0B"
+        android:textColor="#F8F6F6"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -95,7 +95,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="48dp"
         android:text="Age"
-        android:textColor="#0C0C0C"
+        android:textColor="#FBFBFB"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@string/update_profile_title"
-        android:textColor="#050505"
+        android:textColor="#F8F5F5"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,11 +117,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:backgroundTint="#0B0A0A"
+        android:backgroundTint="#FAF6F6"
         android:ems="10"
-        android:foregroundTint="#090909"
+        android:foregroundTint="#FAF6F6"
         android:inputType="number"
-        android:textColor="#070707"
+        android:textColor="#F4EFEF"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -130,11 +130,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:backgroundTint="#0B0A0A"
+        android:backgroundTint="#FAF6F6"
         android:ems="10"
-        android:foregroundTint="#0C0C0C"
+        android:foregroundTint="#FAF6F6"
         android:inputType="numberDecimal"
-        android:textColor="#070707"
+        android:textColor="#F8F3F3"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
