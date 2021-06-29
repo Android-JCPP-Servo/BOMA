@@ -5,21 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class WelcomeBackActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, MVPListener {
+public class WelcomeBackActivity extends AppCompatActivity implements MVPListener {
 
-    // Every activity that needs a MVPPresenter object
+    // Every activity that needs access to the MVP structure needs a reference
+    // to the global MVPPresenter
     MVPPresenter presenter;
-
-    // Spinner adapter
-    ArrayAdapter<String> spinnerAdapter;
     String profileName;
 
     @Override
@@ -32,76 +26,48 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             presenter = new MVPPresenter(this.getApplication());
         }
 
-        // Set up the spinner adapter
-        Spinner spinner = findViewById(R.id.spinnerProfileName);
+        // Get the Intent that started this Activity
+        Intent intent = getIntent();
 
-        // create an empty list for the spinner
-        List<String> list = new ArrayList<>();
+        // Get the ProfileName that was passed to this Activity
+        profileName = intent.getStringExtra(MVPView.EXTRA_MESSAGE_PROFILE_NAME);
 
-        // create an adapter for the the profile name spinner
-        spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Set the spinner adapter to the spinner
-        spinner.setAdapter(spinnerAdapter);
-
-        // Set the listener for spinner selection
-        spinner.setOnItemSelectedListener(this);
-
-        // Get a list of all the profile names
-        //  The list is returned in a new thread to ProfileNamesListener()
-        presenter.view.RequestProfileNames(this);
+        // Request the profile information from the MVP
+        //  The result is passed to the ProfileDataListener() as a callback
+        presenter.view.RequestProfileData(this, presenter.model.bmiManager.allProfiles.LastLoadedProfile);
     }
 
     @Override
     public void ProfileNamesListener(List<String> profileNames) {
 
-        for(String name: profileNames){
-            System.out.println(name);
-            this.spinnerAdapter.add(name);
-        }
-
-        // Set up the spinner adapter
-        Spinner spinner = findViewById(R.id.spinnerProfileName);
-
-        // Set the default name selection on the UI thread
-        runOnUiThread(()->{
-            this.spinnerAdapter.notifyDataSetChanged();
-            spinner.setSelection(0);
-            }
-        );
     }
 
-    // When a profile is selected from a spinner, this method receives the profile data
     @Override
     public void ProfileDataListener(BMIProfile ProfileData) {
-        // Get the resource IDs
-        TextView tvGender =  findViewById(R.id.displayGender);
-        TextView tvHeight =  findViewById(R.id.displayHeight);
-        TextView tvWeight =  findViewById(R.id.displayWeight);
-        TextView tvAge =  findViewById(R.id.displayAge);
-
-        // construct the height string
-        int feet = (int)(ProfileData.lastHeight / 12);
-        int inches = (int)(ProfileData.lastHeight % 12);
-        String height = Integer.toString(feet);
-        height += "\' ";
-        height += Integer.toString(inches);
-        height += "\"";
-        String finalHeight = height; // without the copy, the compiler displayed an error.
-
         // Since the message is in a TextView, run it on the UiThread
-
         runOnUiThread(() -> {
-            tvGender.setText(ProfileData.gender);
-            tvHeight.setText(finalHeight);
-            tvWeight.setText(Integer.toString((int)ProfileData.lastWeight) + " lbs.");
-            tvAge.setText(Integer.toString(ProfileData.age));
+            // Display User's Name
+            TextView displayName = findViewById(R.id.displayName);
+            displayName.setText(ProfileData.name);
+            // Display User's Gender
+            TextView displayGender = findViewById(R.id.displayGender);
+            displayGender.setText(ProfileData.gender);
+            // Display User's Height
+            TextView displayHeight = findViewById(R.id.displayHeight);
+            displayHeight.setText(Float.toString(ProfileData.lastHeight));
+            // Display User's Weight
+            TextView displayWeight = findViewById(R.id.displayWeight);
+            displayWeight.setText(Float.toString(ProfileData.lastWeight));
+            // Display User's Age
+            TextView displayAge = findViewById(R.id.displayAge);
+            displayAge.setText(Integer.toString(ProfileData.age));
         });
     }
 
     @Override
     public void UserBMIListener(UserBMIData UserData) {
+
+
     }
 
     @Override
@@ -110,19 +76,6 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
     }
 
     public void updateUserProfile(View view) {
-        // set the selected profile name into the intent messages
-        presenter.view.ShowUpdateProfileActivity(this.profileName);
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        // An profile name was selected. Get the profile data for display
-        this.profileName = (String)adapterView.getSelectedItem();
-        presenter.view.RequestProfileData(this, this.profileName);
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
+        presenter.view.ShowUpdateProfileActivity(profileName);
     }
 }
