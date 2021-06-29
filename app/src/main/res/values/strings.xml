@@ -37,7 +37,6 @@
     <string name="error_weight">* Please enter a valid weight.</string>
     <string name="error_age">* Please enter a valid age.</string>
     <string name="error_profile">* Profile name already in use.</string>
-    <string name="pounds">lbs.</string>
 
 
 </resources>
