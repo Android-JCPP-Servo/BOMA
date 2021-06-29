@@ -76,11 +76,13 @@ public class MVPView implements PresenterToView{
      * ShowUpdateProfileActivity
      * Used to display the save_new_info activity
      */
-    public void ShowUpdateProfileActivity(){
+    public void ShowUpdateProfileActivity(String ProfileName){
         if(application.get() != null)
         {
             Intent intent = new Intent(application.get(), UpdateProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            // store the profile name to for the UpdateProfileActivity
+            intent.putExtra(EXTRA_MESSAGE_PROFILE_NAME, ProfileName);
             application.get().startActivity(intent);
         }
     }
