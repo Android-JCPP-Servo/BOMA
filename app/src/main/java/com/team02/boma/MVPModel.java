@@ -4,6 +4,7 @@ import android.app.Application;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -49,12 +50,33 @@ public class MVPModel implements PresenterToModel, Runnable{
     public void RequestProfileNames() {
 
         List<String> Names = new ArrayList<>();
-        for (BMIProfile profile: bmiManager.allProfiles.profile) {
-            Names.add(profile.name);
+        List<String> SortedNames = new ArrayList<>();
+        String lastProfileName = "Default";
+
+        // Get the last used profile name
+        if(bmiManager.allProfiles.LastLoadedProfile != null){
+            lastProfileName = bmiManager.allProfiles.LastLoadedProfile;
         }
 
-        // send the profile names to the MVPPresenter
-        presenter.ProfileNamesFromModel(Names);
+        // Load the profile names into the list.
+        // Exclude the last used profile name
+        for (BMIProfile profile: bmiManager.allProfiles.profile) {
+            if(!profile.name.equals(lastProfileName)){
+                Names.add(profile.name);
+            }
+        }
+
+        // Sort the list of Strings
+        Collections.sort(Names);
+
+        //Set the last used profile name to the front of the sorted list
+        SortedNames.add(lastProfileName);
+        // append the newly sorted list to the SortedNames list
+        SortedNames.addAll(Names);
+
+        // Send the sorted profile names to the MVPPresenter
+        // The first name was the last used profile name
+        presenter.ProfileNamesFromModel(SortedNames);
     }
 
     /*
