@@ -37,8 +37,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
 
     }
     public void saveUpdatedProfile(View view) {
-        // TODO: we need to pass a profile name to ShowBMIResultsActivity
-        presenter.view.ShowBMIResultsActivity("");
+        presenter.view.ShowBMIResultsActivity(this.profileName);
     }
 
     @Override
