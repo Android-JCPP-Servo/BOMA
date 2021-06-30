@@ -33,7 +33,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         TextView textErrorUpdated = findViewById(R.id.textViewErrorUpdated);
         textErrorUpdated.setText("");
 
-        /*
+        //// allocate a UserBMIData object
+        this.updatedData = new UserBMIData();
+
         // Get the intent that started this activity
         Intent intent = getIntent();
 
@@ -43,7 +45,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         // request the profile information from the MVP
         //  the result is passed to the ProfileDataListener() as a callback
         presenter.view.RequestProfileData(this, profileName);
-        */
+
+
 
     }
     public void saveUpdatedProfile(View view) {
@@ -115,6 +118,30 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
 
     @Override
     public void ProfileDataListener(BMIProfile ProfileData) {
+
+        // Get the prior profile data to populate un updated data structure
+        this.updatedData.ProfileName = ProfileData.name;
+        this.updatedData.Height = ProfileData.lastHeight;
+        this.updatedData.Weight = ProfileData.lastWeight;
+        this.updatedData.Gender = ProfileData.gender;
+        this.updatedData.age = ProfileData.age;
+        this.updatedData.BMI = ProfileData.lastBMI;
+
+        // Get the resource IDs
+        TextView tvFeet =  findViewById(R.id.updatedFeet);
+        TextView tvInches =  findViewById(R.id.updatedInches);
+        TextView tvWeight =  findViewById(R.id.updatedWeight);
+        TextView tvAge =  findViewById(R.id.updatedAge);
+
+        // find the feet and inches
+        int feet = (int)(ProfileData.lastHeight / 12);
+        int inches = (int)(ProfileData.lastHeight % 12);
+
+        // set the TextView info
+        tvFeet.setText(Integer.toString(feet));
+        tvInches.setText(Integer.toString(inches));
+        tvWeight.setText(Integer.toString((int)ProfileData.lastWeight));
+        tvAge.setText(Integer.toString(ProfileData.age));
 
     }
 
