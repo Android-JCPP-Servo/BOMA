@@ -47,6 +47,8 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // Change Spinner size and color
+        // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
         ((TextView)parent.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
         ((TextView)parent.getChildAt(0)).setTextSize(18);
         //Toast.makeText(getApplicationContext(), "Gender Selected", Toast.LENGTH_SHORT).show();

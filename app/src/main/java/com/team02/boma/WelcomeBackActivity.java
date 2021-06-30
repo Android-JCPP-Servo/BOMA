@@ -154,6 +154,8 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         // A profile name was selected. Get the profile data for display
+        // Change Spinner size and color
+        // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
         ((TextView)adapterView.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
         ((TextView)adapterView.getChildAt(0)).setTextSize(18);
         this.profileName = (String)adapterView.getSelectedItem();
