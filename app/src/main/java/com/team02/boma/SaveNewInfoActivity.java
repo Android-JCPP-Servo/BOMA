@@ -2,6 +2,7 @@ package com.team02.boma;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,6 +47,8 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        ((TextView)parent.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
+        ((TextView)parent.getChildAt(0)).setTextSize(18);
         //Toast.makeText(getApplicationContext(), "Gender Selected", Toast.LENGTH_SHORT).show();
     }
 
