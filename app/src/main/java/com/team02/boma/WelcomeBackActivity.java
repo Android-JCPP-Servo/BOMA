@@ -20,6 +20,8 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
     // Spinner adapter
     ArrayAdapter<String> spinnerAdapter;
+
+    // Be sure to include all profile data
     String profileName;
 
     @Override
@@ -51,6 +53,11 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         // Get a list of all the profile names
         //  The list is returned in a new thread to ProfileNamesListener()
         presenter.view.RequestProfileNames(this);
+    }
+
+    // Delete an unwanted or old profile
+    public void buttonDeleteProfile(View view) {
+        presenter.view.DeleteProfile(profileName);
     }
 
     @Override

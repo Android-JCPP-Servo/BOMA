@@ -10,6 +10,6 @@ public interface ModelToPresenter {
     void ProfileDataFromModel(BMIProfile ProfileData);
     void RequestedBMIFromModel(UserBMIData UserData);
     void ProfileCreatedFromModel(boolean Success);
-    void UpdateProfile(UserBMIData updatedData);
+    // void UpdateProfile(UserBMIData updatedData);
 }
 

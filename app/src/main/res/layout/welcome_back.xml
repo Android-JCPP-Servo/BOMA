@@ -18,19 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
-        android:backgroundTint="#EA0505"
-        android:onClick="updateUserProfile"
-        android:text="@string/update_profile"
-        app:backgroundTint="#BD0101"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
@@ -49,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="@string/gender"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="@string/height"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="@string/weight"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="@string/age"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,12 +133,12 @@
         android:id="@+id/textView12"
         android:layout_width="199dp"
         android:layout_height="38dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/update_profile_button"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
         android:id="@+id/textView18"
@@ -162,4 +149,57 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="buttonDeleteProfile"
+        android:text="@string/delete_profile_button"
+        app:backgroundTint="#BD0101"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="217dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/delete_prompt_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="updateUserProfile"
+        android:text="@string/update_profile"
+        app:backgroundTint="#BD0101"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_prompt_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_prompt_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 </androidx.constraintlayout.widget.ConstraintLayout>

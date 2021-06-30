@@ -13,7 +13,7 @@ public interface PresenterToModel {
     void RequestProfileData();
     void CreateProfile();
 
-    void UpdateProfile();
+    // void UpdateProfile();
 
     void DeleteProfile();
     void RequestBMI();

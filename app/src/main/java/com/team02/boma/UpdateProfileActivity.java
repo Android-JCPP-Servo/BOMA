@@ -17,7 +17,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
     // Every activity that needs access to the MVP structure needs a reference
     // to the global MVPPresenter
     MVPPresenter presenter;
-    //String profileName;
+    String profileName;
     UserBMIData updatedData;
 
     @Override
@@ -103,7 +103,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         this.updatedData.Weight = Weight;
         this.updatedData.age = Age;
 
-        presenter.view.ShowBMIResultsActivity("");
+        presenter.view.UpdateProfile(this, this.updatedData);
+
+        presenter.view.ShowBMIResultsActivity(profileName);
     }
 
     @Override

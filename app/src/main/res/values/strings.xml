@@ -16,6 +16,10 @@
     <string name="welcome_back">Welcome Back!</string>
     <string name="profile_prompt">Please select the profile you wish to view.</string>
     <string name="update_profile">Update Profile</string>
+    <string name="delete_prompt_1">See an old or unwanted profile?</string>
+    <string name="delete_prompt_2">First, select the old profile.</string>
+    <string name="delete_prompt_3">Then, tap "Delete Profile".</string>
+    <string name="delete_profile_button">Delete Profile</string>
     <string name="update_profile_title">Alright, let\'s update your profile…</string>
     <string name="save_profile">Save Profile and Calculate BMI</string>
     <string name="bmi_results">Your BMI Index is:</string>

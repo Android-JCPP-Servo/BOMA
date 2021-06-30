@@ -136,6 +136,7 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
         thread.start();
     }
 
+    /*
     @Override
     public void UpdateProfile(UserBMIData updatedData) {
         // Sleep to slow down multiple concurrent calls to this function
@@ -153,6 +154,8 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
         // Start the new thread to request updated profile names
         updatedThread.start();
     }
+
+     */
 
     @Override
     public void DeleteProfile(String ProfileName) {

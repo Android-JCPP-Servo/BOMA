@@ -146,36 +146,14 @@ public class MVPModel implements PresenterToModel, Runnable{
      * Uses the member variable String ProfileName as a parameter
      * Updates an existing profile of user's choice
      */
+    /*
     @Override
     public void UpdateProfile() {
         // TODO: Call the last loaded profile information for height (i.e. feet & inches), weight, and age
-        String profileName = this.userData.ProfileName;
-
-        // Check for a matching profile name before proceeding with the update
-        DeleteProfile();
-        // Finally, proceed with the update (making a "new" profile)
-        if(!bmiManager.allProfiles.profile.isEmpty()) {
-            for (BMIProfile profile : bmiManager.allProfiles.profile) {
-                // if the profile name is found, send the BMIProfile data to the Presenter
-                if (profile.name.equals(profileName)) {
-                    // notify the presenter that the profile already exists
-                    presenter.ProfileCreatedFromModel(false);
-
-                    // Profile already exists. Exit function
-                    return;
-                }
-            }
-        }
-
-        // The profile name needs to be created and added to the bmiManager
-        BMIProfile newProfile = new BMIProfile();
-        newProfile.name = profileName;
-
-        bmiManager.allProfiles.profile.add(newProfile);
-
-        // notify the presenter that the profile has been created
-        presenter.ProfileCreatedFromModel(true);
+        presenter.view.RequestBMI();
     }
+
+     */
 
     /**
      * CreateProfile
@@ -208,6 +186,7 @@ public class MVPModel implements PresenterToModel, Runnable{
 
         // calculate the BMI based on pounds and inches
         this.userData.BMI = this.userData.Weight / this.userData.Height / this.userData.Height * 703;
+        BMIDataChunk.age = this.userData.age;
 
         // Get the date for the sample. Clear the milliseconds, seconds, minutes, and hours.
         //  For storing and viewing BMI data, There should be one stored sample per day.
