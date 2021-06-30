@@ -25,6 +25,14 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
     String profileName;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        // Get a list of all the profile names
+        //  The list is returned in a new thread to ProfileNamesListener()
+        presenter.view.RequestProfileNames(this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_back);
@@ -58,16 +66,33 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
     // Delete an unwanted or old profile
     public void buttonDeleteProfile(View view) {
         presenter.view.DeleteProfile(profileName);
+
+        // Get an updated list of all the profile names.
+        //  The list is returned in a new thread to ProfileNamesListener()
+        presenter.view.RequestProfileNames(this);
     }
 
     @Override
     public void ProfileNamesListener(List<String> profileNames) {
 
-        for(String name: profileNames){
-            System.out.println(name);
-            this.spinnerAdapter.add(name);
+        // if there are no profiles, load the page to create a new profile
+        if(profileNames.size() == 0){
+            presenter.view.ShowSaveNewInfoActivity();
         }
 
+        // Clear the spinner and
+        // update the Spinner in the UI thread
+        runOnUiThread(()->{
+            //clear the spinner
+            this.spinnerAdapter.clear();
+
+            // add the list of profile names to the spinner
+            for(String name: profileNames){
+                System.out.println(name);
+                this.spinnerAdapter.add(name);
+            }
+            }
+        );
         // Set up the spinner adapter
         Spinner spinner = findViewById(R.id.spinnerProfileName);
 
@@ -123,7 +148,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        // An profile name was selected. Get the profile data for display
+        // A profile name was selected. Get the profile data for display
         this.profileName = (String)adapterView.getSelectedItem();
         presenter.view.RequestProfileData(this, this.profileName);
     }
