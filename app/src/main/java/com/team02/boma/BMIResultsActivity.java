@@ -47,9 +47,9 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
     }
 
     // Function for viewing user profile in Welcome Back! page
-    public void viewProfile(View view) { presenter.view.ShowWelcomeBackActivity(); }
+    public void viewUserProfile(View view) { presenter.view.ShowWelcomeBackActivity(); }
     // Function for return to BOMA! homepage
-    public void goHome(View view) { presenter.view.ShowMainActivity(); }
+    public void goToHome(View view) { presenter.view.ShowMainActivity(); }
 
     @Override
     public void ProfileNamesListener(List<String> profileNames) {

@@ -34,7 +34,9 @@ public class BMIDataManager{
         // Serialize the data to a string/json using gson
         Gson gson = new Gson();
         String serializedData = gson.toJson(allProfiles);
-        System.out.println(serializedData);
+
+        //This is used to test the loaded data structure
+        // System.out.println(serializedData);
 
         //Get a shared preferences file handle
         SharedPreferences sharedPref = app.getSharedPreferences("com.team02.boma_preferences", Application.MODE_PRIVATE);
@@ -59,7 +61,9 @@ public class BMIDataManager{
         // Serialize the data to a string/json using gson
         Gson gson = new Gson();
         allProfiles = gson.fromJson(serializedData, BMIAllProfiles.class);
-        System.out.println(serializedData);
+
+        //This is used to test the loaded data structure
+        // System.out.println(serializedData);
 
         // Make sure there is a valid structure for the data
         if(allProfiles == null){

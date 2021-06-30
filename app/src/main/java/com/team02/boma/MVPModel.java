@@ -4,6 +4,7 @@ import android.app.Application;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -49,12 +50,41 @@ public class MVPModel implements PresenterToModel, Runnable{
     public void RequestProfileNames() {
 
         List<String> Names = new ArrayList<>();
-        for (BMIProfile profile: bmiManager.allProfiles.profile) {
-            Names.add(profile.name);
+        List<String> SortedNames = new ArrayList<>();
+        String lastProfileName = "";
+
+        // Get the last used profile name
+        if(bmiManager.allProfiles.LastLoadedProfile != null){
+            // Make sure the profile name exists
+            for (BMIProfile profile: bmiManager.allProfiles.profile) {
+                if(profile.name.equals(bmiManager.allProfiles.LastLoadedProfile)){
+                    lastProfileName = bmiManager.allProfiles.LastLoadedProfile;
+                }
+            }
         }
 
-        // send the profile names to the MVPPresenter
-        presenter.ProfileNamesFromModel(Names);
+        // Load the profile names into the list.
+        // Exclude the last used profile name
+        for (BMIProfile profile: bmiManager.allProfiles.profile) {
+            if(!profile.name.equals(lastProfileName)){
+                Names.add(profile.name);
+            }
+        }
+
+        // Sort the list of Strings
+        Collections.sort(Names);
+
+        //Set the last used profile name to the front of the sorted list if it is not empty
+        if(!lastProfileName.isEmpty()){
+            SortedNames.add(lastProfileName);
+        }
+
+        // append the newly sorted list to the SortedNames list
+        SortedNames.addAll(Names);
+
+        // Send the sorted profile names to the MVPPresenter
+        // The first name was the last used profile name
+        presenter.ProfileNamesFromModel(SortedNames);
     }
 
     /*
@@ -120,6 +150,20 @@ public class MVPModel implements PresenterToModel, Runnable{
     }
 
     /**
+     * UpdateProfile
+     * Uses the member variable String ProfileName as a parameter
+     * Updates an existing profile of user's choice
+     */
+    /*
+    @Override
+    public void UpdateProfile() {
+        // TODO: Call the last loaded profile information for height (i.e. feet & inches), weight, and age
+        presenter.view.RequestBMI();
+    }
+
+     */
+
+    /**
      * CreateProfile
      * Uses the member variable String ProfileName as a parameter
      * Delete a profile from the data
@@ -135,6 +179,9 @@ public class MVPModel implements PresenterToModel, Runnable{
             if(profile.name.equals(this.ProfileName)){
                 // Profile exists. Delete profile and exit function
                 bmiManager.allProfiles.profile.remove(profile);
+
+                // Save the data to the PreferencesManager
+                this.SaveProfileData();
                 return;
             }
         }
@@ -191,6 +238,7 @@ public class MVPModel implements PresenterToModel, Runnable{
                 dataChunk.bmi = this.userData.BMI;
                 dataChunk.inches = this.userData.Height;
                 dataChunk.weight = this.userData.Weight;
+                dataChunk.age = this.userData.age;
 
                 profile.data.add(dataChunk);
 

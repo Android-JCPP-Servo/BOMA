@@ -76,11 +76,13 @@ public class MVPView implements PresenterToView{
      * ShowUpdateProfileActivity
      * Used to display the save_new_info activity
      */
-    public void ShowUpdateProfileActivity(){
+    public void ShowUpdateProfileActivity(String ProfileName){
         if(application.get() != null)
         {
             Intent intent = new Intent(application.get(), UpdateProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            // store the profile name to for the UpdateProfileActivity
+            intent.putExtra(EXTRA_MESSAGE_PROFILE_NAME, ProfileName);
             application.get().startActivity(intent);
         }
     }
@@ -125,6 +127,11 @@ public class MVPView implements PresenterToView{
 
         //ask the presenter to create a profile
         presenter.CreateProfile(UserData);
+    }
+
+    public void UpdateProfile(MVPListener listener, UserBMIData updatedData) {
+        // store the listener to notify an activity when data is ready
+        presenter.view.RequestBMI(listener, updatedData);
     }
 
     public void DeleteProfile(String ProfileName){
