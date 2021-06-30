@@ -129,6 +129,14 @@ public class MVPView implements PresenterToView{
         presenter.CreateProfile(UserData);
     }
 
+    public void UpdateProfile(MVPListener listener, UserBMIData updatedData) {
+        // store the listener to notify an activity when data is ready
+        this.listener = listener;
+
+        // Ask the presenter to update a profile
+        presenter.UpdateProfile(updatedData);
+    }
+
     public void DeleteProfile(String ProfileName){
         //ask the presenter to delete a profile
         presenter.DeleteProfile(ProfileName);

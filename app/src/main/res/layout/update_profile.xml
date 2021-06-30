@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:text="feet"
         android:textColor="#0E0E0E"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumber9"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber9" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/updatedFeet"
+        app:layout_constraintStart_toEndOf="@+id/updatedFeet" />
 
     <TextView
         android:id="@+id/textView16"
@@ -34,11 +34,11 @@
         android:layout_marginEnd="48dp"
         android:text="inches"
         android:textColor="#040404"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumber8"
+        app:layout_constraintBaseline_toBaselineOf="@+id/updatedInches"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber8"
+        android:id="@+id/updatedInches"
         android:layout_width="57dp"
         android:layout_height="47dp"
         android:backgroundTint="#0E0E0E"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textView16" />
 
     <EditText
-        android:id="@+id/editTextNumber9"
+        android:id="@+id/updatedFeet"
         android:layout_width="57dp"
         android:layout_height="47dp"
         android:layout_marginStart="48dp"
@@ -113,7 +113,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber7"
+        android:id="@+id/updatedAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
@@ -126,7 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal2"
+        android:id="@+id/updatedWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
@@ -137,4 +137,15 @@
         android:textColor="#070707"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewErrorUpdated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updatedAge" />
 </androidx.constraintlayout.widget.ConstraintLayout>

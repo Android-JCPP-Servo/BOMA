@@ -137,6 +137,24 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
     }
 
     @Override
+    public void UpdateProfile(UserBMIData updatedData) {
+        // Sleep to slow down multiple concurrent calls to this function
+        // This will avoid a race condition for model.ProfileName = ProfileName;
+        // Normal app UI usage should never encounter this problem.
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Create a new thread containing new profile data
+        Thread updatedThread = new Thread(model::UpdateProfile);
+        model.userData = updatedData;
+        // Start the new thread to request updated profile names
+        updatedThread.start();
+    }
+
+    @Override
     public void DeleteProfile(String ProfileName) {
         // Create a new thread for the Model object request
         Thread thread=new Thread(model::DeleteProfile);
