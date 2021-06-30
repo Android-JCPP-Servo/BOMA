@@ -171,6 +171,9 @@ public class MVPModel implements PresenterToModel, Runnable{
             if(profile.name.equals(this.ProfileName)){
                 // Profile exists. Delete profile and exit function
                 bmiManager.allProfiles.profile.remove(profile);
+
+                // Save the data to the PreferencesManager
+                this.SaveProfileData();
                 return;
             }
         }
