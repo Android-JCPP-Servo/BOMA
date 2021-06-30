@@ -158,7 +158,7 @@ public class MVPModel implements PresenterToModel, Runnable{
     @Override
     public void UpdateProfile() {
         // TODO: Call the last loaded profile information for height (i.e. feet & inches), weight, and age
-        presenter.view.RequestBMI();
+        presenter.view.RequestBMI(listener, userData);
     }
 
      */
