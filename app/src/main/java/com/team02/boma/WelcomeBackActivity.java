@@ -112,6 +112,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         TextView tvHeight =  findViewById(R.id.displayHeight);
         TextView tvWeight =  findViewById(R.id.displayWeight);
         TextView tvAge =  findViewById(R.id.displayAge);
+        TextView tvBMI =  findViewById(R.id.displayBMI);
 
         // construct the height string
         int feet = (int)(ProfileData.lastHeight / 12);
@@ -127,8 +128,11 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         runOnUiThread(() -> {
             tvGender.setText(ProfileData.gender);
             tvHeight.setText(finalHeight);
-            tvWeight.setText(Integer.toString((int)ProfileData.lastWeight) + " lbs.");
+            // Changed from Integer to Float because some weight scales measure with decimal points
+            tvWeight.setText(Float.toString(ProfileData.lastWeight) + " lbs.");
+            //tvWeight.setText(Integer.toString((int)ProfileData.lastWeight) + " lbs.");
             tvAge.setText(Integer.toString(ProfileData.age));
+            tvBMI.setText(Float.toString(ProfileData.lastBMI));
         });
     }
 

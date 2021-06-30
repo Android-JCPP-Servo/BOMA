@@ -37,6 +37,7 @@
     <string name="inches">inches</string>
     <string name="weight">Weight</string>
     <string name="age">Age</string>
+    <string name="bmi_display">BMI</string>
     <string name="error_name">* Name cannot be blank.</string>
     <string name="error_gender">* Please select a gender.</string>
     <string name="error_number">* Please enter a valid number.</string>
