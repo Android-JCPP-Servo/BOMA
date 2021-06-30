@@ -186,7 +186,6 @@ public class MVPModel implements PresenterToModel, Runnable{
 
         // calculate the BMI based on pounds and inches
         this.userData.BMI = this.userData.Weight / this.userData.Height / this.userData.Height * 703;
-        BMIDataChunk.age = this.userData.age;
 
         // Get the date for the sample. Clear the milliseconds, seconds, minutes, and hours.
         //  For storing and viewing BMI data, There should be one stored sample per day.
@@ -228,6 +227,7 @@ public class MVPModel implements PresenterToModel, Runnable{
                 dataChunk.bmi = this.userData.BMI;
                 dataChunk.inches = this.userData.Height;
                 dataChunk.weight = this.userData.Weight;
+                dataChunk.age = this.userData.age;
 
                 profile.data.add(dataChunk);
 
