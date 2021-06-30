@@ -51,11 +51,16 @@ public class MVPModel implements PresenterToModel, Runnable{
 
         List<String> Names = new ArrayList<>();
         List<String> SortedNames = new ArrayList<>();
-        String lastProfileName = "Default";
+        String lastProfileName = "";
 
         // Get the last used profile name
         if(bmiManager.allProfiles.LastLoadedProfile != null){
-            lastProfileName = bmiManager.allProfiles.LastLoadedProfile;
+            // Make sure the profile name exists
+            for (BMIProfile profile: bmiManager.allProfiles.profile) {
+                if(profile.name.equals(bmiManager.allProfiles.LastLoadedProfile)){
+                    lastProfileName = bmiManager.allProfiles.LastLoadedProfile;
+                }
+            }
         }
 
         // Load the profile names into the list.
@@ -69,8 +74,11 @@ public class MVPModel implements PresenterToModel, Runnable{
         // Sort the list of Strings
         Collections.sort(Names);
 
-        //Set the last used profile name to the front of the sorted list
-        SortedNames.add(lastProfileName);
+        //Set the last used profile name to the front of the sorted list if it is not empty
+        if(!lastProfileName.isEmpty()){
+            SortedNames.add(lastProfileName);
+        }
+
         // append the newly sorted list to the SortedNames list
         SortedNames.addAll(Names);
 
