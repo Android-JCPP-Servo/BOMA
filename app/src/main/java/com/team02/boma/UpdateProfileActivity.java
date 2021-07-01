@@ -140,7 +140,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         // set the TextView info
         tvFeet.setText(Integer.toString(feet));
         tvInches.setText(Integer.toString(inches));
-        tvWeight.setText(Integer.toString((int)ProfileData.lastWeight));
+        // Changed from Integer to Float because some weight scales measure with decimal points
+        tvWeight.setText(Float.toString(ProfileData.lastWeight));
+        //tvWeight.setText(Integer.toString((int)ProfileData.lastWeight));
         tvAge.setText(Integer.toString(ProfileData.age));
 
     }

@@ -4,7 +4,8 @@
     <string name="welcome">Welcome to BOMA!</string>
     <string name="info_input">Click to Insert Info</string>
     <string name="new_profile_prompt">If you are new, tap below to start your profile.</string>
-    <string name="experienced">Used BOMA! before? Tap below to view your BMI information.</string>
+    <string name="experienced">Used BOMA! before?</string>
+    <string name="experienced_2">Tap below to view your BMI information.</string>
     <string name="experienced_button">Click to View Info</string>
     <string name="new_explanation">Welcome! Begin by setting up your profile...</string>
     <string-array name="gender_array">
