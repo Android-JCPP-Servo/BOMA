@@ -139,6 +139,13 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+        // There is an occasional crash when the activity has ended, but the spinner calls onItemSelected
+        // check for a null adapterView and exit
+        if((TextView)adapterView.getChildAt(0) == null){
+            return;
+        }
+
         // A profile name was selected. Get the profile data for display
         // Change Spinner size and color
         // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
