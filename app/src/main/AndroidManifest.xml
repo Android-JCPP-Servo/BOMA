@@ -41,6 +41,8 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".NotifyService"/>
+
     </application>
 
 </manifest>
