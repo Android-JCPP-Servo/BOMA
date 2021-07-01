@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("total_launches", i);
             editor.commit();
         }
+        else {
+            i = 1;
+            editor.putInt("total_launches", i);
+        }
 
     }
 
