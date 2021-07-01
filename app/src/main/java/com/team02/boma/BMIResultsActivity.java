@@ -77,4 +77,9 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
     public void ProfileCreatedListener(boolean Success) {
 
     }
+
+    @Override
+    public void ProfileDeletedListener(boolean Success) {
+
+    }
 }

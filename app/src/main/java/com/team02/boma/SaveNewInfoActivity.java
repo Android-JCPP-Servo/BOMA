@@ -182,6 +182,11 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
     }
 
     @Override
+    public void ProfileDeletedListener(boolean Success) {
+
+    }
+
+    @Override
     public void ProfileNamesListener(List<String> profileNames) {
 
     }

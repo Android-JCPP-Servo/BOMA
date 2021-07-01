@@ -156,4 +156,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
     public void ProfileCreatedListener(boolean Success) {
 
     }
+
+    @Override
+    public void ProfileDeletedListener(boolean Success) {
+
+    }
 }
