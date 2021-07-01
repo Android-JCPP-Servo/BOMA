@@ -43,22 +43,6 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             presenter = new MVPPresenter(this.getApplication());
         }
 
-        // Set up the spinner adapter
-        Spinner spinner = findViewById(R.id.spinnerProfileName);
-
-        // create an empty list for the spinner
-        List<String> list = new ArrayList<>();
-
-        // create an adapter for the the profile name spinner
-        spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Set the spinner adapter to the spinner
-        spinner.setAdapter(spinnerAdapter);
-
-        // Set the listener for spinner selection
-        spinner.setOnItemSelectedListener(this);
-
         // Get a list of all the profile names
         //  The list is returned in a new thread to ProfileNamesListener()
         presenter.view.RequestProfileNames(this);
@@ -66,11 +50,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
     // Delete an unwanted or old profile
     public void buttonDeleteProfile(View view) {
-        presenter.view.DeleteProfile(profileName);
-
-        // Get an updated list of all the profile names.
-        //  The list is returned in a new thread to ProfileNamesListener()
-        presenter.view.RequestProfileNames(this);
+        presenter.view.DeleteProfile(this, profileName);
     }
 
     @Override
@@ -81,28 +61,27 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             presenter.view.ShowSaveNewInfoActivity();
         }
 
-        // Clear the spinner and
-        // update the Spinner in the UI thread
-        runOnUiThread(()->{
-            //clear the spinner
-            this.spinnerAdapter.clear();
-
-            // add the list of profile names to the spinner
-            for(String name: profileNames){
-                System.out.println(name);
-                this.spinnerAdapter.add(name);
-            }
-            }
-        );
-        // Set up the spinner adapter
+        // Set up the spinner for the profile names
         Spinner spinner = findViewById(R.id.spinnerProfileName);
 
-        // Set the default name selection on the UI thread
+        // create a new list for the spinner adapter
+        List<String> list = new ArrayList<>();
+        list.addAll(profileNames);
+
+        // create an adapter for the the profile name spinner
+        spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // update the Spinner in the UI thread
         runOnUiThread(()->{
-            this.spinnerAdapter.notifyDataSetChanged();
-            spinner.setSelection(0);
+            // Set the spinner adapter to the spinner
+            spinner.setAdapter(spinnerAdapter);
+
+            // Set the listener for spinner selection
+            spinner.setOnItemSelectedListener(this);
             }
         );
+
     }
 
     // When a profile is selected from a spinner, this method receives the profile data
@@ -144,6 +123,13 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void ProfileCreatedListener(boolean Success) {
 
+    }
+
+    @Override
+    public void ProfileDeletedListener(boolean Success) {
+        // Get a list of all the profile names
+        //  The list is returned in a new thread to ProfileNamesListener()
+        presenter.view.RequestProfileNames(this);
     }
 
     public void updateUserProfile(View view) {
