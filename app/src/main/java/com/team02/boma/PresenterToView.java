@@ -11,4 +11,5 @@ public interface PresenterToView {
     void ProfileDataFromPresenter(BMIProfile ProfileData);
     void RequestedBMIFromPresenter(UserBMIData UserData);
     void ProfileCreatedFromPresenter(boolean Success);
+    void ProfileDeletedFromPresenter(boolean Success);
 }

@@ -134,7 +134,10 @@ public class MVPView implements PresenterToView{
         presenter.view.RequestBMI(listener, updatedData);
     }
 
-    public void DeleteProfile(String ProfileName){
+    public void DeleteProfile(MVPListener listener, String ProfileName){
+        // store the listener to notify an activity when the profile is deleted
+        this.listener = listener;
+
         //ask the presenter to delete a profile
         presenter.DeleteProfile(ProfileName);
     }
@@ -159,8 +162,6 @@ public class MVPView implements PresenterToView{
 
         // Send the profile names to the activity
         this.listener.ProfileNamesListener(ProfileNames);
-        // set the listener to null once it has been used.
-        this.listener = null;
     }
 
     @Override
@@ -170,8 +171,6 @@ public class MVPView implements PresenterToView{
 
         // Send the profile data to the activity
         this.listener.ProfileDataListener(ProfileData);
-        // set the listener to null once it has been used.
-        this.listener = null;
     }
 
     @Override
@@ -181,8 +180,6 @@ public class MVPView implements PresenterToView{
 
         // Send the BMI data to the activity
         this.listener.UserBMIListener(UserData);
-        // set the listener to null once it has been used.
-        this.listener = null;
     }
 
     @Override
@@ -192,7 +189,13 @@ public class MVPView implements PresenterToView{
 
         // Send the profile creation result to the activity
         this.listener.ProfileCreatedListener(Success);
-        // set the listener to null once it has been used.
-        this.listener = null;
+    }
+
+    @Override
+    public void ProfileDeletedFromPresenter(boolean Success) {
+        // exit if the listener is null
+        if(this.listener == null) return;
+        // Send the profile creation result to the activity
+        this.listener.ProfileDeletedListener(Success);
     }
 }

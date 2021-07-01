@@ -13,4 +13,5 @@ public interface MVPListener {
     void ProfileDataListener(BMIProfile ProfileData);
     void UserBMIListener(UserBMIData UserData);
     void ProfileCreatedListener(boolean Success);
+    void ProfileDeletedListener(boolean Success);
 }

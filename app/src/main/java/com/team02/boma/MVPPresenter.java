@@ -82,6 +82,11 @@ public class MVPPresenter implements ModelToPresenter, ViewToPresenter{
         view.ProfileCreatedFromPresenter(Success);
     }
 
+    @Override
+    public void ProfileDeletedFromModel(boolean Success) {
+        view.ProfileDeletedFromPresenter(Success);
+    }
+
 
     // ViewToPresenter interface
 
