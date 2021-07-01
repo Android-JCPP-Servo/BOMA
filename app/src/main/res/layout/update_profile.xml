@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="@color/background_color">
 
     <TextView
         android:id="@+id/textView17"
@@ -14,7 +14,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="84dp"
         android:text="Height"
-        android:textColor="#ffffff"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update" />
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="feet"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/updatedFeet"
         app:layout_constraintStart_toEndOf="@+id/updatedFeet" />
 
@@ -35,7 +35,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:text="inches"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/updatedInches"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -45,11 +45,11 @@
         android:layout_height="47dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:backgroundTint="#070707"
+        android:backgroundTint="@color/text_color"
         android:ems="10"
         android:foregroundTint="#070707"
         android:inputType="number"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView17"
         app:layout_constraintEnd_toStartOf="@+id/textView15"
         app:layout_constraintStart_toEndOf="@+id/textView17" />
@@ -58,11 +58,11 @@
         android:id="@+id/updatedInches"
         android:layout_width="57dp"
         android:layout_height="47dp"
-        android:backgroundTint="#0E0E0E"
+        android:backgroundTint="@color/text_color"
         android:ems="10"
         android:foregroundTint="#070707"
         android:inputType="number"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView16" />
 
@@ -74,7 +74,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="48dp"
         android:text="Weight"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -87,7 +87,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="48dp"
         android:text="Age"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@string/update_profile_title"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,11 +110,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:backgroundTint="#0B0A0A"
+        android:backgroundTint="@color/text_color"
         android:ems="10"
         android:foregroundTint="#090909"
         android:inputType="number"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -124,11 +124,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:backgroundTint="#0B0A0A"
+        android:backgroundTint="@color/text_color"
         android:ems="10"
         android:foregroundTint="#0C0C0C"
         android:inputType="numberDecimal"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -136,7 +136,7 @@
         android:id="@+id/textViewErrorUpdated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FF0000"
+        android:textColor="@color/red"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
         android:layout_marginBottom="108dp"
         android:onClick="saveUpdatedProfile"
         android:text="@string/save_profile"
-        app:backgroundTint="#BD0101"
+        app:backgroundTint="@color/red_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

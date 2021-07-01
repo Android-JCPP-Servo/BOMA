@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="36dp"
         android:text="@string/welcome_back"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="48dp"
         android:text="@string/name"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
@@ -39,7 +39,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="12dp"
         android:text="@string/gender"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -63,7 +63,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="12dp"
         android:text="@string/height"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -87,7 +87,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="12dp"
         android:text="@string/weight"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -111,7 +111,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="12dp"
         android:text="@string/age"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView23"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -134,10 +134,10 @@
         android:layout_marginTop="46dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="@color/text_color"
         android:gravity="right|center_horizontal"
         android:spinnerMode="dropdown"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/update_profile_button"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayBMITitle" />
@@ -161,7 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/profile_prompt"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
@@ -172,7 +172,7 @@
         android:layout_height="0dp"
         android:onClick="buttonDeleteProfile"
         android:text="@string/delete_profile_button"
-        app:backgroundTint="#BD0101"
+        app:backgroundTint="@color/red_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
@@ -184,7 +184,7 @@
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/delete_prompt_1"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
@@ -195,7 +195,7 @@
         android:layout_height="wrap_content"
         android:onClick="updateUserProfile"
         android:text="@string/update_profile"
-        app:backgroundTint="#BD0101"
+        app:backgroundTint="@color/red_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -205,7 +205,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete_prompt_2"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
@@ -215,7 +215,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete_prompt_3"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -228,7 +228,7 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="12dp"
         android:text="@string/bmi_display"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
@@ -239,7 +239,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/displayBMITitle"
         app:layout_constraintEnd_toEndOf="parent" />
