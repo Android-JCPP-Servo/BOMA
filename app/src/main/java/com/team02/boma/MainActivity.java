@@ -38,14 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannel();
 
-        Intent alarmIntent = new Intent(MainActivity.this, NotifyService.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        int i = preferences.getInt("total_launches", 1);
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() , 1000 * 10, pendingIntent);
+        if (i < 2) {
+            alarmMethod();
+            i++;
+            editor.putInt("total_launches", i);
+            editor.commit();
+        }
 
-        // Toast used for debugging - to see if alarm actually started
-        Toast.makeText(MainActivity.this, "Alarm System Activated", Toast.LENGTH_LONG).show();
     }
 
     private void createNotificationChannel() {
@@ -60,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
+    }
+
+    private void alarmMethod() {
+        Intent alarmIntent = new Intent(this, NotifyService.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() , 1000 * 10, pendingIntent);
+
+        // Toast used for debugging - to see if alarm actually started
+        Toast.makeText(MainActivity.this, "Alarm System Activated", Toast.LENGTH_LONG).show();
     }
 
     // Code to display a different page
