@@ -21,15 +21,15 @@ public class NotifyService extends BroadcastReceiver {
 
         // Construct Details of Notifications
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "remindBOMA!")
-                .setAutoCancel(true)
-                .setSmallIcon(R.drawable.ic_stat_fitness_center)
+                .setSmallIcon(R.drawable.ic_stat_b)
                 .setContentTitle("BOMA! Weekly Reminder")
                 .setContentText("Remember to update your BMI for the week.\nTap here to do so.")
                 .setStyle(new NotificationCompat.BigTextStyle().bigText("Remember to update your BMI for the week.\nTap here to do so."))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 // Can also display app, but resets Weekly Reminder occurrence counter
-                .addAction(0, "Update BMI", pendingIntent);
+                .addAction(0, "Update BMI", pendingIntent)
+                .setAutoCancel(true);
 
         // Set the Notification from the Context
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
