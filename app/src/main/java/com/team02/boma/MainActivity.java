@@ -36,27 +36,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Call this method to create notification channel
         createNotificationChannel();
 
+        // Establish total_launches value - used for initializing the alarmMethod function
+        // that creates the Push Notification
+        //  Referenced from: https://www.youtube.com/watch?v=tyVaPHv-RGo
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
         int i = preferences.getInt("total_launches", 1);
 
+        // If i (total_launches) has reached 2, forget about initializing alarmMethod again
+        // Otherwise, perform the initialization
         if (i < 2) {
             alarmMethod();
             i++;
             editor.putInt("total_launches", i);
-            editor.commit();
+            editor.apply();
         }
-        else {
-            i = 1;
-            editor.putInt("total_launches", i);
-        }
-
     }
 
     private void createNotificationChannel() {
-        // Check the API Build, then run the timer
+        // Check the API Build, then create the notification channel
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "BOMA!ReminderChannel";
             String description = "Channel for Weekly BOMA! Reminder";
@@ -64,17 +65,20 @@ public class MainActivity extends AppCompatActivity {
             NotificationChannel channel = new NotificationChannel("remindBOMA!", name, importance);
             channel.setDescription(description);
 
+            // Pass the channel to NotificationManager, which passes the channel to alarmMethod
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
     }
 
     private void alarmMethod() {
+        // Establish Intents and Pending Intents for Reminding Push Notifications
         Intent alarmIntent = new Intent(this, NotifyService.class);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() , 1000 * 10, pendingIntent);
+        // Set weekly occurrences for Reminder Notification
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60, pendingIntent);
 
         // Toast used for debugging - to see if alarm actually started
         Toast.makeText(MainActivity.this, "Alarm System Activated", Toast.LENGTH_LONG).show();

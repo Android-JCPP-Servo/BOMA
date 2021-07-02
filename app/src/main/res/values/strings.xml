@@ -15,7 +15,7 @@
         <item>Other</item>
     </string-array>
     <string name="welcome_back">Welcome Back!</string>
-    <string name="profile_prompt">Please select the profile you wish to view.</string>
+    <string name="profile_prompt">Please select the profile name you wish to view.</string>
     <string name="update_profile">Update Profile</string>
     <string name="delete_prompt_1">See an old or unwanted profile?</string>
     <string name="delete_prompt_2">First, select the old profile.</string>
