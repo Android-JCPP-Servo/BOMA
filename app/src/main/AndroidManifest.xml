@@ -4,45 +4,45 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_boma"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_boma"
         android:supportsRtl="true"
         android:theme="@style/Theme.BOMA">
-
-        <activity android:name="com.team02.boma.WelcomeBackActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-
-        <activity android:name="com.team02.boma.UpdateProfileActivity"
-            android:parentActivityName=".WelcomeBackActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".WelcomeBackActivity" />
-        </activity>
-
-        <activity android:name="com.team02.boma.SaveNewInfoActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-        </activity>
-
-        <activity android:name="com.team02.boma.BMIResultsActivity" />
-
-        <activity android:name="com.team02.boma.MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".WelcomeBackActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".UpdateProfileActivity"
+            android:parentActivityName=".WelcomeBackActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WelcomeBackActivity" />
+        </activity>
+        <activity
+            android:name=".SaveNewInfoActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".BMIResultsActivity" />
+        <activity android:name=".MainActivity">
 
-        <receiver android:name=".NotifyService"/>
+        </activity>
 
+        <receiver android:name=".NotifyService" />
     </application>
 
 </manifest>
