@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 public class SplashActivity extends AppCompatActivity {
 
+    // Splash Screen capability referenced from: https://www.youtube.com/watch?v=91aiFKBgi8w
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
