@@ -79,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
 
         // Set weekly occurrences for Reminder Notification
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60, pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60 * 60 * 24 * 7, pendingIntent);
 
         // Toast used for debugging - to see if alarm actually started
-        Toast.makeText(MainActivity.this, "Alarm System Activated", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, "Weekly Reminder Activated", Toast.LENGTH_LONG).show();
     }
 
     // Code to display a different page
