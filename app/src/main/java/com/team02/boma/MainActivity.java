@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
             alarmMethod();
             i++;
             editor.putInt("total_launches", i);
-            editor.apply();
         }
+        editor.apply();
     }
 
     private void createNotificationChannel() {
@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
 
         // Set weekly occurrences for Reminder Notification
-        //  Currently set for minute reminders; change to weekly occurrence (1000 * 60 * 60 * 24 * 7)
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60, pendingIntent);
 
         // Toast used for debugging - to see if alarm actually started

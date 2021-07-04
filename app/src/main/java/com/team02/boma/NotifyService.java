@@ -17,7 +17,7 @@ public class NotifyService extends BroadcastReceiver {
 
         // Establish PendingIntent for notification - ability to open app after being tapped
         //  Referenced from: https://pushy.me/docs/android/setup-broadcastreceiver
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, SplashActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Construct Details of Notifications
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "remindBOMA!")
