@@ -63,7 +63,8 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         // TODO: format the number to limit decimal places
         runOnUiThread(() -> {
             TextView textViewBMI = findViewById(R.id.textViewBMI);
-            textViewBMI.setText(Float.toString(ProfileData.lastBMI));
+            String userBMI = String.format("%.1f", ProfileData.lastBMI);
+            textViewBMI.setText(userBMI);
         });
 
     }
