@@ -110,9 +110,10 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             tvHeight.setText(finalHeight);
             // Changed from Integer to Float because some weight scales measure with decimal points
             tvWeight.setText(Float.toString(ProfileData.lastWeight) + " lbs.");
-            //tvWeight.setText(Integer.toString((int)ProfileData.lastWeight) + " lbs.");
             tvAge.setText(Integer.toString(ProfileData.age));
-            tvBMI.setText(Float.toString(ProfileData.lastBMI));
+            // Set BMI Display to one decimal place
+            String updateBMI = String.format("%.1f", ProfileData.lastBMI);
+            tvBMI.setText(updateBMI);
         });
     }
 
