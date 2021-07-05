@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -107,6 +108,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         this.updatedData.age = Age;
 
         presenter.view.UpdateProfile(this, this.updatedData);
+
+        // Display a message indicated the user's profile was updated
+        Toast.makeText(UpdateProfileActivity.this, "BMI Profile Updated", Toast.LENGTH_LONG).show();
 
         presenter.view.ShowBMIResultsActivity(profileName);
     }

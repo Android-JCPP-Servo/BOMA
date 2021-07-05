@@ -155,6 +155,9 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         // Use ProfileCreatedListener to check for results.
 
         presenter.view.CreateProfile(this, this.UserData);
+
+        // Display a message indicated the user's profile was created
+        Toast.makeText(SaveNewInfoActivity.this, "BMI Profile Created", Toast.LENGTH_LONG).show();
     }
 
     /**
