@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="84dp"
         android:text="Height"
         android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update" />
+        app:layout_constraintTop_toBottomOf="@+id/update"
+        android:layout_marginLeft="48dp" />
 
     <TextView
         android:id="@+id/textView15"
@@ -33,64 +33,75 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:text="inches"
         android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/updatedInches"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="48dp" />
 
     <EditText
         android:id="@+id/updatedFeet"
         android:layout_width="57dp"
         android:layout_height="47dp"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:backgroundTint="@color/text_color"
         android:ems="10"
-        android:foregroundTint="#070707"
+        android:backgroundTint="@color/text_color"
         android:inputType="number"
         android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView17"
         app:layout_constraintEnd_toStartOf="@+id/textView15"
-        app:layout_constraintStart_toEndOf="@+id/textView17" />
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        android:layout_marginLeft="48dp" />
 
     <EditText
         android:id="@+id/updatedInches"
         android:layout_width="57dp"
         android:layout_height="47dp"
-        android:backgroundTint="@color/text_color"
         android:ems="10"
-        android:foregroundTint="#070707"
+        android:backgroundTint="@color/text_color"
         android:inputType="number"
         android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView16" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="156dp"
+        android:backgroundTint="#ED0909"
+        android:onClick="saveUpdatedProfile"
+        android:text="@string/save_profile"
+        app:backgroundTint="@color/design_default_color_error"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="48dp"
         android:text="Weight"
         android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        android:layout_marginLeft="48dp" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="48dp"
         android:text="Age"
         android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:layout_marginLeft="48dp" />
 
     <TextView
         android:id="@+id/update"
@@ -109,49 +120,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:backgroundTint="@color/text_color"
         android:ems="10"
-        android:foregroundTint="#090909"
         android:inputType="number"
         android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="48dp" />
 
     <EditText
         android:id="@+id/updatedWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:backgroundTint="@color/text_color"
         android:ems="10"
-        android:foregroundTint="#0C0C0C"
         android:inputType="numberDecimal"
         android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="48dp" />
 
     <TextView
         android:id="@+id/textViewErrorUpdated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/red"
+        android:textColor="#FF0000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updatedAge" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
-        android:onClick="saveUpdatedProfile"
-        android:text="@string/save_profile"
-        app:backgroundTint="@color/red_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

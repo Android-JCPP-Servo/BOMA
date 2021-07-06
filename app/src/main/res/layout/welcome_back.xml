@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="@color/background_color"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/welcome_back"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="36dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="@string/welcome_back"
         android:textColor="@color/text_color"
         android:textSize="24sp"
@@ -21,13 +21,13 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:text="@string/name"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
 
@@ -37,10 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="@string/gender"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -61,10 +61,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="@string/height"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -74,8 +74,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -85,10 +85,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="@string/weight"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -98,8 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -109,10 +109,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="@string/age"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -122,8 +122,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="@color/text_color"
         android:textSize="20sp"
+        android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView23"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -131,37 +131,32 @@
         android:id="@+id/spinnerProfileName"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:backgroundTint="@color/text_color"
         android:gravity="right|center_horizontal"
-        android:spinnerMode="dropdown"
-        android:textColor="@color/text_color"
-        android:textSize="20sp"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="199dp"
-        android:layout_height="0dp"
+        android:layout_height="38dp"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="@string/update_profile_button"
         android:textColor="@color/text_color"
+        android:text="@string/update_profile_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/displayBMITitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="@string/profile_prompt"
         android:textColor="@color/text_color"
+        android:text="@string/profile_prompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
@@ -169,10 +164,11 @@
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:onClick="buttonDeleteProfile"
         android:text="@string/delete_profile_button"
-        app:backgroundTint="@color/red_button"
+        app:backgroundTint="#BD0101"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
@@ -180,11 +176,11 @@
     <TextView
         android:id="@+id/textView20"
         android:layout_width="217dp"
-        android:layout_height="0dp"
+        android:layout_height="19dp"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="@string/delete_prompt_1"
         android:textColor="@color/text_color"
+        android:text="@string/delete_prompt_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
@@ -193,54 +189,31 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:onClick="updateUserProfile"
         android:text="@string/update_profile"
-        app:backgroundTint="@color/red_button"
+        app:backgroundTint="#BD0101"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView22"
+        android:textColor="@color/text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete_prompt_2"
-        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <TextView
         android:id="@+id/textView24"
+        android:textColor="@color/text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete_prompt_3"
-        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-    <TextView
-        android:id="@+id/displayBMITitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/bmi_display"
-        android:textColor="@color/text_color"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
-    <TextView
-        android:id="@+id/displayBMI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:textColor="@color/text_color"
-        android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/displayBMITitle"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
