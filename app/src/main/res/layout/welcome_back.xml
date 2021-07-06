@@ -10,11 +10,12 @@
         android:id="@+id/welcome_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="36dp"
         android:text="@string/welcome_back"
         android:textColor="@color/text_color"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,13 +27,14 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="60dp"
         android:text="@string/name"
-        android:textSize="20sp"
         android:textColor="@color/text_color"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
 
     <TextView
         android:id="@+id/textView14"
+        android:textColor="@color/text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -40,7 +42,6 @@
         android:layout_marginTop="24dp"
         android:text="@string/gender"
         android:textSize="20sp"
-        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -57,6 +58,7 @@
 
     <TextView
         android:id="@+id/textView19"
+        android:textColor="@color/text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -64,7 +66,6 @@
         android:layout_marginTop="24dp"
         android:text="@string/height"
         android:textSize="20sp"
-        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -105,6 +106,7 @@
 
     <TextView
         android:id="@+id/textView23"
+        android:textColor="@color/text_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -112,7 +114,6 @@
         android:layout_marginTop="24dp"
         android:text="@string/age"
         android:textSize="20sp"
-        android:textColor="@color/text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -142,13 +143,73 @@
         android:id="@+id/textView12"
         android:layout_width="199dp"
         android:layout_height="38dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="68dp"
         android:gravity="center"
-        android:textColor="@color/text_color"
         android:text="@string/update_profile_button"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/delete_prompt_3"
+        android:textColor="@color/text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:onClick="buttonDeleteProfile"
+        android:text="@string/delete_profile_button"
+        android:textColor="@color/text_color"
+        app:backgroundTint="#BD0101"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="217dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/delete_prompt_1"
+        android:textColor="@color/text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/delete_prompt_2"
+        android:textColor="@color/text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="updateUserProfile"
+        android:text="@string/update_profile"
+        app:backgroundTint="#BD0101"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView18"
@@ -161,59 +222,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_back" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="buttonDeleteProfile"
-        android:text="@string/delete_profile_button"
-        app:backgroundTint="#BD0101"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
     <TextView
-        android:id="@+id/textView20"
-        android:layout_width="217dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:textColor="@color/text_color"
-        android:text="@string/delete_prompt_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button4"
+        android:id="@+id/displayBMI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="updateUserProfile"
-        android:text="@string/update_profile"
-        app:backgroundTint="#BD0101"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView22"
+        android:layout_marginTop="383dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:textColor="@color/text_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/delete_prompt_2"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:textColor="@color/text_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/delete_prompt_3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 </androidx.constraintlayout.widget.ConstraintLayout>
