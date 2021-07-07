@@ -1,10 +1,14 @@
 package com.team02.boma;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +51,29 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         //  the result is passed to the ProfileDataListener() as a callback
         presenter.view.RequestProfileData(this, profileName);
 
+        // Modify the EditText and Spinner objects within the update_profile.xml file
+        //  Referenced from: https://github.com/macbeth-byui/ConstraintLayoutDemo/blob/main/app/src/main/java/t/macbeth/constraintlayoutdemo/MainActivity.java
+        ConstraintLayout layout = findViewById(R.id.update_profile_layout);
+        layout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            // Establish the Global Listener
+            @Override
+            public void onGlobalLayout() {
+                // Initialize the EditText objects
+                EditText updatedFeet = findViewById(R.id.updatedFeet);
+                EditText updatedInches = findViewById(R.id.updatedInches);
+                EditText updatedWeight = findViewById(R.id.updatedWeight);
+                EditText updatedAge = findViewById(R.id.updatedAge);
 
+                // Establish new font size for EditText objects - set font size to half the object height
+                updatedFeet.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedFeet.getMeasuredHeight()*0.5));
+                updatedInches.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedInches.getMeasuredHeight()*0.5));
+                updatedWeight.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedWeight.getMeasuredHeight()*0.5));
+                updatedAge.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedAge.getMeasuredHeight()*0.5));
+
+                // Perform this action once, so remove the listener
+                layout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
 
     }
     public void saveUpdatedProfile(View view) {

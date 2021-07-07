@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_profile_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
@@ -469,35 +470,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".16" />
+        app:layout_constraintGuide_percent=".175" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline99"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".26" />
+        app:layout_constraintGuide_percent=".275" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline100"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".36" />
+        app:layout_constraintGuide_percent=".375" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline101"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".46" />
+        app:layout_constraintGuide_percent=".475" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline102"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".56" />
+        app:layout_constraintGuide_percent=".575" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline103"

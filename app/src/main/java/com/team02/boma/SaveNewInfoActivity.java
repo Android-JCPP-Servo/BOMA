@@ -1,10 +1,13 @@
 package com.team02.boma;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -43,6 +46,32 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         spinner.setAdapter(adapter);
         // Set the listener for spinner selection
         spinner.setOnItemSelectedListener(this);
+
+        // Modify the EditText and Spinner objects within the save_new_info.xml layout
+        //  Referenced from: https://github.com/macbeth-byui/ConstraintLayoutDemo/blob/main/app/src/main/java/t/macbeth/constraintlayoutdemo/MainActivity.java
+        ConstraintLayout layout = findViewById(R.id.new_profile_layout);
+        layout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            // Establish the Global Listener
+            @Override
+            public void onGlobalLayout() {
+                // Initialize the EditText objects
+                EditText editTextName = findViewById(R.id.editTextName);
+                EditText editTextFeet = findViewById(R.id.editTextFeet);
+                EditText editTextInches = findViewById(R.id.editTextInches);
+                EditText editTextWeight = findViewById(R.id.editTextWeight);
+                EditText editTextAge = findViewById(R.id.editTextAge);
+
+                // Establish new font size for EditText objects - set font size to half the object height
+                editTextName.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextName.getMeasuredHeight()*0.5));
+                editTextFeet.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextFeet.getMeasuredHeight()*0.5));
+                editTextInches.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextInches.getMeasuredHeight()*0.5));
+                editTextWeight.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextWeight.getMeasuredHeight()*0.5));
+                editTextAge.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextAge.getMeasuredHeight()*0.5));
+
+                // Perform this action once, so remove the listener
+                layout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
     }
 
     @Override
