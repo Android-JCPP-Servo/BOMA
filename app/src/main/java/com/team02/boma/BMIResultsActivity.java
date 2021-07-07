@@ -96,7 +96,7 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         map.put(2, "jogging for 10 minutes");
         map.put(3, " learning to do a front flip");
         map.put(4, "selling your soul for weight loss");
-        map.put(5, "Violence is not the last option");
+        map.put(5, "Violence is my last option");
         map.put(6, "just feeling sad for yourself");
         map.put(7, "maybe a personal trainer");
         map.put(8, "Pokemon Go");
@@ -111,7 +111,7 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         map.put(17, "engaging in politics specifically with someone against you");
         map.put(18, "going on a mission");
         map.put(19, "not ordering from that fast food place, you know the one");
-        map.put(20, "not eating people");
+        map.put(20, "jogging for 10 minutes");
         System.out.println(map.get(1));
 
     }
