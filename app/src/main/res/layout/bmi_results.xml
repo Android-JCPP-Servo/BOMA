@@ -97,6 +97,7 @@
         android:autoSizeMinTextSize="12sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
+        android:gravity="center"
         android:textColor="#F1E9E9"
         app:layout_constraintBottom_toTopOf="@+id/guideline52"
         app:layout_constraintEnd_toStartOf="@+id/guideline49"
