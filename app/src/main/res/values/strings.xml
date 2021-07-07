@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">BOMA! BMI Calculator</string>
     <string name="save_string">BOMA_Save_Data</string>
     <string name="welcome">Welcome to BOMA!</string>
@@ -7,12 +7,20 @@
     <string name="experienced">Used BOMA! before?</string>
     <string name="experienced_2">Tap below to view your BMI information.</string>
     <string name="experienced_button">Click to View Info</string>
-    <string name="new_explanation">Welcome! Begin by setting up your profile...</string>
+    <string name="new_explanation">Welcome! Begin by setting up your profile…</string>
     <string-array name="gender_array">
         <item>(Select a Gender)</item>
         <item>Male</item>
         <item>Female</item>
         <item>Other</item>
+    </string-array>
+    <string name="suggestion_title">BMI Improvement Tip:</string>
+    <string-array name="improvement_suggestions">
+        <item>Be sure to drink 64 ounces of water a day.</item>
+        <item>Walk 15 minutes a day.</item>
+        <item>Eat ample fruits and vegetables with your meals.</item>
+        <item>Stretch for 10 minutes each hour.</item>
+        <item>Do 10 push-ups, 10 squats, and 10 sit-ups before the day\'s end.</item>
     </string-array>
     <string name="welcome_back">Welcome Back!</string>
     <string name="profile_prompt">Please select the profile name you wish to view.</string>
@@ -26,7 +34,8 @@
     <string name="bmi_results">Your BMI Index is:</string>
     <string name="view_profile_prompt">Tap below to view your profile</string>
     <string name="view_profile">View Profile</string>
-    <string name="update_profile_button">Need to update your profile? Tap below to change your data.</string>
+    <string name="update_profile_button">Need to update your profile?</string>
+    <string name="update_profile_button_2">Tap below to change your data.</string>
     <string name="main_screen_prompt">Tap below to return to main screen</string>
     <string name="save_bmi">Save BMI</string>
     <string name="home">Home</string>

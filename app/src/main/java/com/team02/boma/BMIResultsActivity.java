@@ -7,7 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /***************************
  * NOTES/STEPS TO COMPLETION:
@@ -45,6 +48,8 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         //  the result is passed to the ProfileDataListener() as a callback
         presenter.view.RequestProfileData(this, profileName);
     }
+
+
 
     // Function for viewing user profile in Welcome Back! page
     public void viewUserProfile(View view) { presenter.view.ShowWelcomeBackActivity(); }
