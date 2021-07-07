@@ -7,9 +7,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
 
 /***************************
  * NOTES/STEPS TO COMPLETION:
@@ -46,6 +49,9 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         // request the profile information from the MVP
         //  the result is passed to the ProfileDataListener() as a callback
         presenter.view.RequestProfileData(this, profileName);
+
+        // Call the Recommendations method
+        recommendations();
     }
 
     // Function for viewing user profile in Welcome Back! page
@@ -90,29 +96,35 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
     public void recommendations(){
         TextView tvIdeas =  findViewById(R.id.ideas);
 
-
-       Map<Integer, String> map = new HashMap<>();
+        Map<Integer, String> map = new HashMap<>();
         map.put(1, "Drinking water");
-        map.put(2, "jogging for 10 minutes");
-        map.put(3, " learning to do a front flip");
-        map.put(4, "selling your soul for weight loss");
+        map.put(2, "Jogging for 10 minutes");
+        map.put(3, "Learning to do a front flip");
+        map.put(4, "Selling your soul for weight loss");
         map.put(5, "Violence is my last option");
-        map.put(6, "just feeling sad for yourself");
-        map.put(7, "maybe a personal trainer");
+        map.put(6, "Just feeling sad for yourself");
+        map.put(7, "Research & hire a personal trainer");
         map.put(8, "Pokemon Go");
-        map.put(9, "becoming a walking postman");
-        map.put(10, "experimental laxatives");
-        map.put(11, "jumping jacks for 10 minutes");
-        map.put(12, "push ups for 10 minutes");
-        map.put(13, "finding a sport you enjoy doing");
-        map.put(14, "plotting revenge by getting buff");
-        map.put(15, "chicken training");
-        map.put(16, "finding a local charity marathon");
-        map.put(17, "engaging in politics specifically with someone against you");
-        map.put(18, "going on a mission");
-        map.put(19, "not ordering from that fast food place, you know the one");
-        map.put(20, "jogging for 10 minutes");
-        System.out.println(map.get(1));
+        map.put(9, "Becoming a walking postman");
+        map.put(10, "Experimental Laxatives");
+        map.put(11, "Jumping-Jacks for 10 minutes");
+        map.put(12, "Push ups for 10 minutes");
+        map.put(13, "Finding a sport you enjoy doing");
+        map.put(14, "Plotting revenge by getting buff");
+        map.put(15, "Chicken Training");
+        map.put(16, "Participating in a local charity marathon");
+        map.put(17, "Engaging in politics, specifically with someone against you");
+        map.put(18, "Going on a mission");
+        map.put(19, "Not ordering from that fast food place...you know the one");
+        map.put(20, "Jogging for 10 minutes");
+        // System.out.println(map.get(1));
+
+        // Initialize a Randomizer
+        List<String> recommendationList = new ArrayList<>(map.values());
+        int randomString = new Random().nextInt(recommendationList.size());
+        String randomSuggestion = recommendationList.get(randomString);
+
+        tvIdeas.setText(randomSuggestion);
 
     }
 }
