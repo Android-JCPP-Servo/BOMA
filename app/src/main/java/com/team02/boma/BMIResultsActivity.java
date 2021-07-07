@@ -7,10 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
 
 /***************************
  * NOTES/STEPS TO COMPLETION:
@@ -49,8 +48,6 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         presenter.view.RequestProfileData(this, profileName);
     }
 
-
-
     // Function for viewing user profile in Welcome Back! page
     public void viewUserProfile(View view) { presenter.view.ShowWelcomeBackActivity(); }
     // Function for return to BOMA! homepage
@@ -86,6 +83,36 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
 
     @Override
     public void ProfileDeletedListener(boolean Success) {
+
+    }
+
+    //this is the look up table for recommendations
+    public void recommendations(){
+        TextView tvIdeas =  findViewById(R.id.ideas);
+
+
+       Map<Integer, String> map = new HashMap<>();
+        map.put(1, "Drinking water");
+        map.put(2, "jogging for 10 minutes");
+        map.put(3, " learning to do a front flip");
+        map.put(4, "selling your soul for weight loss");
+        map.put(5, "Violence is my last option");
+        map.put(6, "just feeling sad for yourself");
+        map.put(7, "maybe a personal trainer");
+        map.put(8, "Pokemon Go");
+        map.put(9, "becoming a walking postman");
+        map.put(10, "experimental laxatives");
+        map.put(11, "jumping jacks for 10 minutes");
+        map.put(12, "push ups for 10 minutes");
+        map.put(13, "finding a sport you enjoy doing");
+        map.put(14, "plotting revenge by getting buff");
+        map.put(15, "chicken training");
+        map.put(16, "finding a local charity marathon");
+        map.put(17, "engaging in politics specifically with someone against you");
+        map.put(18, "going on a mission");
+        map.put(19, "not ordering from that fast food place, you know the one");
+        map.put(20, "jogging for 10 minutes");
+        System.out.println(map.get(1));
 
     }
 }
