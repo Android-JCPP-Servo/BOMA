@@ -3,17 +3,26 @@ package com.team02.boma;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.database.DataSetObserver;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -22,6 +31,9 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
     // Every activity needs a MVPPresenter object
     MVPPresenter presenter;
     UserBMIData UserData;
+
+    // Establish Gender Array
+    String[] genderList = { "(Select a Gender)", "Male", "Female", "Other" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +51,10 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
 
         Spinner spinner = findViewById(R.id.spinnerGender);
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_array, android.R.layout.simple_spinner_item);
+        SpinnerAdapter adapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_item, genderList);
+        // ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         // Set the listener for spinner selection
@@ -74,18 +87,68 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         });
     }
 
+    private class SpinnerAdapter extends ArrayAdapter<String> {
+        Context context;
+        String[] genders = new String[] {};
+
+        public SpinnerAdapter(final Context context, final int textViewResourceId, final String[] objects) {
+            super(context, textViewResourceId, objects);
+            this.context = context;
+            this.genders = objects;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater inflater = LayoutInflater.from(context);
+                convertView = inflater.inflate(android.R.layout.simple_spinner_item, parent, false);
+            }
+            TextView tv = convertView.findViewById(android.R.id.text1);
+            tv.setText(genders[position]);
+            tv.setTextColor(Color.BLACK);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            }
+            tv.setTextSize(25);
+            return convertView;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater inflater = LayoutInflater.from(context);
+                convertView = inflater.inflate(android.R.layout.simple_spinner_item, parent, false);
+            }
+            TextView tv = convertView.findViewById(android.R.id.text1);
+            tv.setText(genders[position]);
+            tv.setTextColor(Color.BLACK);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            }
+            tv.setTextSize(25);
+            return convertView;
+        }
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+
+        // Call the Spinner to adjust primary display size
+        Spinner spinner = findViewById(R.id.spinnerGender);
+
         // There is an occasional crash when the activity has ended, but the spinner calls onItemSelected
         // check for a null adapterView and exit
-        if((TextView)adapterView.getChildAt(0) == null){
+        if(adapterView.getChildAt(0) == null){
             return;
         }
 
         // Change Spinner size and color
         // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
         ((TextView)adapterView.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
-        ((TextView)adapterView.getChildAt(0)).setTextSize(18);
+        // Text size adjustment could be done better,
+        // but this is the best way I could find so far
+        // in auto-fitting the Spinner text size.
+        ((TextView)adapterView.getChildAt(0)).setTextSize(Math.round(spinner.getMeasuredHeight()*0.225));
         //Toast.makeText(getApplicationContext(), "Gender Selected", Toast.LENGTH_SHORT).show();
     }
 
