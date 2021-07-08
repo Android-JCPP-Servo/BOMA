@@ -2,12 +2,18 @@ package com.team02.boma;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,7 +25,8 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
     MVPPresenter presenter;
 
     // Spinner adapter
-    ArrayAdapter<String> spinnerAdapter;
+    // ArrayAdapter<String> spinnerAdapter;
+    SpinnerAdapter spinnerAdapter;
 
     // Be sure to include all profile data
     String profileName;
@@ -68,8 +75,8 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         list.addAll(profileNames);
 
         // create an adapter for the the profile name spinner
-        spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_item, list);
+        // spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // update the Spinner in the UI thread
         runOnUiThread(()->{
@@ -81,6 +88,49 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             }
         );
 
+    }
+
+    private class SpinnerAdapter extends ArrayAdapter<String> {
+        Context context;
+        String[] genders;
+
+        public SpinnerAdapter(final Context context, final int textViewResourceId, final List<String> objects) {
+            super(context, textViewResourceId, objects);
+            this.context = context;
+            this.genders = objects.toArray(new String[0]);
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater inflater = LayoutInflater.from(context);
+                convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
+            }
+            TextView tv = convertView.findViewById(android.R.id.text1);
+            tv.setText(genders[position]);
+            tv.setTextColor(Color.BLACK);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            }
+            tv.setTextSize(25);
+            return convertView;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater inflater = LayoutInflater.from(context);
+                convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
+            }
+            TextView tv = convertView.findViewById(android.R.id.text1);
+            tv.setText(genders[position]);
+            tv.setTextColor(Color.BLACK);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            }
+            tv.setTextSize(25);
+            return convertView;
+        }
     }
 
     // When a profile is selected from a spinner, this method receives the profile data
@@ -140,9 +190,12 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
+        // Set up the spinner for the profile names
+        Spinner spinner = findViewById(R.id.spinnerProfileName);
+
         // There is an occasional crash when the activity has ended, but the spinner calls onItemSelected
         // check for a null adapterView and exit
-        if((TextView)adapterView.getChildAt(0) == null){
+        if(adapterView.getChildAt(0) == null){
             return;
         }
 
@@ -150,7 +203,10 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         // Change Spinner size and color
         // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
         ((TextView)adapterView.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
-        ((TextView)adapterView.getChildAt(0)).setTextSize(18);
+        // Text size adjustment could be done better,
+        // but this is the best way I could find so far
+        // in auto-fitting the Spinner text size.
+        ((TextView)adapterView.getChildAt(0)).setTextSize(Math.round(spinner.getMeasuredHeight()*0.225));
         this.profileName = (String)adapterView.getSelectedItem();
         presenter.view.RequestProfileData(this, this.profileName);
     }

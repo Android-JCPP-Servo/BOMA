@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline33"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline107"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:gravity="right"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
-        app:layout_constraintEnd_toStartOf="@+id/guideline33"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline19"
@@ -52,7 +52,7 @@
         android:gravity="right"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline21"
-        app:layout_constraintEnd_toStartOf="@+id/guideline33"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline20"
@@ -69,7 +69,7 @@
         android:gravity="right"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline22"
-        app:layout_constraintEnd_toStartOf="@+id/guideline33"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline21"
@@ -86,7 +86,7 @@
         android:gravity="right"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
-        app:layout_constraintEnd_toStartOf="@+id/guideline33"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline22"
@@ -105,9 +105,9 @@
         android:textColor="@color/text_color"
         app:backgroundTint="#BD0101"
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
-        app:layout_constraintEnd_toStartOf="@+id/guideline31"
+        app:layout_constraintEnd_toStartOf="@+id/guideline25"
         app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
+        app:layout_constraintStart_toStartOf="@+id/guideline24"
         app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
     <TextView
@@ -142,7 +142,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline22"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -160,7 +160,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline22"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline21"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -194,9 +194,9 @@
         android:text="@string/update_profile"
         app:backgroundTint="#BD0101"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
-        app:layout_constraintEnd_toStartOf="@+id/guideline31"
+        app:layout_constraintEnd_toStartOf="@+id/guideline25"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
+        app:layout_constraintStart_toStartOf="@+id/guideline24"
         app:layout_constraintTop_toTopOf="@+id/guideline30"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -237,13 +237,13 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline73"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline23"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/spinnerProfileName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:autoSizeMaxTextSize="100sp"
         android:autoSizeMinTextSize="12sp"
@@ -253,7 +253,7 @@
         android:dropDownWidth="match_parent"
         android:gravity="right"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintEnd_toStartOf="@+id/guideline33"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline18"
@@ -273,7 +273,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline19"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -291,7 +291,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline18"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -309,7 +309,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline21"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline20" />
 
     <TextView
@@ -324,9 +324,9 @@
         android:text="@string/profile_prompt"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline33"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline17"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -341,7 +341,7 @@
         android:gravity="right"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline73"
-        app:layout_constraintEnd_toStartOf="@+id/guideline33"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline23"
@@ -491,5 +491,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintGuide_percent=".50"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".025" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline108"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline109"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

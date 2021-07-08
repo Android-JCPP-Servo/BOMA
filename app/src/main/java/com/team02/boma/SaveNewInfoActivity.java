@@ -89,7 +89,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
 
     private class SpinnerAdapter extends ArrayAdapter<String> {
         Context context;
-        String[] genders = new String[] {};
+        String[] genders;
 
         public SpinnerAdapter(final Context context, final int textViewResourceId, final String[] objects) {
             super(context, textViewResourceId, objects);
@@ -101,7 +101,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(context);
-                convertView = inflater.inflate(android.R.layout.simple_spinner_item, parent, false);
+                convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
             }
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(genders[position]);
@@ -109,7 +109,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             }
-            tv.setTextSize(25);
+            tv.setTextSize(Math.round(tv.getMeasuredHeight()*0.5));
             return convertView;
         }
 
@@ -117,7 +117,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(context);
-                convertView = inflater.inflate(android.R.layout.simple_spinner_item, parent, false);
+                convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
             }
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(genders[position]);
@@ -125,7 +125,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             }
-            tv.setTextSize(25);
+            tv.setTextSize(Math.round(tv.getMeasuredHeight()*0.5));
             return convertView;
         }
     }
