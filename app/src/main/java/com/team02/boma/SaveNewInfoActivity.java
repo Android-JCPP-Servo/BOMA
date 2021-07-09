@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.Build;
@@ -87,6 +88,11 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         });
     }
 
+    /**
+     * Setting Spinner font size based on screen size
+     * Referenced from: https://stackoverflow.com/questions/4989817/set-the-textsize-to-a-text-in-spinner-in-android-programatically/4990137#4990137
+     */
+    // Set private class for SpinnerAdapter, initialized previously as Global Variable
     private class SpinnerAdapter extends ArrayAdapter<String> {
         Context context;
         String[] genders;
@@ -97,22 +103,50 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             this.genders = objects;
         }
 
+        // Establish font size, color, and dimensions of Dropdown View
         @Override
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            // If the View is null, call the Spinner list to set proper dimensions
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(context);
                 convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
             }
+            // Begin adjusting Spinner dimensions, font, and color
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(genders[position]);
             tv.setTextColor(Color.BLACK);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             }
-            tv.setTextSize(Math.round(tv.getMeasuredHeight()*0.5));
+            // Get screen size for every device
+            int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
+            switch(screenSize) {
+                // If screen size is X-Large, set text size to 40dp
+                case Configuration.SCREENLAYOUT_SIZE_XLARGE:
+                    tv.setTextSize(40);
+                    break;
+                // If screen size is Large, set text size to 30dp
+                case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                    tv.setTextSize(30);
+                    break;
+                // If screen size is Normal (Medium), set text size to 20dp
+                case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                    tv.setTextSize(20);
+                    break;
+                // If screen size is Small, set text size to 10dp
+                case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                    tv.setTextSize(10);
+                    break;
+                // No screen size was determined,
+                //  so default text size is 25dp
+                default:
+                    tv.setTextSize(25);
+            }
+            // Return the new View for the Spinner
             return convertView;
         }
 
+        // This method follows the getDropDownView method - similar to Inheritance
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
@@ -125,7 +159,23 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             }
-            tv.setTextSize(Math.round(tv.getMeasuredHeight()*0.5));
+            int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
+            switch(screenSize) {
+                case Configuration.SCREENLAYOUT_SIZE_XLARGE:
+                    tv.setTextSize(40);
+                    break;
+                case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                    tv.setTextSize(30);
+                    break;
+                case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                    tv.setTextSize(20);
+                    break;
+                case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                    tv.setTextSize(10);
+                    break;
+                default:
+                    tv.setTextSize(25);
+            }
             return convertView;
         }
     }
@@ -145,10 +195,6 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         // Change Spinner size and color
         // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
         ((TextView)adapterView.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
-        // Text size adjustment could be done better,
-        // but this is the best way I could find so far
-        // in auto-fitting the Spinner text size.
-        ((TextView)adapterView.getChildAt(0)).setTextSize(Math.round(spinner.getMeasuredHeight()*0.225));
         //Toast.makeText(getApplicationContext(), "Gender Selected", Toast.LENGTH_SHORT).show();
     }
 

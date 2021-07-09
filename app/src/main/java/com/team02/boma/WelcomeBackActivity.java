@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,26 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         // Get a list of all the profile names
         //  The list is returned in a new thread to ProfileNamesListener()
         presenter.view.RequestProfileNames(this);
+
+        // Debugger for Screen Size - used to help define Spinner font size
+        // Referenced from: https://stackoverflow.com/questions/11252067/how-do-i-get-the-screensize-programmatically-in-android#:~:text=Determine%20Screen%20Size%20%3A
+        int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
+        switch(screenSize) {
+            case Configuration.SCREENLAYOUT_SIZE_XLARGE:
+                Toast.makeText(this, "X-Large screen",Toast.LENGTH_LONG).show();
+                break;
+            case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                Toast.makeText(this, "Large screen",Toast.LENGTH_LONG).show();
+                break;
+            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                Toast.makeText(this, "Normal screen",Toast.LENGTH_LONG).show();
+                break;
+            case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                Toast.makeText(this, "Small screen",Toast.LENGTH_LONG).show();
+                break;
+            default:
+                Toast.makeText(this, "Screen size is neither large, normal or small" , Toast.LENGTH_LONG).show();
+        }
     }
 
     // Delete an unwanted or old profile
@@ -75,7 +97,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         list.addAll(profileNames);
 
         // create an adapter for the the profile name spinner
-        spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_item, list);
+        spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, list);
         // spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // update the Spinner in the UI thread
@@ -90,32 +112,66 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
     }
 
+    /**
+     * Setting Spinner font size based on screen size
+     * Referenced from: https://stackoverflow.com/questions/4989817/set-the-textsize-to-a-text-in-spinner-in-android-programatically/4990137#4990137
+     */
+    // Set private class for SpinnerAdapter, initialized previously as Global Variable
     private class SpinnerAdapter extends ArrayAdapter<String> {
+        // Initialize context and call ProfileName array
         Context context;
-        String[] genders;
+        String[] user_name;
 
         public SpinnerAdapter(final Context context, final int textViewResourceId, final List<String> objects) {
             super(context, textViewResourceId, objects);
             this.context = context;
-            this.genders = objects.toArray(new String[0]);
+            this.user_name = objects.toArray(new String[0]);
         }
 
+        // Establish font size, color, and dimensions of Dropdown View
         @Override
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            // If the View is null, call the Spinner list to set proper dimensions
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(context);
                 convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
             }
+            // Begin adjusting Spinner dimensions, font, and color
             TextView tv = convertView.findViewById(android.R.id.text1);
-            tv.setText(genders[position]);
+            tv.setText(user_name[position]);
             tv.setTextColor(Color.BLACK);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             }
-            tv.setTextSize(25);
+            // Get screen size for every device
+            int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
+            switch(screenSize) {
+                // If screen size is X-Large, set text size to 40dp
+                case Configuration.SCREENLAYOUT_SIZE_XLARGE:
+                    tv.setTextSize(40);
+                    break;
+                // If screen size is Large, set text size to 30dp
+                case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                    tv.setTextSize(30);
+                    break;
+                // If screen size is Normal (Medium), set text size to 20dp
+                case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                    tv.setTextSize(20);
+                    break;
+                // If screen size is Small, set text size to 10dp
+                case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                    tv.setTextSize(10);
+                    break;
+                // No screen size was determined,
+                //  so default text size is 25dp
+                default:
+                    tv.setTextSize(25);
+            }
+            // Return the new View for the Spinner
             return convertView;
         }
 
+        // This method follows the getDropDownView method - similar to Inheritance
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
@@ -123,12 +179,28 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
                 convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
             }
             TextView tv = convertView.findViewById(android.R.id.text1);
-            tv.setText(genders[position]);
+            tv.setText(user_name[position]);
             tv.setTextColor(Color.BLACK);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             }
-            tv.setTextSize(25);
+            int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
+            switch(screenSize) {
+                case Configuration.SCREENLAYOUT_SIZE_XLARGE:
+                    tv.setTextSize(40);
+                    break;
+                case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                    tv.setTextSize(30);
+                    break;
+                case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                    tv.setTextSize(20);
+                    break;
+                case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                    tv.setTextSize(10);
+                    break;
+                default:
+                    tv.setTextSize(25);
+            }
             return convertView;
         }
     }
@@ -203,10 +275,6 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         // Change Spinner size and color
         // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
         ((TextView)adapterView.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
-        // Text size adjustment could be done better,
-        // but this is the best way I could find so far
-        // in auto-fitting the Spinner text size.
-        ((TextView)adapterView.getChildAt(0)).setTextSize(Math.round(spinner.getMeasuredHeight()*0.225));
         this.profileName = (String)adapterView.getSelectedItem();
         presenter.view.RequestProfileData(this, this.profileName);
     }
