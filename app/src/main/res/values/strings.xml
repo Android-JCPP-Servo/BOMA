@@ -66,5 +66,27 @@
     <string name="additional_info_button">More Info</string>
     <string name="home">Home</string>
 
+    <!--BMI Chart and Tips Activity-->
+    <string name="reference_title">BMI Reference Chart and Improvement Tips</string>
+    <string name="bmi_description">
+        A person\'s Body Mass Index (BMI) is calculated based on their height and weight,
+        and can help determine which weight category an individual may fall under.
+    </string>
+    <string name="underweight">
+        <br>Children (2-19): Below the 5th Percentile.\n</br> Adults: Underweight Category.
+    </string>
+    <string name="normal_weight">
+        <br>Children (2-19): 5th - 85th Percentiles.\n</br> Adults: Normal Weight Category.
+    </string>
+    <string name="overweight">
+        <br>Children (2-19): 85th - 95th Percentiles.\n</br> Adults: Overweight Category.
+    </string>
+    <string name="obese">
+        <br>Children (2-19): Within or above the 95th Percentile.\n</br> Adults: Obese Category.
+    </string>
+    <string name="m_obese">
+         Adults: Morbidly or Extreme Obese category.
+    </string>
+
 
 </resources>

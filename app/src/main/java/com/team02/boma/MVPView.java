@@ -198,4 +198,14 @@ public class MVPView implements PresenterToView{
         // Send the profile creation result to the activity
         this.listener.ProfileDeletedListener(Success);
     }
+
+    public void ShowBMIReferenceAndChartActivity(String ProfileName) {
+        if(application.get() != null) {
+            Intent intent = new Intent(application.get(), BMIChartAndTipsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            // store the profile name to for the UpdateProfileActivity
+            intent.putExtra(EXTRA_MESSAGE_PROFILE_NAME, ProfileName);
+            application.get().startActivity(intent);
+        }
+    }
 }
