@@ -9,6 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFD80000</color>
     <color name="red_button">#FFBD0000</color>
-    <color name="text_color">#FFF8F8F8</color>
-    <color name="background_color">#FF0C0C0C</color>
+    <color name="text_color">#FFFFFFFF</color>
+    <color name="background_color">#FF000000</color>
+    <color name="dial_underweight">#FF43F9D6</color>
+    <color name="dial_normal">#FF43FA43</color>
+    <color name="dial_overweight">#F9D642</color>
+    <color name="dial_obese">#FFF98E42</color>
+    <color name="dial_morbidly_obese">#FFC62929</color>
+
 </resources>
