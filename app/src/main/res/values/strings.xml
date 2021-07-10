@@ -45,14 +45,6 @@
     <string name="save_bmi">Save BMI</string>
 
     <!--BMI Results Activity-->
-    <string name="suggestion_title">BMI Improvement Tip:</string>
-    <string-array name="improvement_suggestions">
-        <item>Be sure to drink 64 ounces of water a day.</item>
-        <item>Walk 15 minutes a day.</item>
-        <item>Eat ample fruits and vegetables with your meals.</item>
-        <item>Stretch for 10 minutes each hour.</item>
-        <item>Do 10 push-ups, 10 squats, and 10 sit-ups before the day\'s end.</item>
-    </string-array>
     <string name="dial_underweight">Underweight</string>
     <string name="dial_normal">Normal</string>
     <string name="dial_overweight">Overweight</string>
@@ -87,6 +79,37 @@
     <string name="m_obese">
          Adults: Morbidly or Extreme Obese category.
     </string>
+
+    <!-- Recommendations -->
+    <string name="suggestion_title">BMI Improvement Tip:</string>
+    <string-array name="improvement_suggestions">
+        <item>Be sure to drink 64 ounces of water a day.</item>
+        <item>Walk 15 minutes a day.</item>
+        <item>Eat ample fruits and vegetables with your meals.</item>
+        <item>Stretch for 10 minutes each hour.</item>
+        <item>Do 10 push-ups, 10 squats, and 10 sit-ups before the day\'s end.</item>
+        <item>Drinking water</item>
+        <item>Jogging for 10 minutes</item>
+        <item>Learning to do a front flip</item>
+        <item>Selling your soul for weight loss</item>
+        <item>Violence is my last option</item>
+        <item>Just feeling sad for yourself</item>
+        <item>Research &amp; hire a personal trainer</item>
+        <item>Pokemon Go</item>
+        <item>Becoming a walking postman</item>
+        <item>Experimental Laxatives</item>
+        <item>Jumping-Jacks for 10 minutes</item>
+        <item>Push ups for 10 minutes</item>
+        <item>Finding a sport you enjoy doing</item>
+        <item>Plotting revenge by getting buff</item>
+        <item>Chicken Training</item>
+        <item>Participating in a local charity marathon</item>
+        <item>Engaging in politics, specifically with someone against you</item>
+        <item>Going on a mission</item>
+        <item>Not ordering from that fast food place… you know the one</item>
+        <item>Jogging for 10 minutes</item>
+    </string-array>
+
 
 
 </resources>

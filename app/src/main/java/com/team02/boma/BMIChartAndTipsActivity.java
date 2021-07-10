@@ -49,35 +49,14 @@ public class BMIChartAndTipsActivity extends AppCompatActivity implements MVPLis
     public void recommendations(){
         TextView tvIdeas =  findViewById(R.id.ideas);
 
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, "Drinking water");
-        map.put(2, "Jogging for 10 minutes");
-        map.put(3, "Learning to do a front flip");
-        map.put(4, "Selling your soul for weight loss");
-        map.put(5, "Violence is my last option");
-        map.put(6, "Just feeling sad for yourself");
-        map.put(7, "Research & hire a personal trainer");
-        map.put(8, "Pokemon Go");
-        map.put(9, "Becoming a walking postman");
-        map.put(10, "Experimental Laxatives");
-        map.put(11, "Jumping-Jacks for 10 minutes");
-        map.put(12, "Push ups for 10 minutes");
-        map.put(13, "Finding a sport you enjoy doing");
-        map.put(14, "Plotting revenge by getting buff");
-        map.put(15, "Chicken Training");
-        map.put(16, "Participating in a local charity marathon");
-        map.put(17, "Engaging in politics, specifically with someone against you");
-        map.put(18, "Going on a mission");
-        map.put(19, "Not ordering from that fast food place...you know the one");
-        map.put(20, "Jogging for 10 minutes");
-        // System.out.println(map.get(1));
+        // Get the array of Strings from the strings.xml file
+        String[] recommendations = getResources().getStringArray(R.array.improvement_suggestions);
 
         // Initialize a Randomizer
-        List<String> recommendationList = new ArrayList<>(map.values());
-        int randomString = new Random().nextInt(recommendationList.size());
-        String randomSuggestion = recommendationList.get(randomString);
+        int randomNumber = new Random().nextInt(recommendations.length);
 
-        tvIdeas.setText(randomSuggestion);
+        // Set the TextView to the recommendation
+        tvIdeas.setText(recommendations[randomNumber]);
 
     }
 
