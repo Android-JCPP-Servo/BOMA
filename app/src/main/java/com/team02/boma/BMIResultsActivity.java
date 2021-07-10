@@ -33,6 +33,15 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
     String profileName;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Get a list of all the profile names
+        //  The list is returned in a new thread to ProfileNamesListener()
+        presenter.view.RequestProfileNames(this);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bmi_results);
@@ -65,6 +74,16 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
     @Override
     public void ProfileNamesListener(List<String> profileNames) {
 
+        if(profileNames.get(0) == null){
+            return;
+        }
+
+        // Get the profile name that was passed to this intent
+        this.profileName = profileNames.get(0);
+
+        // request the profile information from the MVP
+        //  the result is passed to the ProfileDataListener() as a callback
+        presenter.view.RequestProfileData(this, profileName);
     }
 
     @Override
