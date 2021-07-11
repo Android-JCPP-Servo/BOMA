@@ -7,12 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Random;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -69,6 +64,9 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
     // Display BMI Recommendations and Reference Chart Activity
     public void displayRecommendations(View view) {
         presenter.view.ShowBMIReferenceAndChartActivity(profileName);
+    }
+    public void showProgress(View view) {
+        presenter.view.ShowProgressGraphActivity(profileName);
     }
 
     @Override

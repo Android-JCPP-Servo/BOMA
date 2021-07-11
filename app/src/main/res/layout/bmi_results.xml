@@ -274,4 +274,15 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showProgress"
+        android:text="View Progress"
+        app:layout_constraintBottom_toTopOf="@+id/guideline51"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline37" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

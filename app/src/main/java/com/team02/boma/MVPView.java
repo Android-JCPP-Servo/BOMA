@@ -1,6 +1,5 @@
 package com.team02.boma;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 
@@ -202,6 +201,16 @@ public class MVPView implements PresenterToView{
     public void ShowBMIReferenceAndChartActivity(String ProfileName) {
         if(application.get() != null) {
             Intent intent = new Intent(application.get(), BMIChartAndTipsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            // store the profile name to for the UpdateProfileActivity
+            intent.putExtra(EXTRA_MESSAGE_PROFILE_NAME, ProfileName);
+            application.get().startActivity(intent);
+        }
+    }
+
+    public void ShowProgressGraphActivity(String ProfileName) {
+        if(application.get() != null) {
+            Intent intent = new Intent(application.get(), ProgressGraphActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             // store the profile name to for the UpdateProfileActivity
             intent.putExtra(EXTRA_MESSAGE_PROFILE_NAME, ProfileName);
