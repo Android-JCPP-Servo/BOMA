@@ -24,10 +24,6 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
     // Call data from calculator
     String profileName;
 
-    // Initialize X and Y Axes values
-    int x = 0;
-    float y = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,9 +75,6 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         graphView.getViewport().setMinX(0);
         graphView.getViewport().setMaxX(10);
 
-        // Increment X-Axis by 1
-        x += 1;
-
         // Get the intent that started this activity
         Intent intent = getIntent();
 
@@ -100,6 +93,10 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
     @Override
     public void ProfileDataListener(BMIProfile ProfileData) {
 
+        // Initialize X and Y Axes values
+        int x = 0;
+        float y = 0;
+
         // Add data to our Graph
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
@@ -107,7 +104,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         for (BMIDataChunk data: ProfileData.data) {
             y = Float.parseFloat(String.valueOf(data.bmi));
             series.appendData(new DataPoint(x, y), true, 100);
-            this.x++;
+            x++;
         }
 
         // update the graph
