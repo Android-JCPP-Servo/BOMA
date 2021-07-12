@@ -21,9 +21,6 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
     // Create a variable for our Graph
     GraphView graphView;
 
-    // Add data to our Graph
-    LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
-
     // Call data from calculator
     String profileName;
 
@@ -103,11 +100,18 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
     @Override
     public void ProfileDataListener(BMIProfile ProfileData) {
 
-        // Append series data to Graph
-        y = Float.parseFloat(String.valueOf(ProfileData.lastBMI));
-        series.appendData(new DataPoint(x, y), true, 100);
-        graphView.addSeries(series);
+        // Add data to our Graph
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
+        // go through all the BMIDataChunk entries
+        for (BMIDataChunk data: ProfileData.data) {
+            y = Float.parseFloat(String.valueOf(data.bmi));
+            series.appendData(new DataPoint(x, y), true, 100);
+            this.x++;
+        }
+
+        // update the graph
+        graphView.addSeries(series);
     }
 
     @Override
