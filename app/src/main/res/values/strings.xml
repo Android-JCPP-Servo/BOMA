@@ -1,6 +1,7 @@
 <resources>
     <!--Main Activity-->
     <string name="app_name">BOMA! BMI Calculator</string>
+    <string name="splash_title">BOMA!</string>
     <string name="save_string">BOMA_Save_Data</string>
     <string name="welcome">Welcome to BOMA!</string>
     <string name="info_input">Click to Insert Info</string>
@@ -53,6 +54,7 @@
     <string name="bmi_results">Your BMI Index is:</string>
     <string name="view_profile_prompt">Tap below to view your profile</string>
     <string name="view_profile">View Profile</string>
+    <string name="view_progress">View Progress</string>
     <string name="main_screen_prompt">Tap below to return to main screen.</string>
     <string name="additional_info_prompt">To learn more about BMI indices, tap below.</string>
     <string name="additional_info_button">More Info</string>
