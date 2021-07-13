@@ -155,7 +155,7 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
             imageView.setRotation(0);
         });
 
-        // create a new thread and execute it after a five second delay
+        // create a new thread and execute it after a four second delay
         Thread thread=new Thread(()->{
             try {
                 Thread.sleep(4000);
@@ -174,8 +174,7 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
 
         // Start the new thread to set the dial text and text color
         thread.start();
-
-
+        
     }
 
     @Override
