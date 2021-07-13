@@ -44,6 +44,11 @@
     <string name="error_age">* Please enter a valid age.</string>
     <string name="error_profile">* Profile name already in use.</string>
     <string name="save_bmi">Save BMI</string>
+    <string name="hint_profile_name">Profile Name</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_weight">Weight</string>
+    <string name="hint_inches">Inches</string>
+    <string name="hint_feet">Feet</string>
 
     <!--BMI Results Activity-->
     <string name="dial_underweight">Underweight</string>
@@ -61,6 +66,7 @@
     <string name="home">Home</string>
 
     <!--BMI Chart and Tips Activity-->
+    <string name="bmi_chart">BMI Chart</string>
     <string name="reference_title">BMI Reference Chart and Improvement Tips</string>
     <string name="bmi_description">
         A person\'s Body Mass Index (BMI) is calculated based on their height and weight,

@@ -66,6 +66,7 @@
         android:id="@+id/imageView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/bmi_chart"
         app:layout_constraintBottom_toTopOf="@+id/guideline128"
         app:layout_constraintEnd_toStartOf="@+id/guideline116"
         app:layout_constraintHorizontal_bias="1.0"
