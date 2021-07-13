@@ -8,6 +8,11 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * MVPModel handles the BMIDataManager object.
+ * It's methods should be called from the MVPPresenter.
+ * Many methods return status messages and data to the MVPPresenter upon completion.
+ */
 public class MVPModel implements PresenterToModel, Runnable{
 
     // Store a handle to the Presenter for requesting and sending data
@@ -57,8 +62,9 @@ public class MVPModel implements PresenterToModel, Runnable{
         if(bmiManager.allProfiles.LastLoadedProfile != null){
             // Make sure the profile name exists
             for (BMIProfile profile: bmiManager.allProfiles.profile) {
-                if(profile.name.equals(bmiManager.allProfiles.LastLoadedProfile)){
+                if (profile.name.equals(bmiManager.allProfiles.LastLoadedProfile)) {
                     lastProfileName = bmiManager.allProfiles.LastLoadedProfile;
+                    break;
                 }
             }
         }
@@ -89,7 +95,7 @@ public class MVPModel implements PresenterToModel, Runnable{
 
     /*
     For each of these member functions, parameters must be replaced with member variables.
-    This is needed because threads cannot be created for a function with arguments/parameters.
+    This is needed because these threads are not created with functions that use arguments/parameters.
      */
 
     /**
@@ -116,9 +122,6 @@ public class MVPModel implements PresenterToModel, Runnable{
      * CreateProfile
      * Uses the member variable String ProfileName as a parameter
      * Creates a new profile name
-     */
-    /*
-    todo: Create a member function for the MVPModel to receive any error messages
      */
     @Override
     public void CreateProfile() {
@@ -150,26 +153,9 @@ public class MVPModel implements PresenterToModel, Runnable{
     }
 
     /**
-     * UpdateProfile
-     * Uses the member variable String ProfileName as a parameter
-     * Updates an existing profile of user's choice
-     */
-    /*
-    @Override
-    public void UpdateProfile() {
-        // TODO: Call the last loaded profile information for height (i.e. feet & inches), weight, and age
-        presenter.view.RequestBMI(listener, userData);
-    }
-
-     */
-
-    /**
      * CreateProfile
      * Uses the member variable String ProfileName as a parameter
      * Delete a profile from the data
-     */
-    /*
-    todo: Create a member function for the MVPModel to receive any error messages
      */
     @Override
     public void DeleteProfile() {

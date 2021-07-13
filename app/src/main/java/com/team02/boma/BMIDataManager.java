@@ -28,7 +28,7 @@ public class BMIDataManager{
 
     /**
      * SaveData() will serialize the allProfiles member variable and save it to the
-     * shared preferences file
+     * shared preferences file 
      */
     public void SaveData(){
         // get the application context.
@@ -54,7 +54,7 @@ public class BMIDataManager{
 
     /**
      * LoadData() will get the serialize data from the shared preferences file and load the
-     * allProfiles member variable.
+     * allProfiles member variable. 
      */
     public void LoadData(){
 
