@@ -83,26 +83,27 @@
     <!-- Recommendations -->
     <string name="suggestion_title">BMI Improvement Tip:</string>
     <string-array name="improvement_suggestions">
-        <item>Be sure to drink 64 ounces of water a day.</item>
+        <item>try to check in with yourself, do you feel healthy.</item>
         <item>Walk 15 minutes a day.</item>
         <item>Eat ample fruits and vegetables with your meals.</item>
+        <item>Making sure you eat a balanced meal.</item>
         <item>Stretch for 10 minutes each hour.</item>
         <item>Do 10 push-ups, 10 squats, and 10 sit-ups before the day\'s end.</item>
         <item>Drinking water</item>
         <item>Jogging for 10 minutes</item>
         <item>Learning to do a front flip</item>
-        <item>Selling your soul for weight loss</item>
-        <item>Violence is my last option</item>
-        <item>Just feeling sad for yourself</item>
+        <item>Checking with a dietitian</item>
+        <item>Doing 10 push ups</item>
+        <item>getting a physical from a doctor</item>
         <item>Research &amp; hire a personal trainer</item>
         <item>Pokemon Go</item>
         <item>Becoming a walking postman</item>
-        <item>Experimental Laxatives</item>
+        <item>finding encouraging ways to exercise</item>
         <item>Jumping-Jacks for 10 minutes</item>
         <item>Push ups for 10 minutes</item>
         <item>Finding a sport you enjoy doing</item>
         <item>Plotting revenge by getting buff</item>
-        <item>Chicken Training</item>
+        <item>taking your pet for a walk</item>
         <item>Participating in a local charity marathon</item>
         <item>Engaging in politics, specifically with someone against you</item>
         <item>Going on a mission</item>
