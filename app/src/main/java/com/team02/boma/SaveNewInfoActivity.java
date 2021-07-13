@@ -1,12 +1,12 @@
 package com.team02.boma;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
-import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,14 +19,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.List;
 
+/**
+ * SaveNewInfoActivity class
+ */
 public class SaveNewInfoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, MVPListener{
 
     // Every activity needs a MVPPresenter object
@@ -105,7 +104,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
 
         // Establish font size, color, and dimensions of Dropdown View
         @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
             // If the View is null, call the Spinner list to set proper dimensions
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(context);
@@ -183,9 +182,6 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
 
-        // Call the Spinner to adjust primary display size
-        Spinner spinner = findViewById(R.id.spinnerGender);
-
         // There is an occasional crash when the activity has ended, but the spinner calls onItemSelected
         // check for a null adapterView and exit
         if(adapterView.getChildAt(0) == null){
@@ -195,7 +191,6 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         // Change Spinner size and color
         // Referenced from: https://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color
         ((TextView)adapterView.getChildAt(0)).setTextColor(Color.rgb(255, 255, 255));
-        //Toast.makeText(getApplicationContext(), "Gender Selected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
