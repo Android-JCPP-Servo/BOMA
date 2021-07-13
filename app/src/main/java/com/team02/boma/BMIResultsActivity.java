@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
+import java.util.Locale;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -58,7 +59,8 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
     }
 
     // Function for viewing user profile in Welcome Back! page
-    public void viewUserProfile(View view) { presenter.view.ShowWelcomeBackActivity(); }
+    //public void viewUserProfile(View view) { presenter.view.ShowWelcomeBackActivity(); }
+
     // Function for return to BOMA! homepage
     public void goToHome(View view) { presenter.view.ShowMainActivity(); }
     // Display BMI Recommendations and Reference Chart Activity
@@ -140,18 +142,18 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         // Since the message is in a TextView, run it on the UiThread
         runOnUiThread(() -> {
             TextView textViewBMI = findViewById(R.id.textViewBMI);
-            String userBMI = String.format("%.1f", ProfileData.lastBMI);
+            String userBMI = String.format(Locale.getDefault() ,"%.1f", ProfileData.lastBMI);
             textViewBMI.setText(userBMI);
             // Rotate dial image
-            GifImageView imageView = (GifImageView) findViewById(R.id.image_dial);
+            GifImageView imageView = findViewById(R.id.image_dial);
             imageView.setRotation(angle);
 
             // set the rotation of the spacer to 0. This will change the Z-order
-            imageView = (GifImageView) findViewById(R.id.image_spacer);
+            imageView = findViewById(R.id.image_spacer);
             imageView.setRotation(0);
 
             // set the rotation of the needle to 0. This will change the Z-order
-            imageView = (GifImageView) findViewById(R.id.image_needle);
+            imageView = findViewById(R.id.image_needle);
             imageView.setRotation(0);
         });
 
@@ -174,7 +176,7 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
 
         // Start the new thread to set the dial text and text color
         thread.start();
-        
+
     }
 
     @Override

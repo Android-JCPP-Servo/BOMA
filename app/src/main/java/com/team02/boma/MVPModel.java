@@ -200,8 +200,11 @@ public class MVPModel implements PresenterToModel, Runnable{
 
         // Get the time and clear the hours, minutes, and seconds.
         this.userData.date = new Date(date);
+        //noinspection deprecation
         this.userData.date.setHours(0);
+        //noinspection deprecation
         this.userData.date.setMinutes(0);
+        //noinspection deprecation
         this.userData.date.setSeconds(0);
 
         // Create the user profile // it may already be created.

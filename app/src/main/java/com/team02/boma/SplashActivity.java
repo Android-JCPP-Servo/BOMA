@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
+import java.util.Objects;
+
 public class SplashActivity extends AppCompatActivity {
 
     // Splash Screen capability referenced from: https://www.youtube.com/watch?v=91aiFKBgi8w
@@ -16,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
 
         // Set the Splash Screen to Full Screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_splash);
 

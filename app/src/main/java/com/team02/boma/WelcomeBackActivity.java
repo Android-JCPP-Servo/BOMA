@@ -1,5 +1,6 @@
 package com.team02.boma;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,12 +15,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class WelcomeBackActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, MVPListener {
 
@@ -93,8 +94,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         Spinner spinner = findViewById(R.id.spinnerProfileName);
 
         // create a new list for the spinner adapter
-        List<String> list = new ArrayList<>();
-        list.addAll(profileNames);
+        List<String> list = new ArrayList<>(profileNames);
 
         // create an adapter for the the profile name spinner
         spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, list);
@@ -130,7 +130,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
         // Establish font size, color, and dimensions of Dropdown View
         @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
             // If the View is null, call the Spinner list to set proper dimensions
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(context);
@@ -219,7 +219,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         int feet = (int)(ProfileData.lastHeight / 12);
         int inches = (int)(ProfileData.lastHeight % 12);
         String height = Integer.toString(feet);
-        height += "\' ";
+        height += "' ";
         height += Integer.toString(inches);
         height += "\"";
         String finalHeight = height; // without the copy, the compiler displayed an error.
@@ -230,10 +230,10 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             tvGender.setText(ProfileData.gender);
             tvHeight.setText(finalHeight);
             // Changed from Integer to Float because some weight scales measure with decimal points
-            tvWeight.setText(Float.toString(ProfileData.lastWeight) + " lbs.");
-            tvAge.setText(Integer.toString(ProfileData.age));
+            tvWeight.setText(String.format(Locale.getDefault(),"%.1f lbs.", ProfileData.lastWeight));
+            tvAge.setText(String.format(Locale.getDefault(),"%d", ProfileData.age));
             // Set BMI Display to one decimal place
-            String updateBMI = String.format("%.1f", ProfileData.lastBMI);
+            String updateBMI = String.format(Locale.getDefault(),"%.1f", ProfileData.lastBMI);
             tvBMI.setText(updateBMI);
         });
     }
@@ -261,9 +261,6 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-        // Set up the spinner for the profile names
-        Spinner spinner = findViewById(R.id.spinnerProfileName);
 
         // There is an occasional crash when the activity has ended, but the spinner calls onItemSelected
         // check for a null adapterView and exit

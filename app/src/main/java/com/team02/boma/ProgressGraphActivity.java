@@ -95,7 +95,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
 
         // Initialize X and Y Axes values
         int x = 0;
-        float y = 0;
+        float y;
 
         // Add data to our Graph
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();

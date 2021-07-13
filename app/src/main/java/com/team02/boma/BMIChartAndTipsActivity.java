@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Locale;
 import java.util.Random;
 
 public class BMIChartAndTipsActivity extends AppCompatActivity implements MVPListener{
@@ -70,7 +68,7 @@ public class BMIChartAndTipsActivity extends AppCompatActivity implements MVPLis
         // Since the message is in a TextView, run it on the UiThread
         runOnUiThread(() -> {
             TextView referenceBMI = findViewById(R.id.referenceBMI);
-            String userBMI = "Your BMI is: " + String.format("%.1f", ProfileData.lastBMI);
+            String userBMI = "Your BMI is: " + String.format(Locale.getDefault(), "%.1f", ProfileData.lastBMI);
             referenceBMI.setText(userBMI);
         });
     }

@@ -12,10 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 public class UpdateProfileActivity extends AppCompatActivity implements MVPListener{
 
@@ -167,13 +165,13 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         int feet = (int)(ProfileData.lastHeight / 12);
         int inches = (int)(ProfileData.lastHeight % 12);
 
-        // set the TextView info
-        tvFeet.setText(Integer.toString(feet));
-        tvInches.setText(Integer.toString(inches));
+        // set the TextView info for feet and inches
+        tvFeet.setText(String.format(Locale.getDefault(),"%d", feet));
+        tvInches.setText(String.format(Locale.getDefault(),"%d", inches));
         // Changed from Integer to Float because some weight scales measure with decimal points
-        tvWeight.setText(Float.toString(ProfileData.lastWeight));
+        tvWeight.setText(String.format(Locale.getDefault(),"%.1f", ProfileData.lastWeight));
         //tvWeight.setText(Integer.toString((int)ProfileData.lastWeight));
-        tvAge.setText(Integer.toString(ProfileData.age));
+        tvAge.setText(String.format(Locale.getDefault(),"%d", ProfileData.age));
 
     }
 
