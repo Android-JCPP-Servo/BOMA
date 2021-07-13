@@ -8,7 +8,10 @@ import com.google.gson.Gson;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-
+/**
+ * BMIDataManager is used to construct, save, and load all the profile data
+ * MVPModel will be responsible for inserting and removing data from this class/object
+ */
 public class BMIDataManager{
 
     // activity == reference to an activity to receive status messages when saving and loading data
@@ -23,9 +26,11 @@ public class BMIDataManager{
         allProfiles = new BMIAllProfiles();
     }
 
+    /**
+     * SaveData() will serialize the allProfiles member variable and save it to the
+     * shared preferences file
+     */
     public void SaveData(){
-
-
         // get the application context.
         Application app = this.application.get();
         //Do we have a valid context? it's needed to load data
@@ -47,6 +52,10 @@ public class BMIDataManager{
         editor.apply();
     }
 
+    /**
+     * LoadData() will get the serialize data from the shared preferences file and load the
+     * allProfiles member variable.
+     */
     public void LoadData(){
 
         // get the application context.
@@ -74,5 +83,4 @@ public class BMIDataManager{
         }
     }
     
-
 }
