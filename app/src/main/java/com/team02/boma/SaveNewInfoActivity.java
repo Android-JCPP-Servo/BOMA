@@ -290,12 +290,10 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         this.UserData.age = Age;
 
         // Try and create the profile.
+        // RequestBMI will automatically create a profile if it doesn't exist
         // Use ProfileCreatedListener to check for results.
+        presenter.view.RequestBMI(this, this.UserData);
 
-        presenter.view.CreateProfile(this, this.UserData);
-
-        // Display a message indicated the user's profile was created
-        Toast.makeText(SaveNewInfoActivity.this, "BMI Profile Created", Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -308,12 +306,17 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
     public void ProfileCreatedListener(boolean Success) {
         if(Success){
 
-            // A profile has been created. Process the first BMI calculations
-            presenter.view.RequestBMI(this, this.UserData);
+            // A profile has been created.
 
             //Display an activity that shows the calculated BMI
             // Remember, run anything that changes the UI on the UI thread
-            runOnUiThread(() -> presenter.view.ShowBMIResultsActivity(this.UserData.ProfileName));
+            runOnUiThread(() -> {
+                // Display a message indicated the user's profile was created
+                Toast.makeText(SaveNewInfoActivity.this, "BMI Profile Created", Toast.LENGTH_LONG).show();
+
+                // Go to the BMIResultsActivity
+                presenter.view.ShowBMIResultsActivity(this.UserData.ProfileName);
+            });
         }
 
         // If the profile could not be created, display an error
