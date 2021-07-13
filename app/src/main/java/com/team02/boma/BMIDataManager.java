@@ -82,5 +82,5 @@ public class BMIDataManager{
             allProfiles.profile = new ArrayList<>();
         }
     }
-    
+
 }
