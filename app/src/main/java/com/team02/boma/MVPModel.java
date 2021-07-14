@@ -195,7 +195,7 @@ public class MVPModel implements PresenterToModel, Runnable{
         //  For storing and viewing BMI data, There should be one stored sample per day.
         //  By adjusting the time stamp to the day, it will be easier to find multiple entries
         // Clear the milliseconds
-        long date = (int)(new Date().getTime()) / 1000;
+        long date = (new Date().getTime()) / 1000;
         date *= 1000;
 
         // Get the time and clear the hours, minutes, and seconds.
