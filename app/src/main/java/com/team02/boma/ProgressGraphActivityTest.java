@@ -81,12 +81,12 @@ public class ProgressGraphActivityTest extends AppCompatActivity implements MVPL
 
         // Set Y-Axis
         graphView.getViewport().setMinY(10);
-        graphView.getViewport().setMaxY(50);
+        graphView.getViewport().setMaxY(80);
 
         // Set X-Axis
     //    graphView.getViewport().setMinX(0);
     //    graphView.getViewport().setMaxX(6);
-    //    graphView.getGridLabelRenderer().setNumHorizontalLabels(12);
+    //    graphView.getGridLabelRenderer().setNumHorizontalLabels(7);
     //    graphView.getViewport().setXAxisBoundsManual(true);
 
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
@@ -105,8 +105,7 @@ public class ProgressGraphActivityTest extends AppCompatActivity implements MVPL
                     return output;
 
                 } else {
-                    // return a blank label
-                    return "";
+                    return super.formatLabel(value, false);
                 }
 
             }
