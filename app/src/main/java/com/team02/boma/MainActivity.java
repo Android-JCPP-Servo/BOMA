@@ -10,9 +10,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("total_launches", i);
             editor.apply();
         }
+
+        //sets quote
+        quote();
     }
 
     private void createNotificationChannel() {
@@ -86,5 +92,19 @@ public class MainActivity extends AppCompatActivity {
     // Code to view previously saved User data
     public void viewPreviousProfile(View view) {
         presenter.view.ShowWelcomeBackActivity();
+    }
+
+    public void quote(){
+        TextView tvQuote =  findViewById(R.id.quote);
+
+        // Get the array of Strings from the strings.xml file
+        String[] Quotes = getResources().getStringArray(R.array.quotes);
+
+        // Initialize a Randomizer
+        int randomNumber = new Random().nextInt(Quotes.length);
+
+        // Set the TextView to the recommendation
+        tvQuote.setText(Quotes[randomNumber]);
+
     }
 }

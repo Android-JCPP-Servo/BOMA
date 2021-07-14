@@ -119,5 +119,39 @@
         <item>Jogging for 10 minutes</item>
     </string-array>
 
+    <!--quote-->
+    <string-array name="quotes">
+        <item>"Success is not final, failure is not fatal:
+            it is the courage to continue that counts." - Winston Churchill</item>
+        <item>"Never bend your head. Always hold it high.
+            Look the world straight in the eye." - Helen Keller</item>
+        <item>"Believe you can and you\'re halfway there" - Theodore Roosevelt</item>
+        <item>"Life is like riding a bicycle.
+            To keep your balance, you must keep moving." - Albert Einstein</item>
+        <item>"Nothing is impossible.
+            The word itself says I/'m possible" - Audrey Hepburn</item>
+        <item>"You are never too old to set another goal
+            or to dream a new dream" - C.S. Lewis</item>
+        <item>"Sometimes you will never know the value of a moment,
+            until it becomes a memory." - Dr. Seuss</item>
+        <item>"You must do the things you think you cannot do." - Eleanor roosevelt</item>
+        <item>"Be the change that you wish to see in the world." - Mahatma Gandhi</item>
+        <item>"Let us make our Future now,
+            and let us make our dreams tomorrow/'s reality." - Malala Yousafzai</item>
+        <item>"If I cannot do great things,
+            I can do small things in a great way." - Martin Luther King Jr.</item>
+        <item>"Spread love everywhere you go" - Mother Teresa</item>
+        <item>"The best way to get started is to quite talking and begin doing." - Walt Disney</item>
+        <item>"The only limit to our realization
+            of tomorrow will be our doubts of today." - Franklin D. Roosevelt</item>
+        <item>"Memories of our lives, of our works and
+            our deeds will continue in others." - Rosa Parks</item>
+        <item>"How wonderful it is that nobody need wait
+            a single moment before starting to improve the world" - Anne Frank</item>
+        <item>"the best way to cheer yourself up is to
+            try to cheer somebody else up" - Mark Twain</item>
+
+    </string-array>
+
 
 </resources>
