@@ -1,13 +1,9 @@
 package com.team02.boma;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,26 +53,6 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         // Get a list of all the profile names
         //  The list is returned in a new thread to ProfileNamesListener()
         presenter.view.RequestProfileNames(this);
-
-        // Debugger for Screen Size - used to help define Spinner font size
-        // Referenced from: https://stackoverflow.com/questions/11252067/how-do-i-get-the-screensize-programmatically-in-android#:~:text=Determine%20Screen%20Size%20%3A
-        int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
-        switch(screenSize) {
-            case Configuration.SCREENLAYOUT_SIZE_XLARGE:
-                Toast.makeText(this, "X-Large screen",Toast.LENGTH_LONG).show();
-                break;
-            case Configuration.SCREENLAYOUT_SIZE_LARGE:
-                Toast.makeText(this, "Large screen",Toast.LENGTH_LONG).show();
-                break;
-            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
-                Toast.makeText(this, "Normal screen",Toast.LENGTH_LONG).show();
-                break;
-            case Configuration.SCREENLAYOUT_SIZE_SMALL:
-                Toast.makeText(this, "Small screen",Toast.LENGTH_LONG).show();
-                break;
-            default:
-                Toast.makeText(this, "Screen size is neither large, normal or small" , Toast.LENGTH_LONG).show();
-        }
     }
 
     // Delete an unwanted or old profile
@@ -140,10 +118,9 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(user_name[position]);
             tv.setTextColor(Color.BLACK);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-            }
-            // Get screen size for every device
+            tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            // Get screen size for every device - used to help define Spinner font size
+            // Referenced from: https://stackoverflow.com/questions/11252067/how-do-i-get-the-screensize-programmatically-in-android#:~:text=Determine%20Screen%20Size%20%3A
             int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
             switch(screenSize) {
                 // If screen size is X-Large, set text size to 40dp
@@ -181,9 +158,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(user_name[position]);
             tv.setTextColor(Color.BLACK);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-            }
+            tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
             switch(screenSize) {
                 case Configuration.SCREENLAYOUT_SIZE_XLARGE:

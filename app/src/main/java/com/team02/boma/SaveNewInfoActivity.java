@@ -1,14 +1,9 @@
 package com.team02.boma;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -21,6 +16,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import java.util.List;
 
 /**
@@ -114,10 +114,9 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(genders[position]);
             tv.setTextColor(Color.BLACK);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-            }
-            // Get screen size for every device
+            tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            // Get screen size for every device - used to help define Spinner font size
+            // Referenced from: https://stackoverflow.com/questions/11252067/how-do-i-get-the-screensize-programmatically-in-android#:~:text=Determine%20Screen%20Size%20%3A
             int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
             switch(screenSize) {
                 // If screen size is X-Large, set text size to 40dp
@@ -155,9 +154,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(genders[position]);
             tv.setTextColor(Color.BLACK);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-            }
+            tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
             switch(screenSize) {
                 case Configuration.SCREENLAYOUT_SIZE_XLARGE:

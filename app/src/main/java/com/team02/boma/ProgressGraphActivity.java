@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -73,7 +74,20 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         graphView.getGridLabelRenderer().setHorizontalAxisTitle("Date");
         graphView.getViewport().setXAxisBoundsManual(true);
         graphView.getViewport().setMinX(0);
-        graphView.getViewport().setMaxX(10);
+        graphView.getViewport().setMaxX(6);
+        graphView.getViewport().setMinY(10);
+        graphView.getViewport().setMaxY(50);
+        graphView.getGridLabelRenderer().setNumHorizontalLabels(7);
+        graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+                if (isValueX) {
+                    return "Day " + (int) (value + 1);
+                } else {
+                    return super.formatLabel(value, false);
+                }
+            }
+        });
 
         // Get the intent that started this activity
         Intent intent = getIntent();
@@ -98,6 +112,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         float y;
 
         // Add data to our Graph
+        // Display series data and points
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
         // go through all the BMIDataChunk entries
@@ -109,6 +124,10 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
 
         // update the graph
         graphView.addSeries(series);
+        series.setDrawDataPoints(true);
+        series.setDataPointsRadius(10);
+        series.setThickness(8);
+        series.setColor(R.color.red_button);
     }
 
     @Override
