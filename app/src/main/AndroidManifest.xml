@@ -58,13 +58,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ProgressGraphActivity" />
         </activity>
-        <activity
-            android:name=".ProgressGraphActivityTest"
-            android:parentActivityName=".BMIResultsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ProgressGraphActivity" />
-        </activity>
         <activity android:name=".MainActivity" />
 
         <receiver android:name=".NotifyService" />

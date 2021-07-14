@@ -11,7 +11,10 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ProgressGraphActivity extends AppCompatActivity implements MVPListener {
 
@@ -21,6 +24,9 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
 
     // Create a variable for our Graph
     GraphView graphView;
+
+    // Store a array of Dates for the graph
+    ArrayList<Date> graphDates;
 
     // Call data from calculator
     String profileName;
@@ -35,6 +41,8 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
             presenter = new MVPPresenter(this.getApplication());
         }
 
+        graphDates = new ArrayList<>();
+
         // Initialize our Graph
         graphView = findViewById(R.id.bmiGraph);
 
@@ -42,7 +50,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         graphView.setTitle("BMI Progress Graph");
 
         // Set title text color
-        graphView.setTitleColor(R.color.red_button);
+        graphView.setTitleColor(getColor(R.color.red_button));
 
         // Set title font size
         int screenSize = getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
@@ -73,22 +81,33 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
 
         // Set Y-Axis
         graphView.getViewport().setMinY(10);
-        graphView.getViewport().setMaxY(50);
+        graphView.getViewport().setMaxY(80);
 
         // Set X-Axis
-        graphView.getViewport().setMinX(0);
-        graphView.getViewport().setMaxX(6);
-        graphView.getGridLabelRenderer().setNumHorizontalLabels(7);
+        //    graphView.getViewport().setMinX(0);
+        //    graphView.getViewport().setMaxX(6);
+        //    graphView.getGridLabelRenderer().setNumHorizontalLabels(7);
+        //    graphView.getViewport().setXAxisBoundsManual(true);
 
-        graphView.getViewport().setXAxisBoundsManual(true);
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
             public String formatLabel(double value, boolean isValueX) {
+                String output;
                 if (isValueX) {
-                    return "Day " + (int)(value + 1);
+                    try {
+                        Date date = graphDates.get((int)value);
+                        //noinspection deprecation
+                        output = String.format(Locale.getDefault(), " %d/%d ", date.getMonth() +1, date.getDate());
+                    }catch (IndexOutOfBoundsException e){
+                        // the index is out of bounds return an empty string
+                        output = "";
+                    }
+                    return output;
+
                 } else {
                     return super.formatLabel(value, false);
                 }
+
             }
         });
 
@@ -114,23 +133,27 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         int x = 0;
         float y;
 
+        // clear the graphDates before adding to the list
+        graphDates.clear();
+
         // Add data to our Graph
         // Display series data and points
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
         // go through all the BMIDataChunk entries
         for (BMIDataChunk data: ProfileData.data) {
+            graphDates.add(x, data.day);
             y = Float.parseFloat(String.valueOf(data.bmi));
             series.appendData(new DataPoint(x, y), true, 100);
             x++;
         }
 
         // update the graph
-        graphView.addSeries(series);
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(10);
         series.setThickness(8);
-        series.setColor(R.color.red_button);
+        series.setColor(getColor(R.color.red_button));
+        graphView.addSeries(series);
     }
 
     @Override
