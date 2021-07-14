@@ -11,7 +11,9 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class ProgressGraphActivity extends AppCompatActivity implements MVPListener {
 
@@ -70,19 +72,29 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         }
 
         // Edit X- and Y-Axis Data and Intervals
+
+        // Set Y-Axis
         graphView.getGridLabelRenderer().setVerticalAxisTitle("BMI Progress");
-        graphView.getGridLabelRenderer().setHorizontalAxisTitle("Date");
-        graphView.getViewport().setXAxisBoundsManual(true);
-        graphView.getViewport().setMinX(0);
-        graphView.getViewport().setMaxX(6);
+        graphView.getGridLabelRenderer().setVerticalAxisTitleTextSize(10);
         graphView.getViewport().setMinY(10);
         graphView.getViewport().setMaxY(50);
+
+        // Set X-Axis
+        graphView.getGridLabelRenderer().setHorizontalAxisTitle("Date");
+        graphView.getGridLabelRenderer().setHorizontalAxisTitleTextSize(10);
+        graphView.getViewport().setMinX(0);
+        graphView.getViewport().setMaxX(6);
         graphView.getGridLabelRenderer().setNumHorizontalLabels(7);
+
+        graphView.getViewport().setXAxisBoundsManual(true);
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
             public String formatLabel(double value, boolean isValueX) {
                 if (isValueX) {
-                    return "Day " + (int) (value + 1);
+                    Calendar calendar = Calendar.getInstance(Locale.getDefault());
+                    value = calendar.get(Calendar.DAY_OF_MONTH);
+                    calendar.add(Calendar.DATE, 1);
+                    return (calendar.get(Calendar.MONTH) + 1) + "/" + (int)value;
                 } else {
                     return super.formatLabel(value, false);
                 }
