@@ -128,7 +128,9 @@ public class MVPView implements PresenterToView{
      */
     public void ShowProgressGraphActivity(String ProfileName) {
         if(application.get() != null) {
-            Intent intent = new Intent(application.get(), ProgressGraphActivity.class);
+            //Intent intent = new Intent(application.get(), ProgressGraphActivity.class);
+            /*TODO: this is just a test*/
+            Intent intent = new Intent(application.get(), ProgressGraphActivityTest.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             // store the profile name to for the UpdateProfileActivity
             intent.putExtra(EXTRA_MESSAGE_PROFILE_NAME, ProfileName);
