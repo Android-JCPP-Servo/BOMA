@@ -121,36 +121,107 @@
 
     <!--quote-->
     <string-array name="quotes">
-        <item>"Success is not final, failure is not fatal:
-            it is the courage to continue that counts." - Winston Churchill</item>
-        <item>"Never bend your head. Always hold it high.
-            Look the world straight in the eye." - Helen Keller</item>
-        <item>"Believe you can and you\'re halfway there" - Theodore Roosevelt</item>
-        <item>"Life is like riding a bicycle.
-            To keep your balance, you must keep moving." - Albert Einstein</item>
-        <item>"Nothing is impossible.
-            The word itself says I/'m possible" - Audrey Hepburn</item>
-        <item>"You are never too old to set another goal
-            or to dream a new dream" - C.S. Lewis</item>
-        <item>"Sometimes you will never know the value of a moment,
-            until it becomes a memory." - Dr. Seuss</item>
-        <item>"You must do the things you think you cannot do." - Eleanor roosevelt</item>
-        <item>"Be the change that you wish to see in the world." - Mahatma Gandhi</item>
-        <item>"Let us make our Future now,
-            and let us make our dreams tomorrow/'s reality." - Malala Yousafzai</item>
-        <item>"If I cannot do great things,
-            I can do small things in a great way." - Martin Luther King Jr.</item>
-        <item>"Spread love everywhere you go" - Mother Teresa</item>
-        <item>"The best way to get started is to quite talking and begin doing." - Walt Disney</item>
-        <item>"The only limit to our realization
-            of tomorrow will be our doubts of today." - Franklin D. Roosevelt</item>
-        <item>"Memories of our lives, of our works and
-            our deeds will continue in others." - Rosa Parks</item>
-        <item>"How wonderful it is that nobody need wait
-            a single moment before starting to improve the world" - Anne Frank</item>
-        <item>"the best way to cheer yourself up is to
-            try to cheer somebody else up" - Mark Twain</item>
-
+        <item>
+            <br>\"Success is not final,\n</br>
+            <br>failure is not fatal:\n</br>
+            <br>it is the courage\n</br>
+            <br>to continue that counts.\"\n</br>
+            - Winston Churchill
+        </item>
+        <item>
+            <br>\"Never bend your head.\n</br>
+            <br>Always hold it high.\n</br>
+            <br>Look the world\n</br>
+            <br>straight in the eye.\"\n</br>
+            - Helen Keller
+        </item>
+        <item>
+            <br>\"Believe you can and\n</br>
+            <br>you\'re halfway there.\"\n</br>
+            - Theodore Roosevelt
+        </item>
+        <item>
+            <br>\"Life is like riding a bicycle.\n</br>
+            <br>To keep your balance,\n</br>
+            <br>you must keep moving.\"\n</br>
+            - Albert Einstein
+        </item>
+        <item>
+            <br>\"Nothing is impossible.\n</br>
+            <br>The word itself says\n</br>
+            <br>I\'m possible.\"\n</br>
+            - Audrey Hepburn
+        </item>
+        <item>
+            <br>\"You are never too old\n</br>
+            <br>to set another goal or\n</br>
+            <br>to dream a new dream.\"\n</br>
+            - C.S. Lewis
+        </item>
+        <item>
+            <br>\"Sometimes you will never know\n</br>
+            <br>the value of a moment,\n</br>
+            <br>until it becomes a memory.\"\n</br>
+            - Dr. Seuss
+        </item>
+        <item>
+            <br>\"You must do the things\n</br>
+            <br>you think you cannot do.\"\n</br>
+            - Eleanor roosevelt
+        </item>
+        <item>
+            <br>\"Be the change that you\n</br>
+            <br>wish to see in the world.\"\n</br>
+            - Mahatma Gandhi
+        </item>
+        <item>
+            <br>\"Let us make our Future now,\n</br>
+            <br>and let us make our dreams\n</br>
+            <br>tomorrow\'s reality.\"\n</br>
+            - Malala Yousafzai
+        </item>
+        <item>
+            <br>\"If I cannot do great things,\n</br>
+            <br>I can do small things\n</br>
+            <br>in a great way.\"\n</br>
+            - Martin Luther King Jr.
+        </item>
+        <item>
+            <br>\"Spread love\n</br>
+            <br>everywhere you go.\"\n</br>
+            - Mother Teresa
+        </item>
+        <item>
+            <br>\"The best way to get started\n</br>
+            <br>is to quit talking\n</br>
+            <br>and begin doing.\"\n</br>
+            - Walt Disney
+        </item>
+        <item>
+            <br>\"The only limit to our\n</br>
+            <br>realization of tomorrow\n</br>
+            <br>will be our doubts of today.\"\n</br>
+            - Franklin D. Roosevelt
+        </item>
+        <item>
+            <br>\"Memories of our lives,\n</br>
+            <br>of our works and our deeds\n</br>
+            <br>will continue in others.\"\n</br>
+            - Rosa Parks
+        </item>
+        <item>
+            <br>\"How wonderful it is that\n</br>
+            <br>nobody need wait a single\n</br>
+            <br>moment before starting\n</br>
+            <br>to improve the world.\"\n</br>
+            - Anne Frank
+        </item>
+        <item>
+            <br>\"The best way to cheer\n</br>
+            <br>yourself up is to try to\n</br>
+            <br>cheer somebody else up.\"\n</br>
+            - Mark Twain
+        </item>
     </string-array>
 
 

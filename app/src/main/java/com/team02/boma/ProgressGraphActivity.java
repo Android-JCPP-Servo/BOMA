@@ -11,9 +11,7 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 public class ProgressGraphActivity extends AppCompatActivity implements MVPListener {
 
@@ -51,37 +49,33 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         switch(screenSize) {
             // If screen size is X-Large, set text size to 40dp
             case Configuration.SCREENLAYOUT_SIZE_XLARGE:
-                graphView.setTitleTextSize(40);
+                graphView.setTitleTextSize(80);
                 break;
             // If screen size is Large, set text size to 30dp
             case Configuration.SCREENLAYOUT_SIZE_LARGE:
-                graphView.setTitleTextSize(30);
+                graphView.setTitleTextSize(70);
                 break;
             // If screen size is Normal (Medium), set text size to 20dp
             case Configuration.SCREENLAYOUT_SIZE_NORMAL:
-                graphView.setTitleTextSize(20);
+                graphView.setTitleTextSize(60);
                 break;
             // If screen size is Small, set text size to 10dp
             case Configuration.SCREENLAYOUT_SIZE_SMALL:
-                graphView.setTitleTextSize(10);
+                graphView.setTitleTextSize(50);
                 break;
             // No screen size was determined,
             //  so default text size is 25dp
             default:
-                graphView.setTitleTextSize(25);
+                graphView.setTitleTextSize(45);
         }
 
         // Edit X- and Y-Axis Data and Intervals
 
         // Set Y-Axis
-        graphView.getGridLabelRenderer().setVerticalAxisTitle("BMI Progress");
-        graphView.getGridLabelRenderer().setVerticalAxisTitleTextSize(10);
         graphView.getViewport().setMinY(10);
         graphView.getViewport().setMaxY(50);
 
         // Set X-Axis
-        graphView.getGridLabelRenderer().setHorizontalAxisTitle("Date");
-        graphView.getGridLabelRenderer().setHorizontalAxisTitleTextSize(10);
         graphView.getViewport().setMinX(0);
         graphView.getViewport().setMaxX(6);
         graphView.getGridLabelRenderer().setNumHorizontalLabels(7);
@@ -91,10 +85,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
             @Override
             public String formatLabel(double value, boolean isValueX) {
                 if (isValueX) {
-                    Calendar calendar = Calendar.getInstance(Locale.getDefault());
-                    value = calendar.get(Calendar.DAY_OF_MONTH);
-                    calendar.add(Calendar.DATE, 1);
-                    return (calendar.get(Calendar.MONTH) + 1) + "/" + (int)value;
+                    return "Day " + (int)(value + 1);
                 } else {
                     return super.formatLabel(value, false);
                 }
