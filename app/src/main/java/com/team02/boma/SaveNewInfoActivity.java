@@ -33,7 +33,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
     UserBMIData UserData;
 
     // Establish Gender Array
-    String[] genderList = { "(Select a Gender)", "Male", "Female", "Other" };
+    String[] genderList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +49,11 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         TextView textViewError = findViewById(R.id.textViewError);
         textViewError.setText("");
 
+        genderList = getResources().getStringArray(R.array.gender_array);
+
         Spinner spinner = findViewById(R.id.spinnerGender);
         // Create an ArrayAdapter using the string array and a default spinner layout
         SpinnerAdapter adapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_item, genderList);
-        // ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        // adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         // Set the listener for spinner selection
