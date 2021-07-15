@@ -76,7 +76,6 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
         // create an adapter for the the profile name spinner
         spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, list);
-        // spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // update the Spinner in the UI thread
         runOnUiThread(()->{
