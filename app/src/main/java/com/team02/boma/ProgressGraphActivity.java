@@ -84,11 +84,6 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         graphView.getViewport().setMaxY(80);
 
         // Set X-Axis
-        //    graphView.getViewport().setMinX(0);
-        //    graphView.getViewport().setMaxX(6);
-        //    graphView.getGridLabelRenderer().setNumHorizontalLabels(7);
-        //    graphView.getViewport().setXAxisBoundsManual(true);
-
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
             public String formatLabel(double value, boolean isValueX) {
@@ -99,7 +94,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
                         //noinspection deprecation
                         output = String.format(Locale.getDefault(), " %d/%d ", date.getMonth() +1, date.getDate());
                     }catch (IndexOutOfBoundsException e){
-                        // the index is out of bounds return an empty string
+                        // The index is out of bounds return an empty string
                         output = "";
                     }
                     return output;
