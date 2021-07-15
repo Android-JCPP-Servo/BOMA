@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFD80000</color>
     <color name="red_button">#FFBD0000</color>
+    <color name="status_bar">#A50000</color>
     <color name="text_color">#FFFFFFFF</color>
     <color name="background_color">#FF000000</color>
     <color name="dial_underweight">#FF43F9D6</color>
