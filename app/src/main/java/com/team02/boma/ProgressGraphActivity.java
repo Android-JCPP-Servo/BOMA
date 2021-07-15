@@ -2,6 +2,7 @@ package com.team02.boma;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,6 +52,13 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
 
         // Set title text color
         graphView.setTitleColor(getColor(R.color.red_button));
+
+        // Drawing Graph
+        graphView.getGridLabelRenderer().setGridColor(Color.BLACK);
+        graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.BLACK);
+        graphView.getGridLabelRenderer().setHorizontalLabelsColor(Color.BLACK);
+        graphView.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLACK);
+        graphView.getGridLabelRenderer().setVerticalLabelsColor(Color.BLACK);
 
         // Set title font size
         int screenSize = getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;

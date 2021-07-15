@@ -37,6 +37,7 @@
         android:backgroundTint="@color/red_button"
         android:onClick="buttonSaveProfile"
         android:text="@string/save_profile"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline68"
         app:layout_constraintEnd_toStartOf="@+id/guideline64"
         app:layout_constraintHorizontal_bias="0.0"
