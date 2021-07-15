@@ -20,9 +20,9 @@
         android:text="@string/new_explanation"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline53"
-        app:layout_constraintEnd_toStartOf="@+id/guideline69"
+        app:layout_constraintEnd_toStartOf="@+id/guideline57"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline63"
+        app:layout_constraintStart_toStartOf="@+id/guideline55"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 

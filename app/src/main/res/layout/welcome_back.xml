@@ -105,9 +105,9 @@
         android:textColor="@color/text_color"
         app:backgroundTint="#BD0101"
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
-        app:layout_constraintEnd_toStartOf="@+id/guideline25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline31"
         app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="@+id/guideline24"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
     <TextView
@@ -192,11 +192,12 @@
         android:autoSizeTextType="uniform"
         android:onClick="updateUserProfile"
         android:text="@string/update_profile"
+        android:textColor="#FFFFFF"
         app:backgroundTint="#BD0101"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
-        app:layout_constraintEnd_toStartOf="@+id/guideline25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline31"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline24"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toTopOf="@+id/guideline30"
         app:layout_constraintVertical_bias="1.0" />
 

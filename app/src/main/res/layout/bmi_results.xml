@@ -61,17 +61,17 @@
         android:id="@+id/textView10"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center"
-        android:text="@string/bmi_results"
-        android:textColor="@color/text_color"
         android:autoSizeMaxTextSize="100sp"
         android:autoSizeMinTextSize="12sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guideline35"
-        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        android:gravity="center"
+        android:text="@string/bmi_results"
+        android:textColor="@color/text_color"
+        app:layout_constraintBottom_toTopOf="@+id/guideline120"
+        app:layout_constraintEnd_toStartOf="@+id/guideline49"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/guideline41"
+        app:layout_constraintStart_toStartOf="@+id/guideline50"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -132,14 +132,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".4" />
+        app:layout_constraintGuide_percent=".45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".6" />
+        app:layout_constraintGuide_percent=".55" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline49"
@@ -201,6 +201,7 @@
         android:autoSizeTextType="uniform"
         android:onClick="goToHome"
         android:text="@string/home"
+        android:textColor="#FFFFFF"
         app:backgroundTint="@color/red_button"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
         app:layout_constraintEnd_toStartOf="@+id/guideline106"
@@ -238,8 +239,10 @@
         android:autoSizeMinTextSize="12sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
+        android:backgroundTint="@color/red_button"
         android:onClick="displayRecommendations"
         android:text="@string/additional_info_button"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintHorizontal_bias="0.0"
@@ -276,11 +279,20 @@
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/red_button"
         android:onClick="showProgress"
         android:text="@string/view_progress"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/guideline51"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline37" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline120"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".125" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

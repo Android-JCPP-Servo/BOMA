@@ -113,6 +113,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(genders[position]);
             tv.setTextColor(Color.BLACK);
+            tv.setBackgroundColor(Color.WHITE);
             tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             // Get screen size for every device - used to help define Spinner font size
             // Referenced from: https://stackoverflow.com/questions/11252067/how-do-i-get-the-screensize-programmatically-in-android#:~:text=Determine%20Screen%20Size%20%3A
@@ -152,7 +153,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             }
             TextView tv = convertView.findViewById(android.R.id.text1);
             tv.setText(genders[position]);
-            tv.setTextColor(Color.BLACK);
+            tv.setTextColor(Color.WHITE);
             tv.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
             switch(screenSize) {
