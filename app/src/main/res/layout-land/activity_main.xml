@@ -25,8 +25,8 @@
 
     <Button
         android:id="@+id/info_input"
-        android:layout_width="332dp"
-        android:layout_height="43dp"
+        android:layout_width="276dp"
+        android:layout_height="48dp"
         android:autoSizeMaxTextSize="100sp"
         android:autoSizeMinTextSize="12sp"
         android:autoSizeStepGranularity="2sp"
@@ -83,8 +83,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="327dp"
-        android:layout_height="50dp"
+        android:layout_width="268dp"
+        android:layout_height="54dp"
         android:autoSizeMaxTextSize="100sp"
         android:autoSizeMinTextSize="12sp"
         android:autoSizeStepGranularity="2sp"
@@ -95,7 +95,7 @@
         app:backgroundTint="@color/red_button"
         app:layout_constraintBottom_toTopOf="@+id/guideline39"
         app:layout_constraintEnd_toStartOf="@+id/guideline117"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="@+id/guideline110"
         app:layout_constraintTop_toTopOf="@+id/guideline16"
         app:layout_constraintVertical_bias="0.0" />
