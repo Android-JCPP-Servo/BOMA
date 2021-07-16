@@ -47,6 +47,7 @@ public class BMIChartAndTipsActivity extends AppCompatActivity implements MVPLis
         assert actionBar != null;
         actionBar.setBackgroundDrawable(colorDrawable);
 
+        // Define and Design Status Bar
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
