@@ -5,9 +5,14 @@
     <string name="save_string">BOMA_Save_Data</string>
     <string name="welcome">Welcome to BOMA!</string>
     <string name="info_input">Click to Insert Info</string>
-    <string name="new_profile_prompt">If you are new, tap below to start your profile.</string>
-    <string name="experienced">Used BOMA! before?</string>
-    <string name="experienced_2">Tap below to view your BMI information.</string>
+    <string name="new_profile_prompt">
+        <br>If you are new, tap below\n</br>
+        to start your profile.
+    </string>
+    <string name="experienced">
+        <br>Used BOMA! before?\n</br>
+        Tap below to view your BMI Profile.
+    </string>
     <string name="experienced_button">Click to View Info</string>
 
     <!--Welcome Back! Activity-->
@@ -234,7 +239,8 @@
         </item>
         <item>
             <br>\"It is better to offer\n</br>
-            <br>no excuse then a bad one.\"\n</br>
+            <br>no excuse then\n</br>
+            <br>a bad one.\"\n</br>
             - George Washington
         </item>
     </string-array>
