@@ -122,9 +122,9 @@
         android:text="@string/delete_prompt_1"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toTopOf="@+id/guideline32"
-        app:layout_constraintEnd_toStartOf="@+id/guideline31"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
         app:layout_constraintVertical_bias="0.0" />
 

@@ -18,10 +18,16 @@
     <!--Welcome Back! Activity-->
     <string name="welcome_back">Welcome Back!</string>
     <string name="profile_prompt">Please select the profile name you wish to view.</string>
+    <string name="update_profile_button">
+        <br>To update a profile, select the\n</br>
+        profile name, then tap below.
+    </string>
     <string name="update_profile">Update Profile</string>
-    <string name="delete_prompt_1">To delete an old or unwanted profile, select the profile name, then tap below.</string>
+    <string name="delete_prompt_1">
+        <br>To delete an old or unwanted profile,\n</br>
+        select the profile name, then tap below.
+    </string>
     <string name="delete_profile_button">Delete Profile</string>
-    <string name="update_profile_button">To update a profile, select the profile name, then tap below.</string>
 
     <!--Save New Info and Update Info Activities-->
     <string name="new_explanation">Let\'s begin by setting up your profile…</string>
