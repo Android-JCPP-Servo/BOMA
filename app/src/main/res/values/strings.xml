@@ -75,10 +75,7 @@
         <br>Tap below to return\n</br>
         to main screen.
     </string>
-    <string name="additional_info_prompt">
-        <br>To learn more about\n</br>
-        BMI indices, tap below.
-    </string>
+    <string name="additional_info_prompt">To learn more about BMI indices, tap below.</string>
     <string name="progress_prompt">
         <br>To view your BMI Progress,\n</br>
         tap View Progress below.

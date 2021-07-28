@@ -82,6 +82,15 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         graphView.getGridLabelRenderer().setHorizontalLabelsColor(Color.BLACK);
         graphView.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLACK);
         graphView.getGridLabelRenderer().setVerticalLabelsColor(Color.BLACK);
+        // Setting maximum number of x-axis grid lines manually
+        // Referenced from: https://www.youtube.com/watch?v=Lnm6YG8Ub50
+        graphView.getViewport().setXAxisBoundsManual(true);
+        graphView.getViewport().setMinX(0);
+        graphView.getViewport().setMaxX(31);
+        // Ability to view from Month View to Year View
+        // Referenced from: https://stackoverflow.com/questions/66385014/how-to-fix-the-limit-of-x-axis-with-graphview
+        graphView.getViewport().setScalable(true);
+        graphView.getViewport().setScrollable(true);
 
         // Set title font size
         int screenSize = getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
@@ -170,7 +179,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         for (BMIDataChunk data: ProfileData.data) {
             graphDates.add(x, data.day);
             y = Float.parseFloat(String.valueOf(data.bmi));
-            series.appendData(new DataPoint(x, y), true, 100);
+            series.appendData(new DataPoint(x, y), false, 100);
             x++;
         }
 
