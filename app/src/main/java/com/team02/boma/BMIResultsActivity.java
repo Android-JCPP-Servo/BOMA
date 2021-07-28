@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 import java.util.Locale;
@@ -80,6 +84,27 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         // request the profile information from the MVP
         //  the result is passed to the ProfileDataListener() as a callback
         presenter.view.RequestProfileData(this, profileName);
+
+        // Functionality for ButtonNavigationView
+        // Referenced from https://www.youtube.com/watch?v=JjfSjMs0ImQ
+        BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.additional_info:
+                        presenter.view.ShowBMIReferenceAndChartActivity(profileName);
+                        return true;
+                    case R.id.home:
+                        presenter.view.ShowMainActivity();
+                        return true;
+                    case R.id.progression:
+                        presenter.view.ShowProgressGraphActivity(profileName);
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     // Function for viewing user profile in Welcome Back! page

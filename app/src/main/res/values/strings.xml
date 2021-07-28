@@ -109,32 +109,24 @@
     <!-- Recommendations -->
     <string name="suggestion_title">BMI Improvement Tip:</string>
     <string-array name="improvement_suggestions">
-        <item>try to check in with yourself, do you feel healthy.</item>
-        <item>Walk 15 minutes a day.</item>
+        <item>Walk 15 minutes daily.</item>
         <item>Eat ample fruits and vegetables with your meals.</item>
-        <item>Making sure you eat a balanced meal.</item>
-        <item>Stretch for 10 minutes each hour.</item>
-        <item>Do 10 push-ups, 10 squats, and 10 sit-ups before the day\'s end.</item>
-        <item>Drinking water</item>
-        <item>Jogging for 10 minutes</item>
-        <item>Learning to do a front flip</item>
-        <item>Checking with a dietitian</item>
-        <item>Doing 10 push ups</item>
-        <item>getting a physical from a doctor</item>
+        <item>Make sure to eat a balanced meal.</item>
+        <item>Stretch for 10 minutes every hour.</item>
+        <item>Perform 10 push-ups, squats, and sit-ups daily.</item>
+        <item>Drink plenty of water daily.</item>
+        <item>Go jogging for 10 minutes</item>
+        <item>Do Jumping-Jacks for 10 minutes</item>
+        <item>Do push-up exercises for 10 minutes</item>
+        <item>Check with a dietitian about dietary habits/needs.</item>
+        <item>Request a physical from a doctor.</item>
         <item>Research &amp; hire a personal trainer</item>
-        <item>Pokemon Go</item>
-        <item>Becoming a walking postman</item>
-        <item>finding encouraging ways to exercise</item>
-        <item>Jumping-Jacks for 10 minutes</item>
-        <item>Push ups for 10 minutes</item>
-        <item>Finding a sport you enjoy doing</item>
-        <item>Plotting revenge by getting buff</item>
-        <item>taking your pet for a walk twice a day</item>
-        <item>Participating in a local charity marathon</item>
-        <item>Engaging in politics, specifically with someone against you</item>
-        <item>Going on a mission</item>
-        <item>Not ordering from that fast food place… you know the one</item>
-        <item>Jogging for 10 minutes</item>
+        <item>Exercise with friends/loved ones.</item>
+        <item>Find a sport you enjoy playing.</item>
+        <item>Pursue weightlifting to build lean muscle.</item>
+        <item>Pursue powerlifting to increase muscle mass.</item>
+        <item>Participate in a local charity marathon</item>
+        <item>Sit down to a home-cooked meal.</item>
     </string-array>
 
     <!--quote-->
@@ -242,7 +234,7 @@
         </item>
         <item>
             <br>\"It is better to offer\n</br>
-            <br>no excuse then\n</br>
+            <br>no excuse than\n</br>
             <br>a bad one.\"\n</br>
             - George Washington
         </item>
