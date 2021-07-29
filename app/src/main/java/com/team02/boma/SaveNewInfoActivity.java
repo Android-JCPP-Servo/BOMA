@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -25,6 +26,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.List;
 
 /**
@@ -38,6 +41,8 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
 
     // Establish Gender Array
     String[] genderList;
+
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +72,24 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(getResources().getColor(R.color.status_bar));
+
+        // Functionality for ButtonNavigationView
+        // Referenced from https://www.youtube.com/watch?v=JjfSjMs0ImQ
+        BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.save_profile:
+                        buttonSaveProfile(view);
+                        return true;
+                    case R.id.home:
+                        presenter.view.ShowMainActivity();
+                        return true;
+                }
+                return false;
+            }
+        });
 
         // clear any displayed error messages
         TextView textViewError = findViewById(R.id.textViewError);
