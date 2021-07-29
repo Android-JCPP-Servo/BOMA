@@ -5,15 +5,13 @@
     <string name="save_string">BOMA_Save_Data</string>
     <string name="welcome">Welcome to BOMA!</string>
     <string name="info_input">Click to Insert Info</string>
-    <string name="new_profile_prompt">
-        <br>If you are new, tap below\n</br>
-        to start your profile.
-    </string>
-    <string name="experienced">
-        <br>Used BOMA! before?\n</br>
-        Tap below to view your BMI Profile.
-    </string>
     <string name="experienced_button">Click to View Info</string>
+    <string name="to_get_started">
+        <br>If you are new to BOMA!,\n</br>
+        <br>tap Insert New Profile.\n\n</br>
+        <br>Otherwise, tap View Current Profiles\n</br>
+        to view all stored profiles.
+    </string>
 
     <!--Welcome Back! Activity-->
     <string name="welcome_back">Welcome Back!</string>

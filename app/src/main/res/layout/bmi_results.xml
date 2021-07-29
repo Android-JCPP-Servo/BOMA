@@ -250,6 +250,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:itemBackground="@color/red_button"
+        app:backgroundTint="@color/red_button"
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
         app:menu="@menu/menu_navigation" />

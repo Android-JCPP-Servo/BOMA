@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/new_profile"
+        android:title="Insert New Profile"
+        android:icon="@drawable/ic_add_profile"/>
+    <item
+        android:id="@+id/view_profile"
+        android:title="View Current Profiles"
+        android:icon="@drawable/ic_current_profiles"/>
+
+</menu>

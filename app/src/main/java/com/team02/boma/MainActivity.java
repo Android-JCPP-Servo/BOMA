@@ -11,14 +11,18 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Random;
 
@@ -80,6 +84,24 @@ public class MainActivity extends AppCompatActivity {
 
         //sets quote
         quote();
+
+        // Functionality for ButtonNavigationView
+        // Referenced from https://www.youtube.com/watch?v=JjfSjMs0ImQ
+        BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.new_profile:
+                        presenter.view.ShowSaveNewInfoActivity();
+                        return true;
+                    case R.id.view_profile:
+                        presenter.view.ShowWelcomeBackActivity();
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     private void createNotificationChannel() {
