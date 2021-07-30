@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -20,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -28,6 +31,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
 
     // Every activity that needs a MVPPresenter object
     MVPPresenter presenter;
+    View view;
 
     // Spinner adapter
     // ArrayAdapter<String> spinnerAdapter;
@@ -72,6 +76,24 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(getResources().getColor(R.color.status_bar));
+
+        // Functionality for ButtonNavigationView
+        // Referenced from https://www.youtube.com/watch?v=JjfSjMs0ImQ
+        BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
+        bnv.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.delete_profile:
+                    buttonDeleteProfile(view);
+                    return true;
+                case R.id.update_profile:
+                    updateUserProfile(view);
+                    return true;
+                case R.id.progression:
+                    presenter.view.ShowProgressGraphActivity(profileName);
+                    return true;
+            }
+            return false;
+        });
 
         // Get a list of all the profile names
         //  The list is returned in a new thread to ProfileNamesListener()

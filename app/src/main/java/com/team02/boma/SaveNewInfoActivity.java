@@ -76,19 +76,16 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         // Functionality for ButtonNavigationView
         // Referenced from https://www.youtube.com/watch?v=JjfSjMs0ImQ
         BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
-        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.save_profile:
-                        buttonSaveProfile(view);
-                        return true;
-                    case R.id.home:
-                        presenter.view.ShowMainActivity();
-                        return true;
-                }
-                return false;
+        bnv.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.save_profile:
+                    buttonSaveProfile(view);
+                    return true;
+                case R.id.home:
+                    presenter.view.ShowMainActivity();
+                    return true;
             }
+            return false;
         });
 
         // clear any displayed error messages

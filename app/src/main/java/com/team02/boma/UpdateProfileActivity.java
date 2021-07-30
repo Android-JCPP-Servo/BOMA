@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
@@ -13,9 +14,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 import java.util.Locale;
@@ -27,6 +31,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
     MVPPresenter presenter;
     String profileName;
     UserBMIData updatedData;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,21 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(getResources().getColor(R.color.status_bar));
+
+        // Functionality for ButtonNavigationView
+        // Referenced from https://www.youtube.com/watch?v=JjfSjMs0ImQ
+        BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
+        bnv.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.save_updated_profile:
+                    saveUpdatedProfile(view);
+                    return true;
+                case R.id.home:
+                    presenter.view.ShowMainActivity();
+                    return true;
+            }
+            return false;
+        });
 
         TextView textErrorUpdated = findViewById(R.id.textViewErrorUpdated);
         textErrorUpdated.setText("");

@@ -514,4 +514,18 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".10" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:itemBackground="@color/red_button"
+        app:backgroundTint="@color/red_button"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        app:menu="@menu/welcome_menu" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

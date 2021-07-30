@@ -88,22 +88,19 @@ public class BMIResultsActivity extends AppCompatActivity implements MVPListener
         // Functionality for ButtonNavigationView
         // Referenced from https://www.youtube.com/watch?v=JjfSjMs0ImQ
         BottomNavigationView bnv = findViewById(R.id.bottom_navigation);
-        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.additional_info:
-                        presenter.view.ShowBMIReferenceAndChartActivity(profileName);
-                        return true;
-                    case R.id.home:
-                        presenter.view.ShowMainActivity();
-                        return true;
-                    case R.id.progression:
-                        presenter.view.ShowProgressGraphActivity(profileName);
-                        return true;
-                }
-                return false;
+        bnv.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.additional_info:
+                    presenter.view.ShowBMIReferenceAndChartActivity(profileName);
+                    return true;
+                case R.id.home:
+                    presenter.view.ShowMainActivity();
+                    return true;
+                case R.id.progression:
+                    presenter.view.ShowProgressGraphActivity(profileName);
+                    return true;
             }
+            return false;
         });
     }
 
