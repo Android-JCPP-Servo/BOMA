@@ -106,6 +106,7 @@
     <string name="m_obese">
          Adults: Morbidly or Extreme Obese category.
     </string>
+    <string name="larger_image_text">(Tap to view larger image)</string>
 
     <!-- Recommendations -->
     <string name="suggestion_title">BMI Improvement Tip:</string>
