@@ -419,13 +419,20 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline93"
         app:layout_constraintEnd_toStartOf="@+id/guideline28"
         app:layout_constraintStart_toStartOf="@+id/guideline27"
-        app:layout_constraintTop_toTopOf="@+id/guideline77" />
+        app:layout_constraintTop_toTopOf="@+id/guideline30" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".45" />
+        app:layout_constraintGuide_percent=".4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,7 @@
     <string name="welcome">Welcome to BOMA!</string>
     <string name="info_input">Click to Insert Info</string>
     <string name="experienced_button">Click to View Info</string>
-    <string name="to_get_started">
-        <br>If you are new to BOMA!,\n</br>
-        <br>tap Insert New Profile.\n\n</br>
-        <br>Otherwise, tap View Current Profiles\n</br>
-        to view all stored profiles.
-    </string>
+    <string name="to_get_started">If you are new or have used BOMA! before, tap below.</string>
 
     <!--Welcome Back! Activity-->
     <string name="welcome_back">Welcome Back!</string>
@@ -39,11 +34,10 @@
     </string-array>
     <string name="update_profile_title">Alright, let\'s update your profile…</string>
     <string name="update_instructions">
-        <br>To update your selected profile,\n</br>
-        <br>simply adjust the listed values\n</br>
-        <br>to the current measurements,\n</br>
-        <br>then tap Save Profile &amp;\n</br>
-        Calculate BMI.
+        <br>To update your profile,\n</br>
+        <br>adjust the listed values to\n</br>
+        <br>your current measurements,\n</br>
+        then tap below.
     </string>
     <string name="save_profile">Save Profile and Calculate BMI</string>
     <string name="name">Name:</string>
