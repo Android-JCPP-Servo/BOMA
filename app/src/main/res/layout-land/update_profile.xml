@@ -33,6 +33,7 @@
         android:autoSizeMinTextSize="12sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
+        android:gravity="center"
         android:textColor="#FF0000"
         app:layout_constraintBottom_toTopOf="@+id/guideline92"
         app:layout_constraintEnd_toStartOf="@+id/guideline34"
