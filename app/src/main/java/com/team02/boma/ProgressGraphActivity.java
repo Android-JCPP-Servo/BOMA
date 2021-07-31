@@ -80,6 +80,8 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         graphView.getGridLabelRenderer().setGridColor(Color.BLACK);
         graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.BLACK);
         graphView.getGridLabelRenderer().setHorizontalLabelsColor(Color.BLACK);
+        graphView.getGridLabelRenderer().setLabelHorizontalHeight(100);
+        graphView.getGridLabelRenderer().setHorizontalLabelsAngle(45);
         graphView.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLACK);
         graphView.getGridLabelRenderer().setVerticalLabelsColor(Color.BLACK);
         // Setting maximum number of x-axis grid lines manually
