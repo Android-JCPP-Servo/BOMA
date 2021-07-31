@@ -15,17 +15,19 @@
 
     <!--Welcome Back! Activity-->
     <string name="welcome_back">Welcome Back!</string>
-    <string name="profile_prompt">Please select the profile name you wish to view.</string>
-    <string name="update_profile_button">
+    <string name="profile_prompt">
+        <br>To update, delete, or view progress,\n</br>
+        select a profile and tap below.
+    </string>
+    <string name="profile_changes_prompt">
         <br>To update a profile, select the\n</br>
-        profile name, then tap below.
+        <br>profile name, then tap Update Profile.\n\n</br>
+        <br>To delete an old or unwanted profile, select\n</br>
+        <br>the profile name, then tap Delete Profile.\n\n</br>
+        <br>To view current progress, select a\n</br>
+        profile name, then tap View Progress.
     </string>
-    <string name="update_profile">Update Profile</string>
-    <string name="delete_prompt_1">
-        <br>To delete an old or unwanted profile,\n</br>
-        select the profile name, then tap below.
-    </string>
-    <string name="delete_profile_button">Delete Profile</string>
+
 
     <!--Save New Info and Update Info Activities-->
     <string name="new_explanation">Let\'s begin by setting up your profile…</string>
@@ -36,6 +38,13 @@
         <item>Other</item>
     </string-array>
     <string name="update_profile_title">Alright, let\'s update your profile…</string>
+    <string name="update_instructions">
+        <br>To update your selected profile,\n</br>
+        <br>simply adjust the listed values\n</br>
+        <br>to the current measurements,\n</br>
+        <br>then tap Save Profile &amp;\n</br>
+        Calculate BMI.
+    </string>
     <string name="save_profile">Save Profile and Calculate BMI</string>
     <string name="name">Name:</string>
     <string name="gender">Gender:</string>
@@ -44,7 +53,7 @@
     <string name="inches">inches</string>
     <string name="weight">Weight:</string>
     <string name="age">Age:</string>
-    <string name="bmi_display">BMI</string>
+    <string name="bmi_display">BMI:</string>
     <string name="pounds">lbs.</string>
     <string name="error_name">* Name cannot be blank.</string>
     <string name="error_gender">* Please select a gender.</string>
@@ -53,7 +62,7 @@
     <string name="error_age">* Please enter a valid age.</string>
     <string name="error_profile">* Profile name already in use.</string>
     <string name="save_bmi">Save BMI</string>
-    <string name="hint_profile_name">Profile Name</string>
+    <string name="hint_profile_name">First Name</string>
     <string name="hint_age">Age</string>
     <string name="hint_weight">Weight</string>
     <string name="hint_inches">Inches</string>
