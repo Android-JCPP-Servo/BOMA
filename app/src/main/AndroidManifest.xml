@@ -17,11 +17,11 @@
         android:theme="@style/Theme.BOMA">
         <activity
             android:name=".LargerImage"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".BMIChartAndTipsActivity">
+            android:parentActivityName=".BMIChartAndTipsActivity"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".BMIChartAndTipsActivity"/>
+                android:value=".BMIChartAndTipsActivity" />
         </activity>
         <activity android:name=".SplashActivity">
             <intent-filter>
