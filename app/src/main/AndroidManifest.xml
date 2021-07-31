@@ -15,6 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_boma"
         android:supportsRtl="true"
         android:theme="@style/Theme.BOMA">
+        <activity
+            android:name=".LargerImage"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".BMIChartAndTipsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BMIChartAndTipsActivity"/>
+        </activity>
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +61,7 @@
         </activity>
         <activity
             android:name=".ProgressGraphActivity"
-            android:parentActivityName=".BMIResultsActivity" >
+            android:parentActivityName=".BMIResultsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ProgressGraphActivity" />

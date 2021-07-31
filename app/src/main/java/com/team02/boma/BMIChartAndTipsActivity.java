@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -23,6 +24,19 @@ public class BMIChartAndTipsActivity extends AppCompatActivity implements MVPLis
 
     // Stores the profile name passed from the activity that called this activity
     String profileName;
+
+    // Used to link the Chart image to a new Activity
+    // Designed if the user presses on the image to see it larger
+    ImageButton chartImage;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Get a list of all the profile names
+        //  The list is returned in a new thread to ProfileNamesListener()
+        presenter.view.RequestProfileNames(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +77,14 @@ public class BMIChartAndTipsActivity extends AppCompatActivity implements MVPLis
         //  the result is passed to the ProfileDataListener() as a callback
         presenter.view.RequestProfileData(this, profileName);
 
+        // Implementing ImageButton capabilities for the Chart image
+        chartImage = (ImageButton) findViewById(R.id.imageButton);
+
+        chartImage.setOnClickListener((v) -> {
+            Intent largerChartImage = new Intent(BMIChartAndTipsActivity.this, LargerImage.class);
+            startActivity(largerChartImage);
+        });
+
         // Call the Recommendations method
         recommendations();
     }
@@ -84,6 +106,17 @@ public class BMIChartAndTipsActivity extends AppCompatActivity implements MVPLis
 
     @Override
     public void ProfileNamesListener(List<String> profileNames) {
+
+        if(profileNames.get(0) == null){
+            return;
+        }
+
+        // Get the profile name that was passed to this intent
+        this.profileName = profileNames.get(0);
+
+        // request the profile information from the MVP
+        //  the result is passed to the ProfileDataListener() as a callback
+        presenter.view.RequestProfileData(this, profileName);
 
     }
 

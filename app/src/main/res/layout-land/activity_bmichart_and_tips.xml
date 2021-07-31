@@ -61,18 +61,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.125" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@string/bmi_chart"
-        app:layout_constraintBottom_toTopOf="@+id/guideline136"
-        app:layout_constraintEnd_toStartOf="@+id/guideline116"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline122"
-        app:layout_constraintTop_toTopOf="@+id/guideline114"
-        app:srcCompat="@drawable/bmi_reference_chart_2" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline129"
         android:layout_width="wrap_content"
@@ -229,5 +217,18 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".75"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline136"
+        app:layout_constraintEnd_toStartOf="@+id/guideline116"
+        app:layout_constraintStart_toStartOf="@+id/guideline122"
+        app:layout_constraintTop_toTopOf="@+id/guideline114"
+        app:srcCompat="@drawable/bmi_reference_chart_2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

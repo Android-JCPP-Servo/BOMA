@@ -89,7 +89,7 @@
     <string name="reference_title">BMI Reference Chart and Improvement Tips</string>
     <string name="bmi_description">
         A person\'s Body Mass Index (BMI) is calculated based on their height and weight,
-        and can help determine which weight category an individual may fall under.
+        and can help determine which weight category the individual may fall under.
     </string>
     <string name="underweight">
         <br>Children (2-19): Below the 5th Percentile.\n</br> Adults: Underweight Category.
