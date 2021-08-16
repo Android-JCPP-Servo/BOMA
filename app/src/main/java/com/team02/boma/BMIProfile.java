@@ -12,6 +12,7 @@ public class BMIProfile{
     int age;                    // age
     float lastHeight;           // Last entered Height
     float lastWeight;           // Last entered Weight
+    float lastGoalWeight;       // Last entered Goal Weight
     float lastBMI;              // Last calculated BMI
     public List<BMIDataChunk> data; // array of prior BMI calculations
 

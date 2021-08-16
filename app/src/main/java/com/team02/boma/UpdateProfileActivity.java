@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -104,12 +102,14 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
                 EditText updatedFeet = findViewById(R.id.updatedFeet);
                 EditText updatedInches = findViewById(R.id.updatedInches);
                 EditText updatedWeight = findViewById(R.id.updatedWeight);
+                EditText updatedGoal = findViewById(R.id.updatedGoal);
                 EditText updatedAge = findViewById(R.id.updatedAge);
 
                 // Establish new font size for EditText objects - set font size to half the object height
                 updatedFeet.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedFeet.getMeasuredHeight()*0.5));
                 updatedInches.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedInches.getMeasuredHeight()*0.5));
                 updatedWeight.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedWeight.getMeasuredHeight()*0.5));
+                updatedGoal.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedGoal.getMeasuredHeight()*0.5));
                 updatedAge.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(updatedAge.getMeasuredHeight()*0.5));
 
                 // Perform this action once, so remove the listener
@@ -128,12 +128,14 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         TextView updatedFeet = findViewById(R.id.updatedFeet);
         TextView updatedInches = findViewById(R.id.updatedInches);
         TextView updatedWeight = findViewById(R.id.updatedWeight);
+        TextView updatedGoal = findViewById(R.id.updatedGoal);
         TextView updatedAge = findViewById(R.id.updatedAge);
 
         // Set initial variables
         int Feet;
         int Inches;
         float Weight;
+        float GoalWeight;
         int Age;
 
         /*
@@ -162,6 +164,14 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
             return;
         }
 
+        // Goal Weight
+        try {
+            GoalWeight = Float.parseFloat(updatedGoal.getText().toString());
+        } catch (Exception e){
+            textErrorUpdated.setText(getResources().getString(R.string.error_goal_weight));
+            return;
+        }
+
         // Age
         try {
             Age = Integer.parseInt(updatedAge.getText().toString());
@@ -173,6 +183,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         // Load up a UserBMIData object
         this.updatedData.Height = (Feet * 12) + Inches;
         this.updatedData.Weight = Weight;
+        this.updatedData.GoalWeight = GoalWeight;
         this.updatedData.age = Age;
 
         presenter.view.UpdateProfile(this, this.updatedData);
@@ -195,14 +206,16 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         this.updatedData.ProfileName = ProfileData.name;
         this.updatedData.Height = ProfileData.lastHeight;
         this.updatedData.Weight = ProfileData.lastWeight;
+        this.updatedData.GoalWeight = ProfileData.lastGoalWeight;
         this.updatedData.Gender = ProfileData.gender;
         this.updatedData.age = ProfileData.age;
         this.updatedData.BMI = ProfileData.lastBMI;
 
         // Get the resource IDs
         TextView tvFeet =  findViewById(R.id.updatedFeet);
-        TextView tvInches =  findViewById(R.id.updatedInches);
-        TextView tvWeight =  findViewById(R.id.updatedWeight);
+        TextView tvInches = findViewById(R.id.updatedInches);
+        TextView tvWeight = findViewById(R.id.updatedWeight);
+        TextView tvGoal = findViewById(R.id.updatedGoal);
         TextView tvAge =  findViewById(R.id.updatedAge);
 
         // find the feet and inches
@@ -214,6 +227,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements MVPListe
         tvInches.setText(String.format(Locale.getDefault(),"%d", inches));
         // Changed from Integer to Float because some weight scales measure with decimal points
         tvWeight.setText(String.format(Locale.getDefault(),"%.1f", ProfileData.lastWeight));
+        tvGoal.setText(String.format(Locale.getDefault(), "%.1f", ProfileData.lastGoalWeight));
         //tvWeight.setText(Integer.toString((int)ProfileData.lastWeight));
         tvAge.setText(String.format(Locale.getDefault(),"%d", ProfileData.age));
 

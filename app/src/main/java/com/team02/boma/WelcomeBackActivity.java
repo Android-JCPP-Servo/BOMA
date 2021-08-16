@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -232,6 +231,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
         TextView tvGender =  findViewById(R.id.displayGender);
         TextView tvHeight =  findViewById(R.id.displayHeight);
         TextView tvWeight =  findViewById(R.id.displayWeight);
+        TextView tvGoal = findViewById(R.id.displayGoalWeight);
         TextView tvAge =  findViewById(R.id.displayAge);
         TextView tvBMI =  findViewById(R.id.displayBMI);
 
@@ -251,6 +251,7 @@ public class WelcomeBackActivity extends AppCompatActivity implements AdapterVie
             tvHeight.setText(finalHeight);
             // Changed from Integer to Float because some weight scales measure with decimal points
             tvWeight.setText(String.format(Locale.getDefault(),"%.1f lbs.", ProfileData.lastWeight));
+            tvGoal.setText(String.format(Locale.getDefault(), "%.1f lbs.", ProfileData.lastGoalWeight));
             tvAge.setText(String.format(Locale.getDefault(),"%d", ProfileData.age));
             // Set BMI Display to one decimal place
             String updateBMI = String.format(Locale.getDefault(),"%.1f", ProfileData.lastBMI);

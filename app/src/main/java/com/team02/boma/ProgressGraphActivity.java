@@ -169,6 +169,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         // Initialize X and Y Axes values
         int x = 0;
         float y;
+        float yGoal;
 
         // clear the graphDates before adding to the list
         graphDates.clear();
@@ -176,21 +177,33 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         // Add data to our Graph
         // Display series data and points
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
+        LineGraphSeries<DataPoint> goalSeries = new LineGraphSeries<>();
 
         // go through all the BMIDataChunk entries
         for (BMIDataChunk data: ProfileData.data) {
             graphDates.add(x, data.day);
             y = Float.parseFloat(String.valueOf(data.bmi));
-            series.appendData(new DataPoint(x, y), false, 100);
+            yGoal = Float.parseFloat(String.valueOf(data.goalBmi));
+            series.appendData(new DataPoint(x, y), true, 100);
+            goalSeries.appendData(new DataPoint(x, yGoal), true, 100);
             x++;
         }
 
         // update the graph
+        // Current User BMI Series
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(10);
         series.setThickness(8);
         series.setColor(getColor(R.color.red_button));
+        // USer Goal BMI Series
+        goalSeries.setDrawDataPoints(true);
+        goalSeries.setDataPointsRadius(10);
+        goalSeries.setThickness(8);
+        goalSeries.setColor(getColor(android.R.color.holo_blue_dark));
+        goalSeries.setBackgroundColor(Color.argb(80, 51, 182, 229));
+        goalSeries.setDrawBackground(true);
         graphView.addSeries(series);
+        graphView.addSeries(goalSeries);
     }
 
     @Override

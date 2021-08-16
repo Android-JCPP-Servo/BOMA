@@ -46,6 +46,7 @@
     <string name="feet">feet</string>
     <string name="inches">inches</string>
     <string name="weight">Weight:</string>
+    <string name="goal_weight">Goal:</string>
     <string name="age">Age:</string>
     <string name="bmi_display">BMI:</string>
     <string name="pounds">lbs.</string>
@@ -53,12 +54,14 @@
     <string name="error_gender">* Please select a gender.</string>
     <string name="error_number">* Please enter a valid number.</string>
     <string name="error_weight">* Please enter a valid weight.</string>
+    <string name="error_goal_weight">* Please enter a valid goal weight.</string>
     <string name="error_age">* Please enter a valid age.</string>
     <string name="error_profile">* Profile name already in use.</string>
     <string name="save_bmi">Save BMI</string>
     <string name="hint_profile_name">First Name</string>
     <string name="hint_age">Age</string>
     <string name="hint_weight">Weight</string>
+    <string name="hint_goal_weight">Goal Weight</string>
     <string name="hint_inches">Inches</string>
     <string name="hint_feet">Feet</string>
 

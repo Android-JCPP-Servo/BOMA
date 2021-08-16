@@ -10,12 +10,14 @@ import java.util.Date;
 public class UserBMIData {
     String ProfileName;
     String Gender;
-    float Height;   // height in inches
-    float Weight;   // weight in pounds
-    float BMI;      // calculated BMI
-    int age;        // age of profile user
-    Date date;      // sample date/time
-    String Note;    // Inspirational quote or recommendation
+    float Height;       // height in inches
+    float Weight;       // weight in pounds
+    float GoalWeight;   // Goal weight in pounds
+    float BMI;          // calculated BMI
+    float GoalBMI;      // Calculated Goal BMI
+    int age;            // age of profile user
+    Date date;          // sample date/time
+    String Note;        // Inspirational quote or recommendation
 
     /**
      * UserBMIData
@@ -24,14 +26,17 @@ public class UserBMIData {
      * @param gender // Gender
      * @param height // Height
      * @param weight // Weight
+     * @param goalWeight // Goal Weight
      */
 
-    public UserBMIData(String profileName, String gender, float height, float weight) {
+    public UserBMIData(String profileName, String gender, float height, float weight, float goalWeight) {
         this.ProfileName = profileName;
         this.Gender = gender;
         this.Height = height;
         this.Weight = weight;
+        this.GoalWeight = goalWeight;
         this.BMI = 0f;
+        this.GoalBMI = 0f;
         this.age = 0;
         this.date = null;
         this.Note = "";
@@ -46,7 +51,9 @@ public class UserBMIData {
         this.Gender = "";
         this.Height = 0f;
         this.Weight = 0f;
+        this.GoalWeight = 0f;
         this.BMI = 0f;
+        this.GoalBMI = 0f;
         this.date = null;
         this.Note = "";
     }

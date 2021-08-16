@@ -10,11 +10,15 @@ public class BMIDataChunk{
     public float bmi;
     public float inches;
     public float weight;
+    public float goalWeight;
+    public float goalBmi;
     public Date day;
 
     // Initialize all member variables
     public BMIDataChunk() {
         bmi = 0f;
+        goalWeight = 0f;
+        goalBmi = 0f;
         inches = 0f;
         weight = 0f;
         age = 0;

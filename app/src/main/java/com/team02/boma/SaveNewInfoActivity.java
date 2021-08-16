@@ -8,7 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -114,6 +113,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
                 EditText editTextFeet = findViewById(R.id.editTextFeet);
                 EditText editTextInches = findViewById(R.id.editTextInches);
                 EditText editTextWeight = findViewById(R.id.editTextWeight);
+                EditText editTextGoalWeight = findViewById(R.id.editTextGoalWeight);
                 EditText editTextAge = findViewById(R.id.editTextAge);
 
                 // Establish new font size for EditText objects - set font size to half the object height
@@ -121,6 +121,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
                 editTextFeet.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextFeet.getMeasuredHeight()*0.5));
                 editTextInches.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextInches.getMeasuredHeight()*0.5));
                 editTextWeight.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextWeight.getMeasuredHeight()*0.5));
+                editTextGoalWeight.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextGoalWeight.getMeasuredHeight()*0.5));
                 editTextAge.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.round(editTextAge.getMeasuredHeight()*0.5));
 
                 // Perform this action once, so remove the listener
@@ -257,6 +258,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         EditText editTextFeet = findViewById(R.id.editTextFeet);
         EditText editTextInches = findViewById(R.id.editTextInches);
         EditText editTextWeight = findViewById(R.id.editTextWeight);
+        EditText editTextGoalWeight = findViewById(R.id.editTextGoalWeight);
         EditText editTextAge = findViewById(R.id.editTextAge);
 
         // Get the Name and Gender Strings
@@ -266,6 +268,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         // set initial variables
         int Feet;
         float Weight;
+        float GoalWeight;
         int Age;
         int Inches;
 
@@ -308,6 +311,14 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             return;
         }
 
+        // Goal Weight
+        try {
+            GoalWeight = Float.parseFloat(editTextGoalWeight.getText().toString());
+        } catch (Exception e){
+            textViewError.setText(getResources().getString(R.string.error_goal_weight));
+            return;
+        }
+
         // Age
         try {
             Age = Integer.parseInt(editTextAge.getText().toString());
@@ -322,6 +333,7 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         this.UserData.Gender = Gender;
         this.UserData.Height = (Feet * 12) + Inches;
         this.UserData.Weight = Weight;
+        this.UserData.GoalWeight = GoalWeight;
         this.UserData.age = Age;
 
         // Try and create the profile.

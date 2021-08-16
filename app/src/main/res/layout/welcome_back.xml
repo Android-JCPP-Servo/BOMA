@@ -70,11 +70,11 @@
         android:autoSizeTextType="uniform"
         android:gravity="end"
         android:textColor="@color/text_color"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintBottom_toTopOf="@+id/guideline161"
         app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline73"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -87,11 +87,11 @@
         android:autoSizeTextType="uniform"
         android:gravity="end"
         android:textColor="@color/text_color"
-        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline108"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline23"
+        app:layout_constraintTop_toTopOf="@+id/guideline73"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -105,11 +105,11 @@
         android:gravity="clip_horizontal|start"
         android:text="@string/age"
         android:textColor="@color/text_color"
-        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline109"
-        app:layout_constraintTop_toTopOf="@+id/guideline23"
+        app:layout_constraintTop_toTopOf="@+id/guideline73"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -141,11 +141,11 @@
         android:gravity="clip_horizontal|start"
         android:text="@string/bmi_display"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintBottom_toTopOf="@+id/guideline161"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline109"
-        app:layout_constraintTop_toTopOf="@+id/guideline73"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
@@ -416,5 +416,45 @@
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
         app:menu="@menu/welcome_menu" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline161"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".7" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="clip_horizontal|start"
+        android:text="@string/goal_weight"
+        android:textColor="#FFFFFF"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintStart_toStartOf="@+id/guideline109"
+        app:layout_constraintTop_toTopOf="@+id/guideline23" />
+
+    <TextView
+        android:id="@+id/displayGoalWeight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/text_color"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:gravity="end"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintEnd_toStartOf="@+id/guideline108"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
