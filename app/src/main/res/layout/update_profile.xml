@@ -491,7 +491,8 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline165"
         app:layout_constraintEnd_toStartOf="@+id/guideline28"
         app:layout_constraintStart_toStartOf="@+id/guideline83"
-        app:layout_constraintTop_toTopOf="@+id/guideline162" />
+        app:layout_constraintTop_toTopOf="@+id/guideline162"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView33"

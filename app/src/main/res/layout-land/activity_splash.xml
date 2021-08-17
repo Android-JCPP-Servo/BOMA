@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="439dp"
+        android:layout_width="0dp"
         android:layout_height="735dp"
         android:contentDescription="@string/splash_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_screen_background" />
+        app:srcCompat="@drawable/splash_screen_background_landscape" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

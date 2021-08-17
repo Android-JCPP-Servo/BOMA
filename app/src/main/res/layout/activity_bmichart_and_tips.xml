@@ -219,6 +219,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline129"
         app:srcCompat="@drawable/bmi_reference_chart_2"
+        tools:ignore="SpeakableTextPresentCheck"
         tools:srcCompat="@drawable/bmi_reference_chart_2" />
 
     <TextView

@@ -480,6 +480,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline91"
         app:layout_constraintEnd_toStartOf="@+id/guideline87"
         app:layout_constraintStart_toStartOf="@+id/guideline159"
-        app:layout_constraintTop_toTopOf="@+id/guideline97" />
+        app:layout_constraintTop_toTopOf="@+id/guideline97"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
