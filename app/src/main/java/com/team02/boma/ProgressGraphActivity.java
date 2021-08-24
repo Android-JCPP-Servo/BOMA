@@ -80,7 +80,29 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         graphView.getGridLabelRenderer().setGridColor(Color.BLACK);
         graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.BLACK);
         graphView.getGridLabelRenderer().setHorizontalLabelsColor(Color.BLACK);
-        graphView.getGridLabelRenderer().setLabelHorizontalHeight(100);
+        int screenSize = getResources().getConfiguration().screenLayout &Configuration.SCREENLAYOUT_SIZE_MASK;
+        switch(screenSize) {
+            // If screen size is X-Large, set text size to 40dp
+            case Configuration.SCREENLAYOUT_SIZE_XLARGE:
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(400);
+                break;
+            // If screen size is Large, set text size to 30dp
+            case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(300);
+                break;
+            // If screen size is Normal (Medium), set text size to 20dp
+            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(200);
+                break;
+            // If screen size is Small, set text size to 10dp
+            case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(100);
+                break;
+            // No screen size was determined,
+            //  so default text size is 25dp
+            default:
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(150);
+        }
         graphView.getGridLabelRenderer().setHorizontalLabelsAngle(45);
         graphView.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLACK);
         graphView.getGridLabelRenderer().setVerticalLabelsColor(Color.BLACK);
@@ -93,31 +115,6 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         // Referenced from: https://stackoverflow.com/questions/66385014/how-to-fix-the-limit-of-x-axis-with-graphview
         graphView.getViewport().setScalable(true);
         graphView.getViewport().setScrollable(true);
-
-        // Set title font size
-        int screenSize = getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
-        switch(screenSize) {
-            // If screen size is X-Large, set text size to 40dp
-            case Configuration.SCREENLAYOUT_SIZE_XLARGE:
-                graphView.setTitleTextSize(80);
-                break;
-            // If screen size is Large, set text size to 30dp
-            case Configuration.SCREENLAYOUT_SIZE_LARGE:
-                graphView.setTitleTextSize(70);
-                break;
-            // If screen size is Normal (Medium), set text size to 20dp
-            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
-                graphView.setTitleTextSize(60);
-                break;
-            // If screen size is Small, set text size to 10dp
-            case Configuration.SCREENLAYOUT_SIZE_SMALL:
-                graphView.setTitleTextSize(50);
-                break;
-            // No screen size was determined,
-            //  so default text size is 25dp
-            default:
-                graphView.setTitleTextSize(45);
-        }
 
         // Edit X- and Y-Axis Data and Intervals
 
