@@ -52,7 +52,7 @@
     <string name="pounds">lbs.</string>
     <string name="error_name">* Name cannot be blank.</string>
     <string name="error_gender">* Please select a gender.</string>
-    <string name="error_number">* Please enter a valid number.</string>
+    <string name="error_number">* Please enter a valid number of feet.</string>
     <string name="error_weight">* Please enter a valid weight.</string>
     <string name="error_goal_weight">* Please enter a valid goal weight.</string>
     <string name="error_age">* Please enter a valid age.</string>

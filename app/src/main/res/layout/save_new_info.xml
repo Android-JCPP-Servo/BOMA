@@ -76,7 +76,7 @@
         android:ems="10"
         android:gravity="center"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textCapWords|textCapSentences"
         android:textColor="@color/text_color"
         android:hint="@string/hint_profile_name"
         app:layout_constraintBottom_toTopOf="@+id/guideline58"

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -272,27 +273,39 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
         int Age;
         int Inches;
 
+        /*
+         * Check for valid input
+         * .requestFocus() and auto-keyboard methods referenced from:
+         * https://stackoverflow.com/questions/14327412/set-focus-on-edittext#:~:text=Darwind%20code%20didn%27t,works%20for%20me%3A
+         */
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
         // check for a non-null profile name
         if(Name.isEmpty()){
             textViewError.setText(getResources().getString(R.string.error_name));
+            editTextName.requestFocus();
+            imm.showSoftInput(editTextName, InputMethodManager.SHOW_IMPLICIT);
+            
             return;
         }
 
         // check for a non-null profile name
         if(Gender.isEmpty() || Gender.equals("(Select a Gender)")){
             textViewError.setText(getResources().getString(R.string.error_gender));
+            spinnerGender.requestFocus();
             return;
         }
 
-        /*
-         * Check for valid numbers
-         */
         // Feet and Inches
         try {
             Feet = Integer.parseInt(editTextFeet.getText().toString());
         } catch (Exception e){
             // Show an error message to indicate an invalid number was used
             textViewError.setText(getResources().getString(R.string.error_number));
+            // Set focus on the required field
+            editTextFeet.requestFocus();
+            // Display the keyboard for required user input
+            imm.showSoftInput(editTextFeet, InputMethodManager.SHOW_IMPLICIT);
             return;
         }
 
@@ -308,6 +321,8 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             Weight = Float.parseFloat(editTextWeight.getText().toString());
         } catch (Exception e) {
             textViewError.setText(getResources().getString(R.string.error_weight));
+            editTextWeight.requestFocus();
+            imm.showSoftInput(editTextWeight, InputMethodManager.SHOW_IMPLICIT);
             return;
         }
 
@@ -316,6 +331,8 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             GoalWeight = Float.parseFloat(editTextGoalWeight.getText().toString());
         } catch (Exception e){
             textViewError.setText(getResources().getString(R.string.error_goal_weight));
+            editTextGoalWeight.requestFocus();
+            imm.showSoftInput(editTextGoalWeight, InputMethodManager.SHOW_IMPLICIT);
             return;
         }
 
@@ -324,6 +341,8 @@ public class SaveNewInfoActivity extends AppCompatActivity implements AdapterVie
             Age = Integer.parseInt(editTextAge.getText().toString());
         } catch (Exception e) {
             textViewError.setText(getResources().getString(R.string.error_age));
+            editTextAge.requestFocus();
+            imm.showSoftInput(editTextAge, InputMethodManager.SHOW_IMPLICIT);
             return;
         }
 
