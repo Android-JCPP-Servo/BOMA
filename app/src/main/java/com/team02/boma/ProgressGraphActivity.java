@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -192,6 +193,7 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         series.setDataPointsRadius(10);
         series.setThickness(8);
         series.setColor(getColor(R.color.red_button));
+        series.setTitle("Weight");
         // USer Goal BMI Series
         goalSeries.setDrawDataPoints(true);
         goalSeries.setDataPointsRadius(10);
@@ -199,8 +201,13 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         goalSeries.setColor(getColor(android.R.color.holo_blue_dark));
         goalSeries.setBackgroundColor(Color.argb(80, 51, 182, 229));
         goalSeries.setDrawBackground(true);
+        goalSeries.setTitle("Goal Weight");
         graphView.addSeries(series);
         graphView.addSeries(goalSeries);
+        graphView.getLegendRenderer().setVisible(true);
+        graphView.getLegendRenderer().setTextColor(Color.BLACK);
+        graphView.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
+        graphView.getLegendRenderer().setBackgroundColor(Color.LTGRAY);
     }
 
     @Override
