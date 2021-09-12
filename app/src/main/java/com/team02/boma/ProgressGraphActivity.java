@@ -85,19 +85,19 @@ public class ProgressGraphActivity extends AppCompatActivity implements MVPListe
         switch(screenSize) {
             // If screen size is X-Large, set text size to 40dp
             case Configuration.SCREENLAYOUT_SIZE_XLARGE:
-                graphView.getGridLabelRenderer().setLabelHorizontalHeight(400);
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(100);
                 break;
             // If screen size is Large, set text size to 30dp
             case Configuration.SCREENLAYOUT_SIZE_LARGE:
-                graphView.getGridLabelRenderer().setLabelHorizontalHeight(300);
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(200);
                 break;
             // If screen size is Normal (Medium), set text size to 20dp
             case Configuration.SCREENLAYOUT_SIZE_NORMAL:
-                graphView.getGridLabelRenderer().setLabelHorizontalHeight(200);
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(300);
                 break;
             // If screen size is Small, set text size to 10dp
             case Configuration.SCREENLAYOUT_SIZE_SMALL:
-                graphView.getGridLabelRenderer().setLabelHorizontalHeight(100);
+                graphView.getGridLabelRenderer().setLabelHorizontalHeight(400);
                 break;
             // No screen size was determined,
             //  so default text size is 25dp
